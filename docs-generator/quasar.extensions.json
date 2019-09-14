@@ -1,0 +1,27 @@
+{
+  "@quasar/qmarkdown": {},
+  "@quasar/qribbon": {},
+  "@quasar/qpublish": {},
+  "@quasar/icon-genie": {
+    "minify_dev": "zopfli",
+    "minify_build": "zopfli",
+    "cordova": {
+      "background_color": "#000074",
+      "splashscreen_type": "pure"
+    },
+    "build_always": false,
+    "__internal": {
+      "dev": {
+        "spa": {
+          "iconHash": "1223e08a3a2fc40fc5fffd4fa30cb0be"
+        }
+      },
+      "build": {
+        "spa": {
+          "iconHash": "1223e08a3a2fc40fc5fffd4fa30cb0be"
+        }
+      }
+    }
+  },
+  "@quasar/colorize": {}
+}

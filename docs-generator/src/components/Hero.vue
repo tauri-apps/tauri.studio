@@ -5,22 +5,24 @@
       <div class="bg-container scroll-determined q-pa-md q-ml-lg"></div>
       <div>
         <div>
-          <img src="statics/tauri-wordmark.png" class="tauri-name scroll-determined">
+          <q-btn to="/" flat>
+            <img src="statics/tauri-wordmark.png" class="tauri-name scroll-determined">
+          </q-btn>
         </div>
         <div v-if="buttons" class="row" style="margin-top:90px">
-          <q-btn dense size="small" to="/docs/quickstart"  class="btn " label="Quick Start" no-caps color="warning" text-color="black"/>
+          <q-btn dense size="small" to="/docs/quickstart"  class="btn" label="Quick Start" no-caps color="warning" text-color="black"/>
           <q-btn dense size="small" to="/docs/patterns" class="btn" label="Patterns" no-caps  color="warning" text-color="black"/>
           <q-btn v-if="showDocs" dense size="small" to="/docs" class="btn" label="Docs" no-caps  color="warning" text-color="black"/>
         </div>
       <div v-else class="absolute-right" style="margin:18px 30px 0 0;">
-        <q-btn-dropdown dense color="cyan-1" label="Docs" no-caps text-color="black" class="q-mr-lg">
+        <q-btn-dropdown dense color="warning" label="Docs" no-caps text-color="black" class="q-mr-lg">
           <q-list color="warning" >
             <q-item clickable v-close-popup to="/docs" v-if="showDocs">
               <q-item-section>
                 <q-item-label>DOCS</q-item-label>
               </q-item-section>
             </q-item>
-            <q-item clickable v-close-popup to="/docs/quick-start">
+            <q-item clickable v-close-popup to="/docs/quickstart">
               <q-item-section>
                 <q-item-label>Quick Start</q-item-label>
               </q-item-section>
@@ -91,9 +93,10 @@ export default {
       `)
         // claim
         // document.getElementById('claim').setAttribute('style', `top: 58px`)
-        // the sidebar
+        // the sidebar id="scrollHolder" style="height:50%"
         document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', `background-color: #FDFADE;margin-top: 60px;padding-top:20px`)
-        document.getElementById('padding').setAttribute('style', `padding-top: 50px`)
+        document.getElementById('scrollHolder').setAttribute('style', `height: calc(100% - 132px)`)
+        document.getElementById('padding').setAttribute('style', `height: 50px`)
       } else if (this.buttons === false) {
         document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `height: 55px;width: 55px;transform: rotate(${position}deg)`)
       } else {
@@ -157,6 +160,6 @@ export default {
   text-align center
   color darkred
   i
-    color white
+    color #0099dd
     text-shadow 0 0 1px rebeccapurple
 </style>

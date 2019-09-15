@@ -11,7 +11,7 @@
 
 <script>
 import Hero from '../components/Hero'
-import markdown from '../markdown/quickstart.md'
+import markdown from '../markdown/patterns.md'
 import json from '../json/tauri.json'
 
 export default {

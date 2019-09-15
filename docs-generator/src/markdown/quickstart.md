@@ -1,4 +1,4 @@
-## test-drive
+## Test Drive
 Assuming you have cargo and rust installed. If not, see below/
 
 ```

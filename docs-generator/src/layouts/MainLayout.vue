@@ -51,9 +51,13 @@
       side="right"
       bordered
       behavior="mobile"
-      content-style="background-color: #FDFADE;margin-top: 260px;padding-top:30px"
+      content-style="background-color: #FDFADE;margin-top: 260px;padding-top:30px;"
     >
-      <q-scroll-area class="fit">
+      <q-scroll-area
+        id="scrollHolder"
+        style="height:calc(100% - 320px)"
+        :thumb-style="{ right: '3px', borderRadius: '2px', background: '#ffaa00', width: '6px', opacity: 0.5 }"
+      >
         <q-list dense>
           <q-item
             v-for="item in toc"
@@ -64,18 +68,22 @@
             @click="scrollTo(item.id)"
             :active="activeToc === item.id"
           >
-          <q-item-section v-if="item.level > 1" side> • </q-item-section>
+          <!--<q-item-section v-if="item.level > 1" side> • </q-item-section>-->
             <q-item-section
               :class="`toc-item toc-level-${item.level}`"
             >{{ item.label }}</q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
-      <div class="absolute-bottom full-width text-center">
+      <div class="absolute-bottom full-width text-center bg-cyan-1">
         <q-separator></q-separator>
-        <div class="q-pa-sm">
+        <div class="q-pa-sm" style="font-size:0.9em">
           Tauri is an Open Source Project<br/>
-          <a href="https://github.com/tauri-apps" target="_blank">GitHub</a>
+          <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">GitHub</a>
+          &nbsp;||&nbsp;
+          <a href="https://opencollective.com/tauri" target="_blank" rel="noreferrer">Donate</a>
+          &nbsp;||&nbsp;
+          <a href="https://github.com/tauri-apps/governance-and-guidance" target="_blank" rel="noreferrer">Governance</a>
         </div>
       </div>
     </q-drawer>
@@ -121,7 +129,7 @@ export default {
     scrollTo (id) {
       this.activeToc = id
       const el = document.getElementById(id)
-
+      console.log(id)
       if (el) {
         this.scrollPage(el)
       }

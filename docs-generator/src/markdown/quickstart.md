@@ -9,13 +9,15 @@ $ cargo install --path node_modules/@tauri-apps/tauri/tools/rust/cargo-tauri-bun
 $ yarn tauri build
 ```
 
+
+
 After tauri has compiled its rust resources, look in the `src-tauri/target/release/bundle`.
 
 ## Add Rust and Build Toolchain
 ### Windows 64 or 32 bit
 You will need to have Visual Studio and windows-build-tools installed.
 
-First visit the [Microsoft docs](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019) and install Visual Studio.
+First you should visit the [Microsoft docs](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019) and install Visual Studio.
 
     $ npm install --global windows-build-tools
 

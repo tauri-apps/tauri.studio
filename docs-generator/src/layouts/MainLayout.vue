@@ -148,6 +148,8 @@ export default {
 </script>
 
 <style lang="stylus">
+h2
+  margin-left -10px!important
 .toc-level
   &-2
     margin-left 0

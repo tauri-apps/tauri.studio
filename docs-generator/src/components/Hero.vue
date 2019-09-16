@@ -1,14 +1,12 @@
 <template>
-  <div class="full-width">
+  <div class="full-width q-pa-md">
     <q-page-sticky expand class="page-header fixed-top shadow-8 scroll-determined" v-scroll="scrolled" style="position:fixed!important">
-      <q-chip outline dense square icon="star" icon-right="star" class="claim text-weight-light text-black bg-cyan-1" style="top: 84%">Build more secure native apps with fast, tiny binaries.</q-chip>
+      <q-chip outline dense square icon="star" icon-right="star" class="claim text-weight-light text-black bg-cyan-1 shadow-8" style="top: 84%">Build more secure native apps with fast, tiny binaries.</q-chip>
       <div class="bg-container scroll-determined q-pa-md q-ml-lg"></div>
       <div>
-        <div>
-          <q-btn to="/" flat>
-            <img src="statics/tauri-wordmark.png" class="tauri-name scroll-determined">
-          </q-btn>
-        </div>
+        <router-link to="/">
+          <img src="statics/tauri-wordmark.png" class="tauri-name scroll-determined" style="cursor:pointer">
+        </router-link>
         <div v-if="buttons" class="row" style="margin-top:90px">
           <q-btn dense size="small" to="/docs/quickstart"  class="btn" label="Quick Start" no-caps color="warning" text-color="black"/>
           <q-btn dense size="small" to="/docs/patterns" class="btn" label="Patterns" no-caps  color="warning" text-color="black"/>
@@ -96,7 +94,7 @@ export default {
         // the sidebar id="scrollHolder" style="height:50%"
         document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', `background-color: #FDFADE;margin-top: 60px;padding-top:20px`)
         document.getElementById('scrollHolder').setAttribute('style', `height: calc(100% - 132px)`)
-        document.getElementById('padding').setAttribute('style', `height: 50px`)
+        document.getElementById('padding').setAttribute('style', `height: 40px`)
       } else if (this.buttons === false) {
         document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `height: 55px;width: 55px;transform: rotate(${position}deg)`)
       } else {

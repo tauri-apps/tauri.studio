@@ -53,3 +53,7 @@ export default {
 
 }
 </script>
+<style lang="stylus">
+.q-markdown--line-numbers-wrapper
+  margin-bottom 14px
+</style>

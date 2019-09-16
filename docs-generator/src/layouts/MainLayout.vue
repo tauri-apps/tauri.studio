@@ -47,6 +47,7 @@
     -->
 
     <q-drawer
+      ref="drawer"
       v-model="rightDrawerOpen"
       side="right"
       bordered
@@ -97,13 +98,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import { scroll } from 'quasar'
+const { getScrollTarget, setScrollPosition } = scroll
+import { slugify, makeUrl } from 'assets/page-utils'
 
 export default {
   name: 'MainLayout',
 
   data () {
     return {
-      leftDrawerOpen: this.$q.platform.is.desktop,
       rightDrawerOpen: false,
       activeToc: 0
     }
@@ -119,24 +121,27 @@ export default {
     // code to handle anchor link on refresh/new page, etc
     if (location.hash !== '') {
       const id = location.hash.substring(1, location.hash.length)
-      setTimeout(() => {
-        this.scrollTo(id)
-      }, 200)
+      this.scrollTo(id)
     }
   },
 
   methods: {
     scrollTo (id) {
+      this.$refs.drawer.hide()
       this.activeToc = id
       const el = document.getElementById(id)
-      console.log(id)
       if (el) {
-        this.scrollPage(el)
+        setTimeout(() => {
+          this.scrollPage(el)
+          makeUrl(slugify(id))
+        }, 200)
       }
     },
     scrollPage (el) {
+      console.log(el)
+      const target = getScrollTarget(el)
       const offset = el.offsetTop - 50
-      scroll.setScrollPosition(window, offset, 500)
+      setScrollPosition(target, offset, 500)
     }
   }
 }
@@ -146,6 +151,7 @@ export default {
 .toc-level
   &-2
     margin-left 0
+    font-weight 800
   &-3
     margin-left 10px
 </style>

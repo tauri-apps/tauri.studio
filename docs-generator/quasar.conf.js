@@ -6,6 +6,7 @@ module.exports = function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     boot: [
+      'mermaid'
     ],
 
     css: [
@@ -17,7 +18,7 @@ module.exports = function (ctx) {
       // 'mdi-v3',
       // 'fontawesome-v5',
       // 'eva-icons',
-      // 'themify',
+      'themify',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
       'roboto-font', // optional, you are not bound to it
@@ -34,10 +35,12 @@ module.exports = function (ctx) {
         'QCard',
         'QCardSection',
         'QCardActions',
+        'QDialog',
         'QExpansionItem',
         'QLayout',
         'QHeader',
         'QDrawer',
+        'QFooter',
         'QPageContainer',
         'QPage',
         'QToolbar',
@@ -59,7 +62,8 @@ module.exports = function (ctx) {
         'QBtnDropdown',
         'QChip',
         'QCarousel',
-        'QCarouselSlide'
+        'QCarouselSlide',
+        'QParallax'
       ],
 
       directives: [

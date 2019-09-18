@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpR fFr">
+  <q-layout view="hHh lpR ffr">
     <q-btn
       flat
       dense
@@ -8,7 +8,7 @@
       aria-label="Menu"
       color="cyan-1"
       class="fixed-right"
-      style="margin:15px 5px 0 0;z-index:1000001"
+      style="margin:16px 12px 0 0;z-index:1000001"
     >
       <q-icon name="menu" />
     </q-btn>
@@ -78,6 +78,15 @@
       </q-scroll-area>
       <div class="absolute-bottom full-width text-center bg-cyan-1">
         <q-separator></q-separator>
+        <q-card class="q-ma-md col-md-3 col-sm-5 q-mt-sm bg-cyan-1" flat bordered v-for="(item, index) in actions" :key="index">
+          <q-icon :name="item.icon" class="float-left q-pa-lg q-ma-xs text-h5" style="margin: 11px 5px -1px 10px"></q-icon>
+          <q-card-section>
+            {{ item.claim }}
+          </q-card-section>
+          <q-card-actions align="center">
+            <q-btn color="yellow-2" text-color="black" :to="item.btnTarget" :label="item.btnLabel"></q-btn>
+          </q-card-actions>
+        </q-card>
         <div class="q-pa-sm" style="font-size:0.9em">
           Tauri is an Open Source Project<br/>
           <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">GitHub</a>
@@ -92,6 +101,17 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <div class="full-width text-center bg-cyan-1">
+      <q-separator></q-separator>
+      <div class="row q-pa-sm" style="font-size:0.9em">
+        <div class="col-6 col-md-4 col-sm-3" dense>
+          <q-item to="/contact" class="text-center" dense>Email</q-item>
+          <q-item to="/contact" class="text-center" dense>Discord</q-item>
+          <q-item to="/contact" class="text-center" dense>Github</q-item>
+        </div>
+      </div>
+    </div>
   </q-layout>
 </template>
 
@@ -138,9 +158,10 @@ export default {
       }
     },
     scrollPage (el) {
-      console.log(el)
       const target = getScrollTarget(el)
-      const offset = el.offsetTop - 50
+      const current = window.pageYOffset || document.documentElement.scrollTop
+      let offset = el.offsetTop - 50
+      if (current <= 50) offset = el.offsetTop - 250
       setScrollPosition(target, offset, 500)
     }
   }

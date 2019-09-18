@@ -13,7 +13,7 @@
     >
       <q-carousel-slide v-for="(slideItem) in slides" v-bind:key="slideItem.id" :name="slideItem.title" class="column no-wrap" :img-src="slideItem.img" @mouseover="credits = true" @mouseleave="credits = false">
         <div class="text-h3 text-weight-thin bg-amber-3 absolute-left q-pa-md text-center" style="width:300px;opacity:0.8;padding-top:220px;"> {{ slideItem.title }}</div>
-        <h6 class="q-pa-sm bg-yellow-2 full-width text-center" style="margin:270px -25px 0 0!important;z-index:1;font-size:1.2em">
+        <h6 class="q-pa-sm bg-yellow-1 full-width text-center" style="margin:270px -25px 0 0!important;z-index:1;font-size:1.2em; border-radius:4px;">
           {{ slideItem.text }}
         </h6>
         <q-btn v-if="credits" size="xs" dense class="absolute-top-right q-ma-lg" style="width:180px;z-index:1" color="blue-grey-9" text-color="white" type="a" :href="`https://unsplash.com/${slideItem.unsplashLink}`">
@@ -21,12 +21,64 @@
         </q-btn>
       </q-carousel-slide>
     </q-carousel>
-    <q-markdown>
-## Introduction
-Tauri is a framework agnostic toolchain for building highly secure native apps that have tiny binaries and are very fast. You can use any frontend-framework to build apps with it, and it can be integrated into any CI pipeline.
 
-Tauri helps you to build tiny, blazing fast binaries for all major desktop platforms. Whether you are just starting out making apps for your meetup or regularly crunch terabyte datasets, we are absolutely confident that you will love using Tauri as much as we love making and maintaining it.
-    </q-markdown>
+    <div id="Quicklinks" class="row full-width wrap justify-center items-center content-center items-start q-mt-xl">
+      <q-card class="q-ma-md col-md-3 col-sm-5 q-mt-sm bg-cyan-1"  flat bordered v-for="(item, index) in actions" :key="index">
+        <q-icon :name="item.icon" class="float-left q-pa-lg q-ma-xs text-h5" style="margin: 11px 5px -1px 10px"></q-icon>
+        <q-card-section>
+          {{ item.claim }}
+        </q-card-section>
+        <q-card-actions align="center">
+          <q-btn color="yellow-2" text-color="black" :to="item.btnTarget" :label="item.btnLabel"></q-btn>
+        </q-card-actions>
+      </q-card>
+    </div>
+    <!-- roadmap -->
+    <q-card id="Roadmap" class="q-ma-xl full-width bg-cyan-1"  flat bordered>
+      <q-card-section class="justify-center items-center content-center text-center">
+        <div style="position:absolute;top:130px;left:30px;width:5px;height:20px;background:#E0F7FA;z-index:2"></div>
+        <div style="position:absolute;bottom:50px;left:30px;width:5px;height:20px;background:#E0F7FA;z-index:2"></div>
+        <q-activity
+          dense
+          bar-color="rgba(0,0,0,0.2)"
+          bar-width="3px"
+          bar-distance="15px"
+          style="margin-top:110px"
+        >
+          <q-activity-item
+            v-for="(item, index) in timeline"
+            :key="index"
+            :icon="item.icon"
+            :icon-color="item.iconColor"
+            :icon-text-color="item.iconTextColor"
+            icon-size="2.5em"
+            icon-font-size="0.55em"
+            style="padding-bottom:5px;padding-top:5px;margin-left:-9px;"
+          >
+            <q-item class="inline-block vertical-middle text-left">
+              <q-item-section>
+                <q-item-label class="text-weight-bold">{{ item.label }}</q-item-label>
+                <q-item-label caption lines="2">{{ item.caption }}</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-chip dense color="yellow-1" class="vertical-middle side-text">
+              {{ item.time }}
+            </q-chip>
+          </q-activity-item>
+        </q-activity>
+        <span class="text-weight-light">Notice: This roadmap is subject to change at any time.</span>
+        <q-parallax
+          :height="130"
+          src="statics/images/skycave.jpg"
+          class="full-width"
+          style="position:absolute;top:0;left:0;"
+        />
+        <div style="position:absolute;left:0;top:0;right:0;height:130px;background: linear-gradient(0deg, rgba(224,247,250,1) 5%, rgba(224,247,250,0.9) 30%, rgba(224,247,250,0.7) 60%, rgba(224,247,250,0.45) 80%, rgba(224,247,250,0) 100%);z-index:10"></div>
+        <h2 class="text-weight-thin" style="position:absolute;top:-4px;z-index:100;left:10px; right:10px;margin:auto;text-shadow:0 0 5px white,0 0 2px white; color:#253239">ROADMAP</h2>
+      </q-card-section>
+    </q-card>
+
+    <q-markdown :src="markdown" toc @data="onToc" />
     <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
       <q-btn fab icon="keyboard_arrow_up" color="primary" />
     </q-page-scroller>
@@ -35,8 +87,7 @@ Tauri helps you to build tiny, blazing fast binaries for all major desktop platf
 
 <script>
 import Hero from '../components/Hero'
-import markdown from '../markdown/tauri.md'
-import json from '../json/tauri.json'
+import markdown from '../markdown/landing.md'
 
 export default {
   name: 'PageIndex',
@@ -47,18 +98,12 @@ export default {
 
   data () {
     return {
+      bundle: false,
+      mermTex: '',
       slide: 'AGNOSTIC',
       credits: false,
       markdown: markdown,
-      json: json,
       slides: [
-        {
-          title: 'AGNOSTIC',
-          text: 'compatibility with any front-end framework means you don\'t have to change your stack.',
-          img: 'statics/images/vegetables.jpg',
-          unsplashLink: '@freestockpro',
-          unsplashName: 'Alexandr Podvalny'
-        },
         {
           title: 'SECURITY',
           text: 'is the Tauri-Team\'s biggest priority and drives our innovation.',
@@ -84,42 +129,218 @@ export default {
           title: 'RELIABILITY',
           text: 'of the underlying code base is why critical libraries have been forked.',
           img: 'statics/images/bigben.jpg',
-          unsplashLink: '@@louisk_',
+          unsplashLink: '@louisk_',
           unsplashName: 'Louis. K'
         },
         {
+          title: 'AGNOSTIC',
+          text: 'compatibility with any front-end framework means you don\'t have to change your stack.',
+          img: 'statics/images/vegetables.jpg',
+          unsplashLink: '@freestockpro',
+          unsplashName: 'Alexandr Podvalny'
+        },
+        {
           title: 'FLOSS',
-          text: 'licensing is possible with Tauri, but impossible with Chromium consumers, like Electron.',
+          text: 'licensing is possible with Tauri, but not with Chromium consumers, like Electron.',
           img: 'statics/images/boat.jpg',
           unsplashLink: '@jplenio',
           unsplashName: 'Johannes Plenio'
         }
+      ],
+      actions: [
+        {
+          icon: 'ti-lock',
+          claim: 'Tauri is a polyglot toolchain for building more secure native apps with both tiny and fast binaries.',
+          btnLabel: 'Get Setup!',
+          btnTarget: '/docs/quickstart'
+        },
+        {
+          icon: 'ti-settings',
+          claim: 'Tauri lets you use any frontend-framework to build apps, and it can be integrated into any pipeline.',
+          btnLabel: 'Learn How!',
+          btnTarget: '/docs/examples'
+        },
+        {
+          icon: 'ti-package',
+          claim: 'Tauri helps you build and bundle binaries for all major desktop platforms (and mobile soon).',
+          btnLabel: 'Ship It!',
+          btnTarget: '/docs/bundler'
+        },
+        {
+          icon: 'ti-layout-grid2',
+          claim: 'Tauri has 4 design patterns to help you customize your project in line with how you want it to work.',
+          btnLabel: 'Discover!',
+          btnTarget: '/docs/patterns'
+        },
+        {
+          icon: 'ti-shield',
+          claim: 'With security features baked in and additional tools available, you will be safer than ever.',
+          btnLabel: 'Be Safer!',
+          btnTarget: '/docs/security'
+        },
+        {
+          icon: 'ti-gift',
+          claim: 'As a sustainable FLOSS project, we do our best to mitigate bus-factor and are open to everyone.',
+          btnLabel: 'Join Us!',
+          btnTarget: '/docs/governance'
+        }
+      ],
+      timeline: [
+        {
+          icon: 'ti-target',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'CLI',
+          caption: 'Generate, develop and build Tauri apps from the command line.',
+          time: 'Q4 2019'
+        },
+        {
+          icon: 'ti-crown',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'API',
+          caption: 'Finalize, audit, write documentation and create examples for the smoke-tests.',
+          time: 'Q4 2019'
+        },
+        {
+          icon: 'ti-pulse',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Testing & CI',
+          caption: 'Implement CI with testing and bundle-pipeline validation.',
+          time: 'Q4 2019'
+        },
+        {
+          icon: 'ti-layers-alt',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Desktop Bundler',
+          caption: 'Bundle for all major desktops from native systems.',
+          time: 'Q4 2019'
+        },
+        {
+          icon: 'ti-flag-alt',
+          iconColor: 'red',
+          iconTextColor: 'white',
+          label: 'Alpha Release',
+          caption: 'Mostly stable on desktop, edge cases and bugs acceptable.',
+          time: 'Q4 2019'
+        },
+        {
+          icon: 'ti-layers',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Mobile Bundler',
+          caption: 'Bundle to all major mobile device operating systems.',
+          time: 'Q4 2019'
+        },
+        {
+          icon: 'ti-bolt',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'WASM Bundler',
+          caption: 'Manufacture WASM bundler for use in websites.',
+          time: 'Q1 2020'
+        },
+        {
+          icon: 'ti-control-shuffle',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Cross Compiler',
+          caption: 'Generate bundled binaries from select operating system environments.',
+          time: 'Q1 2020'
+        },
+        {
+          icon: 'ti-panel',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'App Tray',
+          caption: 'Desktop Cross-platform Icon Tray.',
+          time: 'Q1 2020'
+        },
+        {
+          icon: 'ti-flag-alt',
+          iconColor: 'red',
+          iconTextColor: 'white',
+          label: 'Beta Release',
+          caption: 'Mostly stable on Desktop & Mobile.',
+          time: 'Q1 2020'
+        },
+        {
+          icon: 'ti-direction-alt',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Alternative Renderer',
+          caption: 'Candidate presentation for Webview Alternatives, including GL windowing.',
+          time: 'Q2 2020'
+        },
+        {
+          icon: 'ti-slice',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Tauri-Frida',
+          caption: 'A decompiler and threat analyzer for Tauri Apps, using Frida.',
+          time: 'Q3 2020'
+        },
+        {
+          icon: 'ti-flag-alt',
+          iconColor: 'red',
+          iconTextColor: 'white',
+          label: 'Stable Release',
+          caption: 'Stable on On all Platforms.',
+          time: 'Q3 2020'
+        },
+        {
+          icon: 'ti-world',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Other Bindings',
+          caption: 'Go, Nim, Python, C++? All possible with a stable API.',
+          time: 'Q1 2021'
+        },
+        {
+          icon: 'ti-help',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'The Future',
+          caption: 'Something missing? Got a great idea? We want you to help us make it happen.',
+          time: 'No end in sight'
+        }
       ]
     }
   },
-
   computed: {
-    toc:
-      {
-        get () {
-          return this.$store.state.common.toc
-        },
-        set (toc) {
-          // console.log('toc:', toc)
-          this.$store.commit('common/toc', toc)
-        }
+    toc: {
+      get () {
+        return this.$store.state.common.toc
+      },
+      set (toc) {
+        this.$store.commit('common/toc', toc)
       }
+    }
   },
-
   methods: {
     onToc (toc) {
-      // add anything not picked uip by the markdown processor
-      toc.push({ id: 'Tauri-API', label: 'Tauri API', level: 1, children: Array(0) })
-      toc.push({ id: 'Donate', label: 'Donate', level: 1, children: Array(0) })
-
+      toc.unshift({ id: 'Roadmap', label: 'Roadmap', level: 2, children: Array(0) })
+      toc.unshift({ id: 'Quicklinks', label: 'Quick Links', level: 2, children: Array(0) })
       this.toc = toc
+    },
+    extendMarkdown (md) {
+      md.use(this.mermaid)
+    },
+    mermaid (md, options) {
+      md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
+        const token = tokens[idx]
+        const code = token.content.trim()
+        return `<div class="mermaid">\n${code}\n</div>\n`
+      }
     }
   }
-
 }
 </script>
+<style lang="stylus">
+  #Donations-and-Sponsoring
+    text-align: center
+  i.themify-icon.ti-star::before
+    margin-top -4px!important
+</style>

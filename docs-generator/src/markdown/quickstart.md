@@ -1,5 +1,5 @@
 ## Test Drive
-Assuming you have cargo and rust installed. If not, see below/
+This assumes you have git, node 10LTS, yarn, rust and cargo installed. If not, see below.
 
 ```
 $ git clone https://github.com/tauri-apps/smoke-tests
@@ -8,8 +8,6 @@ $ yarn
 $ cargo install --path node_modules/@tauri-apps/tauri/tools/rust/cargo-tauri-bundle --force
 $ yarn tauri build
 ```
-
-
 
 After tauri has compiled its rust resources, look in the `src-tauri/target/release/bundle`.
 

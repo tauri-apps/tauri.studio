@@ -8,16 +8,16 @@
           <img src="statics/tauri-wordmark.png" class="tauri-name scroll-determined" style="cursor:pointer">
         </router-link>
         <div v-if="buttons" class="row" style="margin-top:90px">
-          <q-btn dense size="small" to="/docs/quickstart"  class="btn" label="Quick Start" no-caps color="warning" text-color="black"/>
-          <q-btn dense size="small" to="/docs/patterns" class="btn" label="Patterns" no-caps  color="warning" text-color="black"/>
-          <q-btn v-if="showDocs" dense size="small" to="/docs" class="btn" label="Docs" no-caps  color="warning" text-color="black"/>
+          <q-btn dense size="small" to="/docs/quickstart"  class="btn" label="Quick Start" no-caps color="yellow-2" text-color="black"/>
+          <q-btn dense size="small" to="/docs/patterns" class="btn" label="Patterns" no-caps  color="yellow-2" text-color="black"/>
+          <q-btn v-if="showDocs" dense size="small" to="/docs" class="btn" label="Docs" no-caps  color="yellow-2" text-color="black"/>
         </div>
-      <div v-else class="absolute-right" style="margin:18px 30px 0 0;">
-        <q-btn-dropdown dense color="warning" label="Docs" no-caps text-color="black" class="q-mr-lg">
-          <q-list color="warning" >
-            <q-item clickable v-close-popup to="/docs" v-if="showDocs">
+      <div v-else class="absolute-right" style="margin:18px 35px 0 0;">
+        <q-btn-dropdown dense color="yellow-2" :label="current" no-caps text-color="black" class="q-mr-lg">
+          <q-list color="yellow-2" >
+            <q-item clickable v-close-popup to="/docs" v-if="showDocs" @click="current='Docs'">
               <q-item-section>
-                <q-item-label>DOCS</q-item-label>
+                <q-item-label>Docs</q-item-label>
               </q-item-section>
             </q-item>
             <q-item clickable v-close-popup to="/docs/quickstart">
@@ -40,7 +40,7 @@
       </div>
       </div>
     </q-page-sticky>
-    <main class="flex flex-start justify-center inset-shadow">
+    <main class="flex flex-start justify-center">
       <div class="q-pa-sm col-12-sm col-10-md col-8-lg" style="max-width: 1024px; width: 100%;">
         <slot></slot>
       </div>
@@ -54,6 +54,7 @@ export default {
   data () {
     return {
       buttons: true,
+      current: 'Menu',
       height: 270,
       heightName: 140,
       heightPic: 250,
@@ -141,7 +142,7 @@ export default {
   background-repeat no-repeat
   background-size contain
   position absolute
-  left 0
+  left -5px
   top 5px
   height 250px
   width 250px

@@ -17,7 +17,8 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Index.vue') },
       { path: '/docs/quickstart', component: () => import('pages/Quickstart.vue') },
-      { path: '/docs/patterns', component: () => import('pages/Patterns.vue') }
+      { path: '/docs/patterns', component: () => import('pages/Patterns.vue') },
+      { path: '/docs/examples', component: () => import('pages/Examples.vue') }
     ]
   }
 ]

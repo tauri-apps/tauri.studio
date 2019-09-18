@@ -23,5 +23,7 @@
       }
     }
   },
-  "@quasar/colorize": {}
+  "@quasar/colorize": {},
+  "@quasar/qmediaplayer": {},
+  "@quasar/qactivity": {}
 }

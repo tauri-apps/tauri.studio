@@ -30,9 +30,10 @@ steps:
       - git init
       - git config user.email "deploy-bot@tauri-apps.org"
       - git config user.name "Deployment Bot"
+      - git checkout -b gh-pages
       - git add --all
       - git commit -m "Updating GitHub pages `date`"
-      - git push --dry-run git@github.com:tauri-apps/tauri-apps.org.git HEAD:gh-pages
+      - git push -f --dry-run git@github.com:tauri-apps/tauri-apps.org.git gh-pages
 
   # Real push on master.
   - name: commit-and-push
@@ -52,9 +53,10 @@ steps:
       - git init
       - git config user.email "deploy-bot@tauri-apps.org"
       - git config user.name "Deployment Bot"
+      - git checkout -b gh-pages
       - git add --all
       - git commit -m "Updating GitHub pages `date`"
-      - git push git@github.com:tauri-apps/tauri-apps.org.git HEAD:gh-pages
+      - git push -f git@github.com:tauri-apps/tauri-apps.org.git gh-pages
 
 trigger:
   # Note: When you want to remove the dry-run build,

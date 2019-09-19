@@ -1,0 +1,55 @@
+kind: pipeline
+name: update-github-pages
+
+steps:
+  # For testing, run this even on branches / PRs.
+  - name: build
+    image: node:12
+    commands:
+      - cd docs-generator
+      - yarn install
+      - yarn -s build
+
+  # Dry run on any branch / PR.
+  - name: commit-and-push-dry-run
+    image: docker:git
+    environment:
+      SSH_DEPLOY_KEY:
+        from_secret: SSH_DEPLOY_KEY
+    when:
+      branch:
+        exclude:
+          - master
+    commands:
+      - mkdir -p ~/.ssh
+      - ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+      - echo "$SSH_DEPLOY_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
+      - git config user.email "deploy-bot@tauri-apps.org"
+      - git config user.name "Deployment Bot"
+      - git add :/docs
+      - git commit -m "Updating /docs pages `date`"
+      - git push --dry-run origin master
+
+  # Real push on master.
+  - name: commit-and-push-dry-run
+    image: docker:git
+    environment:
+      SSH_DEPLOY_KEY:
+        from_secret: SSH_DEPLOY_KEY
+    when:
+      branch:
+        include:
+          - master
+    commands:
+      - mkdir -p ~/.ssh
+      - ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+      - echo "$SSH_DEPLOY_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
+      - git config user.email "deploy-bot@tauri-apps.org"
+      - git config user.name "Deployment Bot"
+      - git add :/docs
+      - git commit -m "Updating /docs pages `date`"
+      - git push origin master
+
+trigger:
+  event:
+    - push

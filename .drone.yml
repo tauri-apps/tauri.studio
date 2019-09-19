@@ -28,7 +28,7 @@ steps:
       - git config user.name "Deployment Bot"
       - git add :/docs
       - git commit -m "Updating /docs pages `date`"
-      - git push --dry-run origin master
+      - git push --dry-run origin $DRONE_BRANCH
 
   # Real push on master.
   - name: commit-and-push

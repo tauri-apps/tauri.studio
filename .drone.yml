@@ -6,6 +6,8 @@ steps:
   - name: build
     image: node:12
     commands:
+      # Ensure docs exists.
+      - mkdir docs || exit 0
       - cd docs-generator
       - yarn install
       - yarn -s build
@@ -26,9 +28,11 @@ steps:
       - echo "$SSH_DEPLOY_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
       - git config user.email "deploy-bot@tauri-apps.org"
       - git config user.name "Deployment Bot"
-      - git add :/docs
+      - cd docs
+      - git init
+      - git add --all
       - git commit -m "Updating /docs pages `date`"
-      - git push --dry-run git@github.com:tauri-apps/tauri-apps.org.git $DRONE_BRANCH
+      - git push --dry-run git@github.com:tauri-apps/tauri-apps.org.git HEAD:gh-pages
 
   # Real push on master.
   - name: commit-and-push
@@ -46,9 +50,11 @@ steps:
       - echo "$SSH_DEPLOY_KEY" > ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
       - git config user.email "deploy-bot@tauri-apps.org"
       - git config user.name "Deployment Bot"
-      - git add :/docs
+      - cd docs
+      - git init
+      - git add --all
       - git commit -m "Updating /docs pages `date`"
-      - git push git@github.com:tauri-apps/tauri-apps.org.git master
+      - git push git@github.com:tauri-apps/tauri-apps.org.git HEAD:gh-pages
 
 trigger:
   # Note: When you want to remove the dry-run build,

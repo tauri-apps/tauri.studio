@@ -51,5 +51,9 @@ steps:
       - git push origin master
 
 trigger:
+  # Note: When you want to remove the dry-run build,
+  # you can add the below pipeline condition.
+  # branch:
+  #   - master
   event:
     - push

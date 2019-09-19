@@ -12,39 +12,6 @@
     >
       <q-icon name="menu" />
     </q-btn>
-    <!--
-    <q-header elevated reveal :reveal-offset="250">
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-          color=""
-        >
-          <q-icon name="menu" />
-        </q-btn>
-
-        <q-toolbar-title>
-          Tauri <span class="text-subtitle2">v{{ version }}</span>
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-
-        <q-btn
-          flat
-          dense
-          round
-          @click="rightDrawerOpen = !rightDrawerOpen"
-          aria-label="Table of Contents"
-        >
-          <q-icon name="menu" />
-        </q-btn>
-
-      </q-toolbar>
-    </q-header>
-    -->
 
     <q-drawer
       ref="drawer"
@@ -78,22 +45,13 @@
       </q-scroll-area>
       <div class="absolute-bottom full-width text-center bg-cyan-1">
         <q-separator></q-separator>
-        <q-card class="q-ma-md col-md-3 col-sm-5 q-mt-sm bg-cyan-1" flat bordered v-for="(item, index) in actions" :key="index">
-          <q-icon :name="item.icon" class="float-left q-pa-lg q-ma-xs text-h5" style="margin: 11px 5px -1px 10px"></q-icon>
-          <q-card-section>
-            {{ item.claim }}
-          </q-card-section>
-          <q-card-actions align="center">
-            <q-btn color="yellow-2" text-color="black" :to="item.btnTarget" :label="item.btnLabel"></q-btn>
-          </q-card-actions>
-        </q-card>
         <div class="q-pa-sm" style="font-size:0.9em">
           Tauri is an Open Source Project<br/>
           <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">GitHub</a>
           &nbsp;||&nbsp;
           <a href="https://opencollective.com/tauri" target="_blank" rel="noreferrer">Donate</a>
           &nbsp;||&nbsp;
-          <a href="https://github.com/tauri-apps/governance-and-guidance" target="_blank" rel="noreferrer">Governance</a>
+          <router-link to="/governance-and-guidance">Governance</router-link>
         </div>
       </div>
     </q-drawer>
@@ -108,6 +66,9 @@
         <div class="col-6 col-md-4 col-sm-3" dense>
           <q-item to="/contact" class="text-center" dense>Email</q-item>
           <q-item to="/contact" class="text-center" dense>Discord</q-item>
+          <q-item to="/contact" class="text-center" dense>Twitter</q-item>
+          <q-item to="/contact" class="text-center" dense>Medium</q-item>
+          <q-item to="/contact" class="text-center" dense>Dev.to</q-item>
           <q-item to="/contact" class="text-center" dense>Github</q-item>
         </div>
       </div>

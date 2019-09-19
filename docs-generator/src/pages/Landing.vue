@@ -5,14 +5,14 @@
       animated
       v-model="slide"
       infinite
-      autoplay
+      :autoplay="5000"
       navigation
       control-color="cyan-1"
       height="420px"
-      style="overflow:hidden;width:100%;background:transparent;color:black!important;border-radius:5px"
+      style="overflow:hidden!important;width:100%;background:transparent;color:black!important;border-radius:5px"
     >
       <q-carousel-slide v-for="(slideItem) in slides" v-bind:key="slideItem.id" :name="slideItem.title" class="column no-wrap" :img-src="slideItem.img" @mouseover="credits = true" @mouseleave="credits = false">
-        <div class="text-h3 text-weight-thin bg-amber-3 absolute-left q-pa-md text-center" style="width:300px;opacity:0.8;padding-top:220px;"> {{ slideItem.title }}</div>
+        <div class="text-h3 text-weight-thin bg-amber-3 absolute-left q-pa-md text-center" style="width:350px;opacity:0.8;padding-top:220px;"> {{ slideItem.title }}</div>
         <h6 class="q-pa-sm bg-yellow-1 full-width text-center" style="margin:270px -25px 0 0!important;z-index:1;font-size:1.2em; border-radius:4px;">
           {{ slideItem.text }}
         </h6>
@@ -66,7 +66,7 @@
             </q-chip>
           </q-activity-item>
         </q-activity>
-        <span class="text-weight-light">Notice: This roadmap is subject to change at any time.</span>
+        <small class="text-weight-light text-black">Notice: This roadmap is subject to change.</small>
         <q-parallax
           :height="130"
           src="statics/images/skycave.jpg"
@@ -89,27 +89,66 @@
 import Hero from '../components/Hero'
 import markdown from '../markdown/landing.md'
 
+let images = [
+  'statics/images/locks.jpg',
+  'statics/images/hammers.jpg',
+  'statics/images/lightning.jpg',
+  'statics/images/feather.jpg',
+  'statics/images/bigben.jpg',
+  'statics/images/boat.jpg'
+]
+
 export default {
   name: 'PageIndex',
 
   components: {
     Hero
   },
-
+  mounted () {
+    // have to do this to squeeze perf on slow connections because the
+    // method that quasar uses to change the slide actually forces a
+    // request from the server because of background:url() call
+    // which is TONS of useless traffic - and makes a flash of white
+    // between slides on some browsers (iOS for example)
+    for (let x = 0; x < images.length; x++) {
+      let img = new Image()
+      img.crossOrigin = 'Anonymous'
+      img.onload = () => {
+        let canvas = document.createElement('CANVAS')
+        let ctx = canvas.getContext('2d')
+        canvas.height = img.naturalHeight
+        canvas.width = img.naturalWidth
+        ctx.drawImage(img, 0, 0)
+        const res = canvas.toDataURL('image/jpeg')
+        if (res.length >= 1) {
+          this.slides[x].img = res
+        }
+        canvas = null
+      }
+      img.src = images[x]
+    }
+  },
   data () {
     return {
       bundle: false,
       mermTex: '',
-      slide: 'AGNOSTIC',
+      slide: 'SECURITY',
       credits: false,
       markdown: markdown,
       slides: [
         {
           title: 'SECURITY',
           text: 'is the Tauri-Team\'s biggest priority and drives our innovation.',
-          img: 'statics/images/keys.jpg',
-          unsplashLink: '@chunlea',
-          unsplashName: 'Chunlea Ju'
+          img: 'statics/images/locks.jpg',
+          unsplashLink: '@dynamicwang',
+          unsplashName: 'Dynamic Wang'
+        },
+        {
+          title: 'BROWNFIELD',
+          text: 'compatibility with any front-end framework means you don\'t have to change your stack.',
+          img: 'statics/images/hammers.jpg',
+          unsplashLink: '@Sucrebrut',
+          unsplashName: 'Sucrebrut'
         },
         {
           title: 'MEMORY',
@@ -121,23 +160,16 @@ export default {
         {
           title: 'BUNDLE',
           text: 'size of a Tauri App can be less than 600KB.',
-          img: 'statics/images/snowflake.jpg',
-          unsplashLink: '@dariuscotoi',
-          unsplashName: 'Darius Cotoi'
+          img: 'statics/images/feather.jpg',
+          unsplashLink: '@_javardh_001',
+          unsplashName: 'Javardh'
         },
         {
           title: 'RELIABILITY',
-          text: 'of the underlying code base is why critical libraries have been forked.',
+          text: 'of the underlying code base is why we forked critical libraries.',
           img: 'statics/images/bigben.jpg',
           unsplashLink: '@louisk_',
           unsplashName: 'Louis. K'
-        },
-        {
-          title: 'AGNOSTIC',
-          text: 'compatibility with any front-end framework means you don\'t have to change your stack.',
-          img: 'statics/images/vegetables.jpg',
-          unsplashLink: '@freestockpro',
-          unsplashName: 'Alexandr Podvalny'
         },
         {
           title: 'FLOSS',
@@ -162,7 +194,7 @@ export default {
         },
         {
           icon: 'ti-package',
-          claim: 'Tauri helps you build and bundle binaries for all major desktop platforms (and mobile soon).',
+          claim: 'Tauri helps you build and bundle binaries for major desktop platforms (mobile & wasm coming soon).',
           btnLabel: 'Ship It!',
           btnTarget: '/docs/bundler'
         },
@@ -295,7 +327,7 @@ export default {
           iconColor: 'blue',
           iconTextColor: 'white',
           label: 'Other Bindings',
-          caption: 'Go, Nim, Python, C++? All possible with a stable API.',
+          caption: 'Go, Nim, Python, C++ and other bindings are possible with the stable API.',
           time: 'Q1 2021'
         },
         {
@@ -304,7 +336,7 @@ export default {
           iconTextColor: 'white',
           label: 'The Future',
           caption: 'Something missing? Got a great idea? We want you to help us make it happen.',
-          time: 'No end in sight'
+          time: '∞'
         }
       ]
     }

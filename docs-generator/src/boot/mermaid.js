@@ -1,9 +1,12 @@
-import mermaid from 'mermaid'
+import * as mermaid from 'mermaid'
 
 mermaid.initialize({
   startOnLoad: true,
+  logLevel: 'debug',
   theme: 'neutral',
-  fontFamily: 'Roboto'
+  fontFamily: '"Roboto"',
+  flowchart: {
+  }
 })
 
 export default ({ Vue }) => {

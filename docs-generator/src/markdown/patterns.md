@@ -25,7 +25,8 @@ The Trollbridge recipe is a pattern for the highest degree of operational securi
 - STDOUT access to other binaries 
 - extensible with Rust functions 
 - whitelist for functional codegen
-- runtime message salting - fASLR & AoT Compiling
+- runtime message salting
+ - fASLR & AoT Compiling
 
 ### Best When
 - you are paranoid about security but still need the power of Rust.  

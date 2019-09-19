@@ -31,7 +31,7 @@ steps:
       - git push --dry-run origin master
 
   # Real push on master.
-  - name: commit-and-push-dry-run
+  - name: commit-and-push
     image: docker:git
     environment:
       SSH_DEPLOY_KEY:

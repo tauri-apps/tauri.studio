@@ -5,7 +5,11 @@ mermaid.initialize({
   logLevel: 'debug',
   theme: 'neutral',
   fontFamily: '"Roboto"',
+  securityLevel: 'loose',
   flowchart: {
+    useMaxWidth: true,
+    htmlLabels: true,
+    curve: 'basis'
   }
 })
 

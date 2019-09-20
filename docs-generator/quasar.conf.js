@@ -16,7 +16,7 @@ module.exports = function (ctx) {
     extras: [
       // 'ionicons-v4',
       // 'mdi-v3',
-      // 'fontawesome-v5',
+      'fontawesome-v5',
       // 'eva-icons',
       'themify',
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
@@ -46,6 +46,7 @@ module.exports = function (ctx) {
         'QToolbar',
         'QToolbarTitle',
         'QBtn',
+        'QBtnGroup',
         'QIcon',
         'QList',
         'QItem',
@@ -63,7 +64,8 @@ module.exports = function (ctx) {
         'QChip',
         'QCarousel',
         'QCarouselSlide',
-        'QParallax'
+        'QParallax',
+        'QRating'
       ],
 
       directives: [

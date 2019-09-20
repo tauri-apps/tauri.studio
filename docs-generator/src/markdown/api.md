@@ -1,7 +1,7 @@
 The Tauri API 
 
 ```
-whitelist: {                    // all whitelist values are default:false
+whitelist: {                  // all whitelist values are default:false
   all: false,                 // use this flag to enable all API features
   answer: false,              // enable rust to direct the UI
   bridge: false,              // enable Quasar Bridge

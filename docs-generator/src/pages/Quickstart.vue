@@ -1,7 +1,7 @@
 <template>
   <hero>
     <div id="padding" style="padding-top:260px"></div>
-    <q-markdown :src="markdown" toc @data="onToc" />
+    <q-markdown :src="markdown" toc @data="onToc" line-number-alt="$" />
 
     <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
       <q-btn fab icon="keyboard_arrow_up" color="warning" />

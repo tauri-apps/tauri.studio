@@ -199,14 +199,14 @@ export default {
           btnTarget: '/docs/bundler'
         },
         {
-          icon: 'ti-layout-grid2',
-          claim: 'Tauri has 4 design patterns to help you customize your project in line with how you want it to work.',
+          icon: 'ti-shift-right',
+          claim: 'Tauri has many design patterns to help you choose important features with simple configuration.',
           btnLabel: 'Discover!',
           btnTarget: '/docs/patterns'
         },
         {
           icon: 'ti-shield',
-          claim: 'With security features baked in and additional tools available, you will be safer than ever.',
+          claim: 'With security features baked in and many additional tools available, you code be safer than ever.',
           btnLabel: 'Be Safer!',
           btnTarget: '/docs/security'
         },
@@ -331,12 +331,12 @@ export default {
           time: 'Q1 2021'
         },
         {
-          icon: 'ti-help',
+          icon: 'ti-infinite',
           iconColor: 'blue',
           iconTextColor: 'white',
           label: 'The Future',
           caption: 'Something missing? Got a great idea? We want you to help us make it happen.',
-          time: '∞'
+          time: '& BEYOND'
         }
       ]
     }

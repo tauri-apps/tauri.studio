@@ -57,7 +57,9 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <keep-alive include="Patterns">
+        <router-view />
+      </keep-alive>
     </q-page-container>
 
     <div class="full-width text-center bg-cyan-1">

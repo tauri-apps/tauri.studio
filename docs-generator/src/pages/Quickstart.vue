@@ -12,7 +12,6 @@
 <script>
 import Hero from '../components/Hero'
 import markdown from '../markdown/quickstart.md'
-import json from '../json/tauri.json'
 
 export default {
   name: 'PageIndex',
@@ -23,8 +22,7 @@ export default {
 
   data () {
     return {
-      markdown: markdown,
-      json: json
+      markdown: markdown
     }
   },
 

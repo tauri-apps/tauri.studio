@@ -1,13 +1,13 @@
 <template>
   <hero>
+    <div id="padding" style="padding-top:260px"></div>
     <q-markdown>
 You can add markdown to your page by surrounding it with `q-markdown` tag.
 Be aware, markdown is sensitive to being on left side, otherwise will wrap it in blocks (indented).
     </q-markdown>
 
-    <q-markdown>
-This is an exampe of a title. It calls outside of the markdown, so be to register the label in the TOC below.
-    </q-markdown>
+    Here is the imported Markdown:
+    <q-markdown :src="markdown" toc @data="onToc" />
 
     <example-title title="Basic" />
     <example-card title="Tauri - Basic" name="TauriBasic" :tag-parts="getTagParts(require('!!raw-loader!../examples/TauriBasic.vue').default)" />
@@ -22,6 +22,7 @@ import ExampleTitle from '../components/ExampleTitle'
 import ExampleCard from '../components/ExampleCard'
 import { slugify } from 'assets/page-utils'
 import getTagParts from '@quasar/quasar-app-extension-qmarkdown/src/lib/getTagParts'
+import markdown from '../markdown/examples.md'
 
 export default {
   name: 'Examples',
@@ -34,7 +35,8 @@ export default {
 
   data () {
     return {
-      tempToc: []
+      tempToc: [],
+      markdown: markdown
     }
   },
 
@@ -76,6 +78,13 @@ export default {
         label: name,
         level: level
       })
+    },
+    onToc (toc) {
+      // add anything not picked up by the markdown processor
+      // toc.push({ id: 'Tauri-API', label: 'Tauri API', level: 1, children: Array(0) })
+      // toc.push({ id: 'Donate', label: 'Donate', level: 1, children: Array(0) })
+
+      this.toc = toc
     }
   }
 }

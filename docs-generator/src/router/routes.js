@@ -20,6 +20,7 @@ const routes = [
       { path: '/docs/quickstart', component: () => import('pages/Quickstart.vue') },
       { path: '/docs/patterns', component: () => import('pages/Patterns.vue') },
       { path: '/docs/examples', component: () => import('pages/Examples.vue') },
+      { path: '/docs/security', component: () => import('pages/Security.vue') },
       { path: '/docs/api', component: () => import('pages/API.vue') }
     ]
   }

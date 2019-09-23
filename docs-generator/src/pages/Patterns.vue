@@ -327,6 +327,7 @@ tauri: {
           F[Window]
           G[GL Window]
           H{Bootstrap}
+          style GLUTIN stroke:${colors.blue.dark},stroke-width:4px
           style RUST fill:${colors.yellow.light},stroke:${colors.yellow.dark},stroke-width:4px
           style WEBVIEW fill:${colors.blue.light},stroke:${colors.blue.dark},stroke-width:4px`
         }

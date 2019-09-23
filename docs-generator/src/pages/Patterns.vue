@@ -9,23 +9,24 @@
       </q-card-section>
       <q-separator></q-separator>
       <q-card-section class="full-width bg-cyan-1">
-        <div id="tryout" class="row">
-          <h4 class="col-6 text-weight-light" style="margin:-40px 0">{{ pattern }}</h4>
-          <div class="col-5">
+        <div id="tryout" class="fit row inline wrap justify-center">
+          <img class="col-1 q-mt-xs q-mr-md" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto">
+          <h4 class="col-4 text-weight-light text-cyan-10" style="margin:-40px 0">{{ pattern }}</h4>
+          <div class="col-grow"></div>
+          <div class="col-md-4 col-sm-4 col-xs-12 alight-right justify-end" style="min-width:100px!important">
             <div class="row">
-              <span class="col-7 text-right q-pr-sm">Ease of Use: </span>
-              <q-rating class="col-5" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.easeOfUse"></q-rating>
+              <span class="col-6 text-right q-pr-sm" style="white-space: nowrap">Ease of Use: </span>
+              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.easeOfUse"></q-rating>
             </div>
             <div class="row">
-              <span class="col-7 text-right q-pr-sm">Extensibility: </span>
-              <q-rating class="col-5" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.extensibility"></q-rating>
+              <span class="col-6 text-right q-pr-sm">Extensibility: </span>
+              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.extensibility"></q-rating>
             </div>
             <div class="row">
-              <span class="col-7 text-right q-pr-sm">Security: </span>
-              <q-rating class="col-5" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.security"></q-rating>
+              <span class="col-6 text-right q-pr-sm">Security: </span>
+              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.security"></q-rating>
             </div>
           </div>
-          <img class="col-1 q-mt-xs" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto">
         </div>
       </q-card-section>
       <q-separator></q-separator>

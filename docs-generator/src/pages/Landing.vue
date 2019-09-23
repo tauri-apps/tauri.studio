@@ -214,7 +214,7 @@ export default {
           icon: 'ti-gift',
           claim: 'As a sustainable FLOSS project, we do our best to mitigate bus-factor and are open to everyone.',
           btnLabel: 'Join Us!',
-          btnTarget: '/docs/governance'
+          btnTarget: '/governance-and-guidance'
         }
       ],
       timeline: [

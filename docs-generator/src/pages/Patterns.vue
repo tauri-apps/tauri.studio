@@ -4,27 +4,31 @@
     <p class="q-mt-xl">Tauri patterns are descriptions of use-cases that are entirely configurable within the Tauri configuration file. These are not the limits of what Tauri can do, and there are probably more out there. If you discover one, why not get in touch and help us update this collection!
     </p>
     <q-card class="q-mt-xl">
-      <q-card-section class="full-width text-center" style="padding-bottom:-20px">
+      <q-card-section class="text-center" style="padding-bottom:-20px">
         <q-btn class="q-mx-xs" outline flat dense no-caps v-for="p in patterns" v-bind:key="p.id"  @click="pattern = p.name" :class="{'bg-cyan-2 text-black': pattern === p.name}" :disabled="pattern === p.name">{{ p.name }}</q-btn>
       </q-card-section>
       <q-separator></q-separator>
-      <q-card-section class="full-width bg-cyan-1">
-        <div id="tryout" class="fit row inline wrap justify-center">
-          <img class="col-1 q-mt-xs q-mr-md" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto">
-          <h4 class="col-4 text-weight-light text-cyan-10" style="margin:-40px 0">{{ pattern }}</h4>
+      <q-card-section class="bg-cyan-1">
+        <q-ribbon :leaf-color="yellow.dark" :background-color="yellow.light" color="black" style="margin:-16px" type="corner" position="top-right">
+          <small class="q-pa-md text-weight-bold">{{ active.most }}</small>
+        </q-ribbon>
+        <div id="tryout" class="fit row inline wrap justify-center" style="margin-top:26px">
+          <img class="col-1 q-mt-lg q-mr-md" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto">
+          <h4 class="col-grow text-weight-light text-cyan-10" style="margin:-30px 0">{{ pattern }}</h4>
+          <span class="col-12 q-pa-sm text-weight-bold text-black" style="margin:-25px 0 0 110px">{{ active.bestWhen }}</span>
           <div class="col-grow"></div>
-          <div class="col-md-4 col-sm-4 col-xs-12 alight-right justify-end" style="min-width:100px!important">
+          <div class="col-12 alight-right justify-end q-ma-sm">
             <div class="row">
               <span class="col-6 text-right q-pr-sm" style="white-space: nowrap">Ease of Use: </span>
-              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.easeOfUse"></q-rating>
+              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="active.ratings.easeOfUse"></q-rating>
             </div>
             <div class="row">
               <span class="col-6 text-right q-pr-sm">Extensibility: </span>
-              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.extensibility"></q-rating>
+              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="active.ratings.extensibility"></q-rating>
             </div>
             <div class="row">
               <span class="col-6 text-right q-pr-sm">Security: </span>
-              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.security"></q-rating>
+              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="active.ratings.security"></q-rating>
             </div>
           </div>
         </div>
@@ -32,15 +36,27 @@
       <q-separator></q-separator>
       <q-card-section>
 
-        <p class="row-12">{{ patterns.find(p => p.name === pattern).intro }}</p>
+        <p class="row">{{ active.intro }}</p>
 
         <div class="text-center" id="temp" v-html="graph"></div>
       </q-card-section>
       <q-separator></q-separator>
       <q-card-section>
+        <ul class="text-weight-bold"> Features:
+          <li class="text-weight-regular row-12" v-for="p in active.features" v-bind:key="p.id"  >{{ p }}</li>
+        </ul>
+        <ul class="text-weight-bold"> Pros:
+          <li class="text-weight-regular row-12" v-for="p in active.pros" v-bind:key="p.id"  >{{ p }}</li>
+        </ul>
+        <ul class="text-weight-bold"> Cons:
+          <li class="text-weight-regular row-12" v-for="p in active.cons" v-bind:key="p.id">{{ p }}</li>
+        </ul>
+      </q-card-section>
+      <q-separator></q-separator>
+      <q-card-section>
         <h6>Configuration</h6>
         <span>tauri.conf.js</span>
-        <q-markdown :src="patterns.find(p => p.name === pattern).configMD" toc @data="onToc" no-line-numbers />
+        <q-markdown :src="active.configMD" toc @data="onToc" no-line-numbers />
       </q-card-section>
     </q-card>
 
@@ -79,18 +95,22 @@ export default {
     return {
       // markdown: markdown,
       mermaidHTML: '',
+      blue: colors.blue,
+      yellow: colors.yellow,
       graph: '',
       clearfix: ' ',
       pattern: 'Cloudish',
       patterns: [
         {
           name: 'Hermit',
+          most: 'MOST SECURE',
           intro: 'The Hermit recipe is a pattern for ultimate application isolation where all logic is self-contained in the Window and the binary exists merely to bootstrap the Window. There is no communication back to Rust from the Window, there is no localhost server, and the Window has no access to any remote resources.',
           ratings: {
             easeOfUse: 5,
             security: 5,
             extensibility: 0
           },
+          bestWhen: 'Best when you want to lock down your app from all external influences.',
           configMD: `
 \`\`\`
 tauri: {
@@ -125,8 +145,9 @@ tauri: {
         },
         {
           name: 'Bridge',
+          most: 'MOST POPULAR',
           intro: 'The Bridge recipe is a secure pattern where messages are passed between brokers via an implicit bridge using the API.',
-          bestWhen: 'You are paranoid about security but still need the power of Rust.',
+          bestWhen: 'Best when you want two-way communication between Rust and WebView.',
           ratings: {
             easeOfUse: 4,
             security: 4,
@@ -210,12 +231,14 @@ tauri: {
         },
         {
           name: 'Cloudish',
-          intro: 'The Cloudish recipe is a pattern for maximum flexibility and app performance. It uses a localhost server, which means that your app will technically be available to other processes, like browsers and potentially other devices on the network.',
+          most: 'MOST EASY',
+          intro: 'The Cloudish recipe is a pattern for maximum flexibility and app performance. It uses a localhost server, which means that your app will technically be available to other processes, like browsers and potentially other devices on the network. All of your assets are baked into the binary, but served as if they were distinct files.',
           ratings: {
             easeOfUse: 4,
             security: 2,
             extensibility: 3
           },
+          bestWhen: 'Best when you have never used Rust before.',
           configMD: `
 \`\`\`
 tauri: {
@@ -261,12 +284,14 @@ tauri: {
         },
         {
           name: 'Cloudbridge',
-          intro: 'The Cloudbridge recipe combines the flexibility of a localhost and the security of the bridge.',
+          most: 'MOST COMPLEX',
+          intro: 'The Cloudbridge recipe combines the flexibility of a localhost and the security of the bridge. With so many features, it can be easy to get lost.',
           ratings: {
             easeOfUse: 2,
             security: 2,
             extensibility: 5
           },
+          bestWhen: 'Best when your project is complex and you need all available options.',
           configMD: `
 \`\`\`
 tauri: {
@@ -290,12 +315,14 @@ tauri: {
         },
         {
           name: 'Kamikaze',
+          most: 'MOST AWESOME',
           intro: 'The Kamikaze recipe is a minimal usage of the Bridge pattern, which only allows interaction between Rust and the Window via expiring JS Promise Closures that are injected into the Window by Rust and nulled as part of the callback.',
           ratings: {
             easeOfUse: 2,
             security: 5,
             extensibility: 4
           },
+          bestWhen: 'Best when you want Rust to drive the Webview.',
           configMD: `
 \`\`\`
 tauri: {
@@ -316,11 +343,10 @@ tauri: {
           `,
           graph: `graph LR
           H==>F
-          G-.-B
+          G-.->B
           B-->G
-          G-->F
           subgraph WEBVIEW
-          F
+          G-->F
           end
 
           subgraph RUST
@@ -331,19 +357,21 @@ tauri: {
           A[Binary]
           B[API:Event]
           F[Window]
-          G[Promise Closure]
+          G((Promise Closure))
           H{Bootstrap}
           style RUST fill:${colors.yellow.light},stroke:${colors.yellow.dark},stroke-width:4px
           style WEBVIEW fill:${colors.blue.light},stroke:${colors.blue.dark},stroke-width:4px`
         },
         {
           name: 'Multiwin',
+          most: 'MOSTLY VAPOR',
           intro: 'The Multiwin recipe will allow you to have multiple windows, some of which may be GL based. It is not yet available, but is in the research phase.',
           ratings: {
             easeOfUse: 1,
             security: 5,
             extensibility: 4
           },
+          bestWhen: 'Best when you need more than one window.',
           configMD: `
 \`\`\`
 tauri: {
@@ -405,6 +433,11 @@ tauri: {
       },
       set (toc) {
         this.$store.commit('common/toc', toc)
+      }
+    },
+    active: {
+      get () {
+        return this.patterns.find(p => p.name === this.pattern)
       }
     }
   },

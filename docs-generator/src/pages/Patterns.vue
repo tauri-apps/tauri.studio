@@ -17,12 +17,12 @@
               <q-rating class="col-5" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.easeOfUse"></q-rating>
             </div>
             <div class="row">
-              <span class="col-7 text-right q-pr-sm">Security: </span>
-              <q-rating class="col-5" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.security"></q-rating>
-            </div>
-            <div class="row">
               <span class="col-7 text-right q-pr-sm">Extensibility: </span>
               <q-rating class="col-5" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.extensibility"></q-rating>
+            </div>
+            <div class="row">
+              <span class="col-7 text-right q-pr-sm">Security: </span>
+              <q-rating class="col-5" color="cyan-10" readonly v-model="patterns.find(p => p.name === pattern).ratings.security"></q-rating>
             </div>
           </div>
           <img class="col-1 q-mt-xs" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto">
@@ -80,7 +80,7 @@ export default {
       mermaidHTML: '',
       graph: '',
       clearfix: ' ',
-      pattern: 'Bridge',
+      pattern: 'Cloudish',
       patterns: [
         {
           name: 'Hermit',
@@ -209,26 +209,78 @@ tauri: {
         },
         {
           name: 'Cloudish',
-          intro: 'The Cloudish recipe is a pattern for maximum flexibility and app performance',
+          intro: 'The Cloudish recipe is a pattern for maximum flexibility and app performance. It uses a localhost server, which means that your app will technically be available to other processes, like browsers and potentially other devices on the network.',
           ratings: {
             easeOfUse: 4,
-            security: 3,
+            security: 2,
             extensibility: 3
           },
+          configMD: `
+\`\`\`
+tauri: {
+  embeddedServer: {
+    active: true                // ship with a localhost server
+  },
+  whitelist: {
+    all: false                  // disable entire API
+  },
+  security: {
+    csp: 'default-src data: http: https: \\'unsafe-eval\\' \\'unsafe-inline\\''
+  }
+}
+\`\`\`
+          `,
           graph: `graph LR
-          A-- Bootstrap -->F
-          A[Rust Binary]
-          F[WebView Window]
-          `
+          H==>F
+          H==>D
+          D-->F
+          F-->D
+
+          subgraph RUST
+          A==>H
+          end
+
+          subgraph WEBVIEW
+          F
+          end
+
+          subgraph SERVER
+          D
+          E-->D
+          end
+
+          A[Binary]
+          D(( localhost ))
+          E[bundled resources]
+          F[Window]
+          H{Bootstrap}
+          style RUST fill:${colors.yellow.light},stroke:${colors.yellow.dark},stroke-width:4px
+          style WEBVIEW fill:${colors.blue.light},stroke:${colors.blue.dark},stroke-width:4px
+          style SERVER fill:#49A24A,stroke:#2B6063,stroke-width:4px`
         },
         {
           name: 'Cloudbridge',
           intro: 'The Cloudbridge recipe combines the flexibility of a localhost and the security of the bridge.',
           ratings: {
-            easeOfUse: 3,
-            security: 3,
+            easeOfUse: 2,
+            security: 2,
             extensibility: 5
           },
+          configMD: `
+\`\`\`
+tauri: {
+  embeddedServer: {
+    active: true                // ship with a localhost server
+  },
+  whitelist: {
+    all: true                   // enable entire API
+  },
+  security: {
+    csp: 'default-src data: http: https: \\'unsafe-eval\\' \\'unsafe-inline\\''
+  }
+}
+\`\`\`
+          `,
           graph: `graph LR
           A== Bootstrap ==>F
           A[Rust Binary]
@@ -262,7 +314,6 @@ tauri: {
 \`\`\`
           `,
           graph: `graph LR
-          A==>H
           H==>F
           G-.-B
           B-->G
@@ -273,6 +324,7 @@ tauri: {
 
           subgraph RUST
           A-->B
+          A==>H
           end
 
           A[Binary]

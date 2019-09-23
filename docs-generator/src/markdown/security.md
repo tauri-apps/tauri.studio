@@ -11,7 +11,7 @@ If you need help or want a review, you are welcome to contact the Tauri team for
 ### Security Researchers
 If you feel that there is a security concern or issue with anything in Tauri, please do not publicly comment on your findings. Instead, reach out directly to our security team:
 
-    security@tauri-apps.org
+> <center>security@tauri-apps.org</center>
 
 Although we do not currently have a budget for Security Bounties, in some cases we will consider rewarding responsible disclosure with our limited resources.
 
@@ -24,25 +24,31 @@ This process of compilation happens several times during the build phase of a Ta
 Hashing important messages with a OTP salt, you are able to encrypt messages between the UI and the Rust backend.
 
 ### functional ASLR
-Address Space Layout Randomization techniques randomize function names at runtime and implement optional OTP hashing so no two sessions are ever the same. We propose a novel type of function naming at boot time and optionally after every execution. Using a UID for each function prevents static attacks.
-
-### Kamikaze Function Injection
-This advanced type of fASLR is a promise wrapped in a closure (with randomized handle) that Rust inserts at runtime into the Webview, where its interface is locked within the promise resolution handler and is nulled after execution.
-
-### API Whitelisting
-You have the ability to pick and choose which API functions are available to the UI and to Rust. If they are not enabled, the code will not be shipped with your app, which reduces binary size and attack surface.
+Functional address Space Layout Randomization techniques randomize function names at runtime and can implement OTP hashing so no two sessions are ever the same. We propose a novel type of function naming at boot time and optionally after every execution. Using a UID for each function pointer prevents static attacks.
 
 ### Bridge, don't serve
 Instead of passing potentially unsafe functions, a bridge can be used to pass messages and commands to named brokers at each respective side of the bridge. Most of the time you don't NEED a local server, and its inclusion opens security gaps in the final application.
 
+### API Whitelisting
+You have the ability to pick and choose which API functions are available to the UI and to Rust. If they are not enabled, the code will not be shipped with your app, which reduces binary size and attack surface.
+
+### Kamikaze Function Injection
+This advanced type of fASLR using the `EVENT` API endpoint, is a promise wrapped in a closure (with randomized handle) that Rust inserts at runtime into the Webview, where its interface is locked within the promise resolution handler and is nulled after execution.
+
 ### Content Security Policy Management
 Preventing unauthorized code execution for websites has long since been "resolved" by using CSPs. Tauri can inject CSPs into the index.html of the user interface, and when using a localhost server it will also send these headers to the UI or any other clients that connect with it.
 
-### Bundled Tauri Apps are true Binaries
+### Decompilation is Difficult
 This means that your apps cannot be easily decompiled as is the case with Electron ASAR  files, which makes the process of reverse engineering your project much more time intensive and requires specialist training.
+
+### Signed Binaries
+Because the entire project is shipped within a monolithic binary, code can be signed for all distributables. This makes it virtually impossible for hackers to change an installed Application without the operating system noticing. [Reference](https://github.com/electron/asar/issues/123)
 
 ### Post-Binary Analysis
 Use industrial-grade pentester-tooling (via our custom Tauri-Frida GUI) to discover and fix security weaknesses in your final binaries. 
 
 ### Post-Binary Enhancement
 After the build is before the shipping, and Tauri will provide you with advanced processes for integrated licensing including multi-layer checksums,
+
+## Audits
+We have not yet undertaken an audit, but this is planned to be realized before the 1.0 stable release.

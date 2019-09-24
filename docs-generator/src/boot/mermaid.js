@@ -6,6 +6,7 @@ mermaid.initialize({
   theme: 'neutral',
   fontFamily: '"Roboto"',
   securityLevel: 'loose',
+  arrowMarkerAbsolute: true,
   flowchart: {
     useMaxWidth: true,
     htmlLabels: true,

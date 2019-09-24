@@ -8673,7 +8673,7 @@ quasar-app-extension-qautomate@^1.0.0-alpha.5:
     param-case "^2.1.1"
     ware-loader "^0.2.4"
 
-quasar@^1.1.3:
+quasar@^1.1.4:
   version "1.1.4"
   resolved "https://registry.npmjs.org/quasar/-/quasar-1.1.4.tgz#7323c713a2f3f7b2085632cbce50b1246fe37551"
   integrity sha512-A6SI9vQNFBQ10DjAeSAVtvARbdyZ5uHE5ecGTreMCuKULehWnsJEsRmohM3GU4SttINesONCN99D3Lek10nwRA==

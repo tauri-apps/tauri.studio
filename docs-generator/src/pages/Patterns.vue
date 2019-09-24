@@ -1,7 +1,10 @@
 <template>
   <hero>
     <div id="padding" style="padding-top:260px"></div>
-    <p class="q-mt-xl">Tauri patterns are descriptions of use-cases that are entirely configurable within the Tauri configuration file. These are not the limits of what Tauri can do, and there are probably more out there. If you discover one, why not get in touch and help us update this collection!
+    <p class="q-mt-xl">Tauri patterns are descriptions of use-cases that are entirely configurable within the tauri.conf.js file. These are not the limits of what Tauri can do, and there are probably more out there. If you discover one, why not get in touch and help us update this collection!
+    </p>
+    <p>If you haven't read about the general design of Tauri, then it would make the most sense for you to visit the
+      <router-link to="/docs">INTRODUCTION</router-link> and become familiar with the basic architecture and terminology used in these patterns.
     </p>
     <q-card class="q-mt-xl">
       <q-card-section class="text-center" style="padding-bottom:-20px">
@@ -12,23 +15,37 @@
         <q-ribbon :leaf-color="yellow.dark" :background-color="yellow.light" color="black" style="margin:-16px" type="corner" position="top-right">
           <small class="q-pa-md text-weight-bold">{{ active.most }}</small>
         </q-ribbon>
-        <div id="tryout" class="fit row inline wrap justify-center" style="margin-top:26px">
-          <img class="col-1 q-mt-lg q-mr-md" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto">
+        <div id="tryout" class="fit row inline wrap" style="margin-top:26px">
+          <img class="col-1 q-mt-md q-mr-md" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto">
           <h4 class="col-grow text-weight-light text-cyan-10" style="margin:-30px 0">{{ pattern }}</h4>
-          <span class="col-12 q-pa-sm text-weight-bold text-black" style="margin:-25px 0 0 110px">{{ active.bestWhen }}</span>
-          <div class="col-grow"></div>
-          <div class="col-12 alight-right justify-end q-ma-sm">
-            <div class="row">
-              <span class="col-6 text-right q-pr-sm" style="white-space: nowrap">Ease of Use: </span>
-              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="active.ratings.easeOfUse"></q-rating>
+          <span class="col-12 q-pa-sm text-weight-bold text-black">{{ active.bestWhen }}</span>
+
+          <div class="row justify-around full-width">
+            <div class="col-sm-5 col-xs-12">
+              <ul class="text-weight-bold"> Pros:
+                <li class="text-weight-regular row-12" v-for="p in active.pros" v-bind:key="p.id"  >{{ p }}</li>
+              </ul>
+              <ul class="text-weight-bold"> Cons:
+                <li class="text-weight-regular row-12" v-for="p in active.cons" v-bind:key="p.id">{{ p }}</li>
+              </ul>
             </div>
-            <div class="row">
-              <span class="col-6 text-right q-pr-sm">Extensibility: </span>
-              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="active.ratings.extensibility"></q-rating>
-            </div>
-            <div class="row">
-              <span class="col-6 text-right q-pr-sm">Security: </span>
-              <q-rating class="col-6 inline-block" color="cyan-10" readonly v-model="active.ratings.security"></q-rating>
+            <div class="col-sm-5 col-xs-12 q-mt-md block text-left">
+              <div class="row">
+                <span class="col-6 text-right q-pr-sm" style="white-space: nowrap">Ease of Use: </span>
+                <q-rating class="col-6 inline-block" color="cyan-10" readonly :value="active.ratings.easeOfUse"></q-rating>
+              </div>
+              <div class="row">
+                <span class="col-6 text-right q-pr-sm">Extensibility: </span>
+                <q-rating class="col-6 inline-block" color="cyan-10" readonly :value="active.ratings.extensibility" :max="active.ratings.extensibility >= 6 ? active.ratings.extensibility : 5"></q-rating>
+              </div>
+              <div class="row">
+                <span class="col-6 text-right q-pr-sm">Performance: </span>
+                <q-rating class="col-6 inline-block" color="cyan-10" readonly :value="active.ratings.performance" :max="active.ratings.performance >= 6 ? active.ratings.performance : 5"></q-rating>
+              </div>
+              <div class="row">
+                <span class="col-6 text-right q-pr-sm">Security: </span>
+                <q-rating class="col-6 inline-block" color="cyan-10" readonly :value="active.ratings.security" :max="active.ratings.security >= 6 ? active.ratings.security : 5"></q-rating>
+              </div>
             </div>
           </div>
         </div>
@@ -36,23 +53,17 @@
       <q-separator></q-separator>
       <q-card-section>
 
-        <p class="row">{{ active.intro }}</p>
+        <q-markdown :src="active.intro"></q-markdown>
 
         <div class="text-center" id="temp" v-html="graph"></div>
       </q-card-section>
       <q-separator></q-separator>
-      <q-card-section>
+      <!--<q-card-section>
         <ul class="text-weight-bold"> Features:
           <li class="text-weight-regular row-12" v-for="p in active.features" v-bind:key="p.id"  >{{ p }}</li>
         </ul>
-        <ul class="text-weight-bold"> Pros:
-          <li class="text-weight-regular row-12" v-for="p in active.pros" v-bind:key="p.id"  >{{ p }}</li>
-        </ul>
-        <ul class="text-weight-bold"> Cons:
-          <li class="text-weight-regular row-12" v-for="p in active.cons" v-bind:key="p.id">{{ p }}</li>
-        </ul>
       </q-card-section>
-      <q-separator></q-separator>
+      <q-separator></q-separator>-->
       <q-card-section>
         <h6>Configuration</h6>
         <span>tauri.conf.js</span>
@@ -104,13 +115,26 @@ export default {
         {
           name: 'Hermit',
           most: 'MOST SECURE',
-          intro: 'The Hermit recipe is a pattern for ultimate application isolation where all logic is self-contained in the Window and the binary exists merely to bootstrap the Window. There is no communication back to Rust from the Window, there is no localhost server, and the Window has no access to any remote resources.',
+
+          intro: 'The Hermit recipe is a pattern for ultimate application isolation where all logic is self-contained in the Window and the binary exists merely to bootstrap the Window. There is no communication back to Rust from the Window, there is no localhost server, and the Window has no access to any remote resources. The Hermit is great for interactive Kiosk Mode and standalone HTML based games.',
           ratings: {
             easeOfUse: 5,
             security: 5,
-            extensibility: 0
+            extensibility: 0,
+            performance: 6
           },
           bestWhen: 'Best when you want to lock down your app from all external influences.',
+          features: [
+            'Locked down interface'
+          ],
+          pros: [
+            'Quick to make',
+            'Smallest size'
+          ],
+          cons: [
+            'No remote resources',
+            'No access to API'
+          ],
           configMD: `
 \`\`\`
 tauri: {
@@ -146,29 +170,21 @@ tauri: {
         {
           name: 'Bridge',
           most: 'MOST POPULAR',
-          intro: 'The Bridge recipe is a secure pattern where messages are passed between brokers via an implicit bridge using the API.',
+          intro: 'The Bridge recipe is a secure pattern where messages are passed between brokers via an implicit bridge using the API. ',
           bestWhen: 'Best when you want two-way communication between Rust and WebView.',
           ratings: {
-            easeOfUse: 4,
+            easeOfUse: 3,
             security: 4,
-            extensibility: 5
+            extensibility: 5,
+            performance: 4
           },
-          features: [
-            'render UI securely at bootstrap',
-            'promise based message passing',
-            'RW access to filesystem',
-            'STDOUT access to other binaries',
-            'extensible with Rust functions',
-            'whitelist for functional codegen',
-            'runtime message salting',
-            'fASLR & AoT Compiling'
-          ],
           pros: [
-            'highly configurable',
-            'infinitely extensible'
+            'Highly configurable',
+            'Rust skills not required'
           ],
           cons: [
-            'rust skills virtually required'
+            'Some WebAPIs unavailable',
+            'Challenge to implement'
           ],
           configMD: `
 \`\`\`
@@ -236,9 +252,18 @@ tauri: {
           ratings: {
             easeOfUse: 4,
             security: 2,
-            extensibility: 3
+            extensibility: 3,
+            performance: 3
           },
           bestWhen: 'Best when you have never used Rust before.',
+          pros: [
+            'No Rust skills necessary',
+            'Similar to a SPA web-app'
+          ],
+          cons: [
+            'No access to Rust API',
+            'Uses a localhost server'
+          ],
           configMD: `
 \`\`\`
 tauri: {
@@ -289,9 +314,18 @@ tauri: {
           ratings: {
             easeOfUse: 2,
             security: 2,
-            extensibility: 5
+            extensibility: 6,
+            performance: 2
           },
           bestWhen: 'Best when your project is complex and you need all available options.',
+          pros: [
+            'All available features',
+            'Rust skills not required'
+          ],
+          cons: [
+            'Largest bundle size',
+            'Hard to separate concerns'
+          ],
           configMD: `
 \`\`\`
 tauri: {
@@ -319,10 +353,22 @@ tauri: {
           intro: 'The Kamikaze recipe is a minimal usage of the Bridge pattern, which only allows interaction between Rust and the Window via expiring JS Promise Closures that are injected into the Window by Rust and nulled as part of the callback.',
           ratings: {
             easeOfUse: 2,
-            security: 5,
-            extensibility: 4
+            security: 6,
+            extensibility: 4,
+            performance: 5
           },
           bestWhen: 'Best when you want Rust to drive the Webview.',
+          features: [
+            'Locked down interface.'
+          ],
+          pros: [
+            'Highest security rating',
+            'Elegant and powerful'
+          ],
+          cons: [
+            'Rust skills required',
+            'No remote resources'
+          ],
           configMD: `
 \`\`\`
 tauri: {
@@ -364,14 +410,23 @@ tauri: {
         },
         {
           name: 'Multiwin',
-          most: 'MOSTLY VAPOR',
-          intro: 'The Multiwin recipe will allow you to have multiple windows, some of which may be GL based. It is not yet available, but is in the research phase.',
+          most: 'COMING SOON ',
+          intro: 'The Multiwin recipe will allow you to have multiple windows, some of which may be GL based.\n\nPlease note: This Pattern is not yet available.',
           ratings: {
             easeOfUse: 1,
             security: 5,
-            extensibility: 4
+            extensibility: 4,
+            performance: 3
           },
           bestWhen: 'Best when you need more than one window.',
+          pros: [
+            'Access to GL context',
+            'Separation of concerns'
+          ],
+          cons: [
+            'Extremely complex',
+            'Not yet available'
+          ],
           configMD: `
 \`\`\`
 tauri: {
@@ -411,6 +466,62 @@ tauri: {
           style GLUTIN stroke:${colors.blue.dark},stroke-width:4px
           style RUST fill:${colors.yellow.light},stroke:${colors.yellow.dark},stroke-width:4px
           style WEBVIEW fill:${colors.blue.light},stroke:${colors.blue.dark},stroke-width:4px`
+        },
+        {
+          name: 'GLUI',
+          most: 'EXPERMIMENTAL',
+          intro: 'The GLUI is a research pattern that we will use internally to test approaches using a GLUTIN window. We\'re not sure yet if it will make the final cut as a bona fide alternative to Webview, although early tests with transparent and multiwindow are exciting.\n\nPlease note: This Pattern is not available.',
+          ratings: {
+            easeOfUse: 0,
+            security: 0,
+            extensibility: 0,
+            performance: 5
+          },
+          bestWhen: 'Best when you want to help Tauri evolve.',
+          pros: [
+            'Framebuffer FTW',
+            'Window events rigged'
+          ],
+          cons: [
+            'In development',
+            'Broken on your machine'
+          ],
+          configMD: `
+\`\`\`
+tauri: {
+  embeddedServer: {
+    active: false               // do not use a localhost server
+  },
+  whitelist: {                  // all API endpoints are default true
+    all: false,                // Use the EVENT API for injections
+  },
+  window: {
+    glutin: true,
+    webview: false
+  }
+}
+\`\`\`
+          `,
+          graph: `graph LR
+          A==>H
+          H==>G
+          A-->D
+          D-->G
+
+          subgraph GLUTIN
+          G
+          end
+
+          subgraph RUST
+          A
+          end
+
+          A[Binary]
+          D(Framebuffer)
+          G[GL Window]
+          H{Bootstrap}
+          style GLUTIN stroke:${colors.blue.dark},stroke-width:4px
+          style RUST fill:${colors.yellow.light},stroke:${colors.yellow.dark},stroke-width:4px`
         }
       ]
     }
@@ -454,7 +565,7 @@ tauri: {
     goMermaid (pattern) {
       // null it so that we don't accidentally append
       this.graph = null
-      // const thing = `graph LR\nA --> B\nA[${val}]`
+
       // otherwise mermaid gets lost
       this.$nextTick(() => {
         this.graph = this.$mermaid.render('mermaid', pattern)
@@ -466,6 +577,9 @@ tauri: {
 }
 </script>
 <style lang="stylus">
-.active
-  ba
+
+#mermaid .arrowheadPath
+  fill #2B6063!important
+#mermaid .path
+  stroke #2B6063!important
 </style>

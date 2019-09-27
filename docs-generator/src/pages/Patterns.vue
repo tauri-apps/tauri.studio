@@ -110,7 +110,7 @@ export default {
       yellow: colors.yellow,
       graph: '',
       clearfix: ' ',
-      pattern: 'Cloudish',
+      pattern: 'Bridge',
       patterns: [
         {
           name: 'Hermit',
@@ -247,10 +247,10 @@ tauri: {
         },
         {
           name: 'Cloudish',
-          most: 'MOST EASY',
+          most: 'MOST SIMPLE',
           intro: 'The Cloudish recipe is a pattern for maximum flexibility and app performance. It uses a localhost server, which means that your app will technically be available to other processes, like browsers and potentially other devices on the network. All of your assets are baked into the binary, but served as if they were distinct files.',
           ratings: {
-            easeOfUse: 4,
+            easeOfUse: 5,
             security: 2,
             extensibility: 3,
             performance: 3

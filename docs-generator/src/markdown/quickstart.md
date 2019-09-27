@@ -15,7 +15,7 @@ After tauri has compiled its rust resources, look in the `src-tauri/target/relea
 ### Windows 64 or 32 bit
 You will need to have Visual Studio and windows-build-tools installed.
 
-First you should visit the [Microsoft docs](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019) and install Visual Studio.
+First you should [download](https://aka.ms/buildtools) and install Visual Studio.
 
     $ npm install --global windows-build-tools
 

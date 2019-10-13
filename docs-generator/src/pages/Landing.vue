@@ -22,6 +22,13 @@
       </q-carousel-slide>
     </q-carousel>
 
+    <div id="testimonials">
+      <br><br>
+      <q-markdown>
+> I never understood why HTML/JS etc. should not be separated from rust and processed into a separate area. All frameworks I tested and tried always wanted to squeeze the HTML or design area IN Rust. What if I have a UI team and a backend team? With Tauri it's incredibly easy, I can separate the UI from the code and the frontend developers don't even have to know Rust. - **PeShor**
+      </q-markdown>
+    </div>
+
     <div id="Quicklinks" class="row full-width wrap justify-center items-center content-center items-start q-mt-xl">
       <q-card class="q-ma-md col-md-3 col-sm-5 q-mt-sm bg-cyan-1"  flat bordered v-for="(item, index) in actions" :key="index">
         <q-icon :name="item.icon" class="float-left q-pa-lg q-ma-xs text-h5" style="margin: 11px 5px -1px 10px"></q-icon>
@@ -33,6 +40,7 @@
         </q-card-actions>
       </q-card>
     </div>
+
     <!-- roadmap -->
     <q-card id="Roadmap" class="q-ma-xl full-width bg-cyan-1"  flat bordered>
       <q-card-section class="justify-center items-center content-center text-center">
@@ -181,7 +189,7 @@ export default {
       ],
       actions: [
         {
-          icon: 'ti-lock',
+          icon: 'ti-crown',
           claim: 'Tauri is a polyglot toolchain for building more secure native apps with both tiny and fast binaries.',
           btnLabel: 'Get Setup!',
           btnTarget: '/docs/quickstart'
@@ -199,7 +207,7 @@ export default {
           btnTarget: '/docs/bundler'
         },
         {
-          icon: 'ti-shift-right',
+          icon: 'ti-key',
           claim: 'Tauri has many design patterns to help you choose important features with simple configuration.',
           btnLabel: 'Discover!',
           btnTarget: '/docs/patterns'

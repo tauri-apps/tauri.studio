@@ -20,7 +20,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (htmlWebpackPlugin.options.ctx.mode.cordova) { %>, viewport-fit=cover<% } %>">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (htmlWebpackPlugin.options.ctx.mode.cordova || htmlWebpackPlugin.options.ctx.mode.capacitor) { %>, viewport-fit=cover<% } %>">
     <link rel="icon" type="image/png" href="statics/app-logo-128x128.png">
     <link rel="icon" type="image/png" sizes="16x16" href="statics/icons/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="statics/icons/favicon-32x32.png">
@@ -28,6 +28,15 @@
     <link rel="icon" type="image/ico" href="statics/icons/favicon.ico">
   </head>
   <body style="background-repeat:repeat-x;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAASLCAIAAADbE0BzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAVUlEQVRYhe3NIQ6AQBBD0Zl2ViC4Bh7J/R0h3AaPIJBsAhrzxTO/ojHNiyICF4/DoYiIfVtVVaoq2X601mSra7aVmbItScrMztvX3b92AAAAAACAH5wLVw2ltqAZ/QAAAABJRU5ErkJggg==)">
+    <script>
+      (function(){
+        let redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <!-- DO NOT touch the following DIV -->
     <div id="q-app"></div>
   </body>

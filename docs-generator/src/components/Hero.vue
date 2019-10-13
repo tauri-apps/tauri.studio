@@ -12,12 +12,22 @@
           <q-btn dense size="small" to="/docs/patterns" class="btn" label="Patterns" no-caps  color="yellow-2" text-color="black"/>
           <q-btn v-if="showDocs" dense size="small" to="/docs" class="btn" label="Docs" no-caps  color="yellow-2" text-color="black"/>
         </div>
-      <div v-else class="absolute-right" style="margin:18px 35px 0 0;">
+      <div class="absolute-right" style="margin:18px 35px 0 0;">
         <q-btn-dropdown dense color="yellow-2" :label="current" no-caps text-color="black" class="q-mr-lg">
           <q-list color="yellow-2" >
             <q-item clickable v-close-popup to="/docs" v-if="showDocs" @click="current='Docs'">
               <q-item-section>
                 <q-item-label>Docs</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item clickable v-close-popup to="/book" v-if="showDocs" @click="current='Book'">
+              <q-item-section>
+                  <q-item-label>Book</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item clickable v-close-popup to="/docs/api" v-if="showDocs" @click="current='API'">
+              <q-item-section>
+                  <q-item-label>API</q-item-label>
               </q-item-section>
             </q-item>
             <q-item clickable v-close-popup to="/docs/quickstart">

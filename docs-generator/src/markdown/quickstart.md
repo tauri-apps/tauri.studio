@@ -13,11 +13,25 @@ After tauri has compiled its rust resources, look in the `src-tauri/target/relea
 
 ## Add Rust and Build Toolchain
 ### Windows 64 or 32 bit
-You will need to have Visual Studio and windows-build-tools installed.
 
-First you should [download](https://aka.ms/buildtools) and install Visual Studio.
+> If you've never installed any of this, 
 
-    $ npm install --global windows-build-tools
+First you should [download](https://aka.ms/buildtools) and install Visual Studio MSBuild Tools and C++ build tools.
+
+> This is a big download (over 1GB) and takes the most time
+
+Chocolatey is a great package manager for Windows. Follow these [these official instructions](https://chocolatey.org/install), or just do this:
+
+Then install [nvm-windows](https://github.com/coreybutler/nvm-windows)
+Then install Chocolatey
+
+    # BE SURE YOU ARE IN AN ADMINISTRATIVE PowerShell!
+    > nvm install 10.16.3
+    > nvm use 10.16.3
+    > Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    > choco install yarn
+    > 
+    
 
 If you are running Windows 64-bit, download and run [rustup‑init.exe](https://win.rustup.rs/x86_64) and then follow the onscreen instructions.
 

@@ -14,7 +14,7 @@ After tauri has compiled its rust resources, look in the `src-tauri/target/relea
 ## Add Rust and Build Toolchain
 ### Windows 64 or 32 bit
 
-> If you've never installed any of this, 
+> If you've never installed any of this,
 
 First you should [download](https://aka.ms/buildtools) and install Visual Studio MSBuild Tools and C++ build tools.
 
@@ -30,8 +30,8 @@ Then install Chocolatey
     > nvm use 10.16.3
     > Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     > choco install yarn
-    > 
-    
+    >
+
 
 If you are running Windows 64-bit, download and run [rustup‑init.exe](https://win.rustup.rs/x86_64) and then follow the onscreen instructions.
 
@@ -62,12 +62,12 @@ First install Ubuntu then:
 Make sure that `rustc` and `cargo` are in your $PATH. Run
 
     $ rustc --version
-    latest update on 2019-07-04, rust version 1.37.0
+    latest update on 2019-11-07, rust version 1.39.0
 
-and make sure you are on latest update on 2019-07-04, rust version 1.37.0 - otherwise be sure to update.
+and make sure you are on latest update on 2019-11-07, rust version 1.39.0 - otherwise be sure to update.
 
     $ rustup update stable
-    $ rustup override set 1.37.0
+    $ rustup override set 1.39.0
 
 
 ## About `rustup` (from their [website](https://rustup.rs))
@@ -80,15 +80,15 @@ This directory will be in your `$PATH` environment variable, which means you can
 or run:
 
     source $HOME/.cargo/env
-    
+
     # and then
-    
+
     $ rustc --version
 
-If you don't see 1.37.0 or later, then you'll need to upgrade your rust.
- 
+If you don't see 1.39.0 or later, then you'll need to upgrade your rust.
+
     $ rustup update stable
-    $ rustup override set 1.37.0
+    $ rustup override set 1.39.0
 
 ### bundler
 After you have installed Rust and the build toolchain, it is wise to open a new shell before continuing.
@@ -132,9 +132,9 @@ add this to your `/src-tauri/Cargo.toml` (currently being used in the /test proj
 UPX, **Ultimate Packer for eXecutables**, is a dinosaur amongst the binary packers. This 23-year old, well-maintained piece of kit is GPL-v2 licensed with a pretty liberal usage declaration. Our understanding of the licensing is that you can use it for any purposes (commercial or otherwise) without needing to change your license unless you modify the source code of UPX.
 
  Basically it compresses the binary and decompresses it at runtime. It should work for pretty much any binary type out there. Read more: https://github.com/upx/upx
- 
+
 > You should know that this technique might flag your binary as a virus on Windows and MacOS - so use at your own discretion, and as always validate with Frida and do real distribution testing!
- 
+
 #### Usage on MacOS
     $ brew install upx
     $ yarn tauri build
@@ -142,11 +142,11 @@ UPX, **Ultimate Packer for eXecutables**, is a dinosaur amongst the binary packe
                            Ultimate Packer for eXecutables
                               Copyright (C) 1996 - 2018
     UPX 3.95        Markus Oberhumer, Laszlo Molnar & John Reiser   Aug 26th 2018
-    
+
             File size         Ratio      Format      Name
        --------------------   ------   -----------   -----------
-        963140 ->    274448   28.50%   macho/amd64   app 
+        963140 ->    274448   28.50%   macho/amd64   app
 
 ## error reporting
-Please report all library errors at https://github.com/tauri-apps/tauri 
+Please report all library errors at https://github.com/tauri-apps/tauri
 

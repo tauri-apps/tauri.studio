@@ -214,7 +214,7 @@ export default {
         },
         {
           icon: 'ti-shield',
-          claim: 'With security features baked in and many additional tools available, you code be safer than ever.',
+          claim: 'With security features baked in and many additional tools available, your code will be safer than ever.',
           btnLabel: 'Be Safer!',
           btnTarget: '/docs/security'
         },

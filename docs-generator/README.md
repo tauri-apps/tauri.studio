@@ -1,26 +1,5 @@
-# Quasar App (docs-generator)
+# tauri-apps.org
+This is the repo for the documentation site.
 
-A Quasar Framework app
-
-## Install the dependencies
-```bash
-yarn
-```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
-
-### Lint the files
-```bash
-yarn run lint
-```
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+## Building
+Clone the repo, add the node modules with yarn or npm, run `quasar build`.

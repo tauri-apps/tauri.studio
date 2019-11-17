@@ -9,8 +9,10 @@ Release: late 2020
 ### tl;dr;
 Visit https://opencollective.com/tauri and preorder your copy of the book today. Your donation will support the ongoing development of Tauri, and you will receive advance digital pdf's for your review as chapters are completed. The final book will ship concurrently with the release of 1.0.0 stable.
 
-If you donote 10 USD / month to Tauri, you will get the advance PDF versions as soon as they are released. 
-If you just want to donate once, One time donation: 15 USD for pdf and ebook, 30 USD for print version and pdf, 40 USD for all three.
+If you donate 10 USD / month to Tauri, you will get the advance PDF versions as soon as they are released. 
+If you just want to donate once: 15 USD for pdf and e-book, 30 USD for print version and pdf, 40 USD for all three.
+
+All tutorial subscription tiers receive the rolling PDF free of additional charge.
 
 ### Introduction
 In 2020, the manufacture of native-apps has become easier and more accessible than ever before. All the same, beginners and seasoned developers alike are confronted with tough choices in a rapidly changing landscape of security and privacy. This is especially true in the semi-trusted environment of user devices. 
@@ -198,7 +200,7 @@ And you will be able to:
     - Ubiquitous Resources are Still Precious
     - Use Policy to Address Responsibilities
     - Take a Hippocratic Development Oath
-2.  Take a More Secure Stance  (with Liran Tal (SNYK))
+2.  Take a More Secure Stance (with Liran Tal (SNYK))
     - Security Benefits of Frameworks
     - Encrypt All the Things, All the Time
     - Constantly Audit Project Dependencies
@@ -282,8 +284,8 @@ And you will be able to:
  2. Files and Repositories
  3. Tauri CLI references
  4. Tauri API references
- 5. Important ES6 References
- 6. Important Rust References
+ 5. ES6 References
+ 6. Rust References
  7. App Pattern Charts
  8. Tauri-Frida Reference
  9. Glossary

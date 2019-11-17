@@ -30,43 +30,8 @@ module.exports = function (ctx) {
       // lang: 'de', // Quasar language
 
       // all: true, // --- includes everything; for dev only!
-
-      components: [
-        'QCard',
-        'QCardSection',
-        'QCardActions',
-        'QDialog',
-        'QExpansionItem',
-        'QLayout',
-        'QHeader',
-        'QDrawer',
-        'QFooter',
-        'QPageContainer',
-        'QPage',
-        'QToolbar',
-        'QToolbarTitle',
-        'QBtn',
-        'QBtnGroup',
-        'QIcon',
-        'QList',
-        'QItem',
-        'QItemSection',
-        'QItemLabel',
-        'QPageScroller',
-        'QScrollArea',
-        'QSeparator',
-        'QTabs',
-        'QTab',
-        'QTabPanels',
-        'QTabPanel',
-        'QPageSticky',
-        'QBtnDropdown',
-        'QChip',
-        'QCarousel',
-        'QCarouselSlide',
-        'QParallax',
-        'QRating'
-      ],
+      all: 'auto',
+      components: [],
 
       directives: [
         'Ripple', 'Scroll', 'ClosePopup'

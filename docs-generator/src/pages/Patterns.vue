@@ -192,7 +192,7 @@ tauri: {
   embeddedServer: {
     active: false               // do not use a localhost server
   },
-  whitelist: {                  // all whitelist values are default:false
+  whitelist: {                  // all whitelist values are default false
     all: true,                  // use this flag to enable all API features
     answer: false,              // enable rust to direct the UI
     bridge: false,              // enable Quasar Bridge
@@ -375,7 +375,7 @@ tauri: {
   embeddedServer: {
     active: false               // do not use a localhost server
   },
-  whitelist: {                  // all API endpoints are default true
+  whitelist: {                  // all API endpoints are default false
     event: true,                // Use the EVENT API for injections
   },
   security: {
@@ -433,7 +433,7 @@ tauri: {
   embeddedServer: {
     active: false               // do not use a localhost server
   },
-  whitelist: {                  // all API endpoints are default true
+  whitelist: {                  // all API endpoints are default false
     event: true,                // Use the EVENT API for injections
   },
   security: {
@@ -492,7 +492,7 @@ tauri: {
   embeddedServer: {
     active: false               // do not use a localhost server
   },
-  whitelist: {                  // all API endpoints are default true
+  whitelist: {                  // all API endpoints are default false
     all: false,                // Use the EVENT API for injections
   },
   window: {

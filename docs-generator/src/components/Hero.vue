@@ -1,7 +1,11 @@
 <template>
   <div class="full-width q-pa-md">
     <q-page-sticky expand class="page-header fixed-top shadow-8 scroll-determined" v-scroll="scrolled" style="position:fixed!important">
-      <q-chip outline dense square icon="star" icon-right="star" class="claim text-weight-light text-black bg-cyan-1 shadow-8" style="top: 84%">Build more secure native apps with fast, tiny binaries.</q-chip>
+      <q-chip outline dense square class="claim text-weight-light text-black bg-cyan-1 shadow-8" style="top: 84%">
+        <q-icon name="star"></q-icon>
+        <span>Build more secure native apps with fast, tiny binaries.</span>
+        <q-icon name="star"></q-icon>
+      </q-chip>
       <div class="bg-container scroll-determined q-pa-md q-ml-lg"></div>
       <div>
         <router-link to="/">
@@ -165,7 +169,7 @@ export default {
   margin 0 auto
   left 20px
   right 20px
-  width 330px
+  width 363px
   text-align center
   color darkred
   i

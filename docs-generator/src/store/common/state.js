@@ -1,4 +1,5 @@
 export default {
   titlebarHeight: 0,
-  toc: []
+  toc: [],
+  rightDrawerOpen: false
 }

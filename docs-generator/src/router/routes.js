@@ -5,9 +5,9 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Landing.vue') },
-      { path: '/governance-and-guidance', component: () => import('pages/Governance.vue') },
-      { path: '/book', component: () => import('pages/Book.vue') }
+      { path: '', component: () => import('pages/Landing.vue'), meta: { name: 'Menu' } },
+      { path: '/governance-and-guidance', component: () => import('pages/Governance.vue'), meta: { name: 'Governance' } },
+      { path: '/book', component: () => import('pages/Book.vue'), meta: { name: 'Book' } }
     ]
   },
   {
@@ -17,12 +17,12 @@ const routes = [
     },
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Introduction.vue') },
-      { path: '/docs/quickstart', component: () => import('pages/Quickstart.vue') },
-      { path: '/docs/patterns', component: () => import('pages/Patterns.vue') },
-      { path: '/docs/examples', component: () => import('pages/Examples.vue') },
-      { path: '/docs/security', component: () => import('pages/Security.vue') },
-      { path: '/docs/api', component: () => import('pages/API.vue') }
+      { path: '', component: () => import('pages/Introduction.vue'), meta: { name: 'Docs' } },
+      { path: '/docs/quickstart', component: () => import('pages/Quickstart.vue'), meta: { name: 'Quickstart' } },
+      { path: '/docs/patterns', component: () => import('pages/Patterns.vue'), meta: { name: 'Patterns' } },
+      { path: '/docs/examples', component: () => import('pages/Examples.vue'), meta: { name: 'Examples' } },
+      { path: '/docs/security', component: () => import('pages/Security.vue'), meta: { name: 'Security' } },
+      { path: '/docs/api', component: () => import('pages/API.vue'), meta: { name: 'API' } }
     ]
   }
 ]

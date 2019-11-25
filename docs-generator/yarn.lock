@@ -1146,7 +1146,7 @@
   resolved "https://registry.npmjs.org/@positron/stack-trace/-/stack-trace-1.0.0.tgz#14fcc712a530038ef9be1ce6952315a839f466a8"
   integrity sha1-FPzHEqUwA475vhzmlSMVqDn0Zqg=
 
-"@quasar/app@1.2.4":
+"@quasar/app@^1.2.4":
   version "1.2.4"
   resolved "https://registry.npmjs.org/@quasar/app/-/app-1.2.4.tgz#f7288d802d590bf384f59ab4bd7555991a931706"
   integrity sha512-dxNile93EluJo84OJ9p20E/ep8vQTqDU5pzJJxBdsmW03vqCn/+f2BIXp/al6EWfnOM6S8HdQ/LfBDj7tqjTeg==
@@ -3100,6 +3100,13 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+crypto-random-string@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-3.0.1.tgz#29d7dc759d577a768afb3b7b2765dd9bd7ffe36a"
+  integrity sha512-dUL0cJ4PBLanJGJQBHQUkvZ3C4q13MXzl54oRqAIiJGiNkOZ4JDwkg/SBo7daGghzlJv16yW1p/4lIQukmbedA==
+  dependencies:
+    type-fest "^0.5.2"
+
 css-b64-images@~0.2.5:
   version "0.2.5"
   resolved "https://registry.npmjs.org/css-b64-images/-/css-b64-images-0.2.5.tgz#42005d83204b2b4a5d93b6b1a5644133b5927a02"
@@ -3527,6 +3534,43 @@ d3-zoom@1:
     d3-selection "1"
     d3-transition "1"
 
+d3@^5.12:
+  version "5.14.2"
+  resolved "https://registry.npmjs.org/d3/-/d3-5.14.2.tgz#a3fb3af016d362aaf4dacbe618ae949c1744b8c4"
+  integrity sha512-Ccipa9XrYW5N0QkP6u0Qb8kU6WekIXBiDenmZm1zLvuq/9pBBhRCJLCICEOsH5Og4B0Xw02bhqGkK5VN/oPH0w==
+  dependencies:
+    d3-array "1"
+    d3-axis "1"
+    d3-brush "1"
+    d3-chord "1"
+    d3-collection "1"
+    d3-color "1"
+    d3-contour "1"
+    d3-dispatch "1"
+    d3-drag "1"
+    d3-dsv "1"
+    d3-ease "1"
+    d3-fetch "1"
+    d3-force "1"
+    d3-format "1"
+    d3-geo "1"
+    d3-hierarchy "1"
+    d3-interpolate "1"
+    d3-path "1"
+    d3-polygon "1"
+    d3-quadtree "1"
+    d3-random "1"
+    d3-scale "2"
+    d3-scale-chromatic "1"
+    d3-selection "1"
+    d3-shape "1"
+    d3-time "1"
+    d3-time-format "2"
+    d3-timer "1"
+    d3-transition "1"
+    d3-voronoi "1"
+    d3-zoom "1"
+
 d3@^5.7.0:
   version "5.12.0"
   resolved "https://registry.npmjs.org/d3/-/d3-5.12.0.tgz#0ddeac879c28c882317cd439b495290acd59ab61"
@@ -3564,21 +3608,22 @@ d3@^5.7.0:
     d3-voronoi "1"
     d3-zoom "1"
 
-dagre-d3-renderer@^0.5.8:
-  version "0.5.8"
-  resolved "https://registry.npmjs.org/dagre-d3-renderer/-/dagre-d3-renderer-0.5.8.tgz#aa071bb71d3c4d67426925906f3f6ddead49c1a3"
-  integrity sha512-XH2a86isUHRxzIYbjQVEuZtJnWEufb64H5DuXIUmn8esuB40jgLEbUUclulWOW62/ZoXlj2ZDyL8SJ+YRxs+jQ==
+"dagre-d3@github:dagrejs/dagre-d3":
+  version "0.6.4-pre"
+  resolved "https://codeload.github.com/dagrejs/dagre-d3/tar.gz/e1a00e5cb518f5d2304a35647e024f31d178e55b"
   dependencies:
-    dagre-layout "^0.8.8"
-    lodash "^4.17.5"
+    d3 "^5.12"
+    dagre "^0.8.4"
+    graphlib "^2.1.7"
+    lodash "^4.17.15"
 
-dagre-layout@^0.8.8:
-  version "0.8.8"
-  resolved "https://registry.npmjs.org/dagre-layout/-/dagre-layout-0.8.8.tgz#9b6792f24229f402441c14162c1049e3f261f6d9"
-  integrity sha512-ZNV15T9za7X+fV8Z07IZquUKugCxm5owoiPPxfEx6OJRD331nkiIaF3vSt0JEY5FkrY0KfRQxcpQ3SpXB7pLPQ==
+dagre@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.npmjs.org/dagre/-/dagre-0.8.4.tgz#26b9fb8f7bdc60c6110a0458c375261836786061"
+  integrity sha512-Dj0csFDrWYKdavwROb9FccHfTC4fJbyF/oJdL9LNZJ8WUvl968P6PAKEriGqfbdArVJEmmfA+UyumgWEwcHU6A==
   dependencies:
-    graphlibrary "^2.2.0"
-    lodash "^4.17.5"
+    graphlib "^2.1.7"
+    lodash "^4.17.4"
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -5245,10 +5290,10 @@ graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.
   resolved "https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
   integrity sha1-TK+tdrxi8C+gObL5Tpo906ORpyU=
 
-graphlibrary@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.npmjs.org/graphlibrary/-/graphlibrary-2.2.0.tgz#017a14899775228dec4497a39babfdd6bf56eac6"
-  integrity sha512-XTcvT55L8u4MBZrM37zXoUxsgxs/7sow7YSygd9CIwfWTVO8RVu7AYXhhCiTuFEf+APKgx6Jk4SuQbYR0vYKmQ==
+graphlib@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.npmjs.org/graphlib/-/graphlib-2.1.7.tgz#b6a69f9f44bd9de3963ce6804a2fc9e73d86aecc"
+  integrity sha512-TyI9jIy2J4j0qgPmOOrHTCtpPqJGN/aurBwc6ZT+bRii+di1I+Wv3obRhVrmBEXet+qkMaEX67dXrwsd3QQM6w==
   dependencies:
     lodash "^4.17.5"
 
@@ -6955,16 +7000,17 @@ merge2@^1.3.0:
   resolved "https://registry.npmjs.org/merge2/-/merge2-1.3.0.tgz#5b366ee83b2f1582c48f87e47cf1a9352103ca81"
   integrity sha512-2j4DAdlBOkiSZIsaXk4mTE3sRS02yBHAtfy127xRV3bQUFqXkjHCHLW6Scv7DwNRbIWNHH8zpnz9zMaKXIdvYw==
 
-mermaid@^8.3.1:
-  version "8.3.1"
-  resolved "https://registry.npmjs.org/mermaid/-/mermaid-8.3.1.tgz#dbcc677e2077ce503f2b83aa13d33734a62d12bc"
-  integrity sha512-s3+IQJqpd++hplyz1DVmA68d1ZTUqr1R21EeQldPNtSpRwLuODqI0BxQAt0bI5oiet07lelqfs3FW4ewtIhfKQ==
+mermaid@^8.4.2:
+  version "8.4.2"
+  resolved "https://registry.npmjs.org/mermaid/-/mermaid-8.4.2.tgz#91d3d8e9541e72eed7a78d0e882db11564fab3bb"
+  integrity sha512-vYSCP2u4XkOnjliWz/QIYwvzF/znQAq22vWJJ3YV40SnwV2JQyHblnwwNYXCprkXw7XfwBKDpSNaJ3HP4WfnZw==
   dependencies:
     "@braintree/sanitize-url" "^3.1.0"
+    crypto-random-string "^3.0.1"
     d3 "^5.7.0"
-    dagre-d3-renderer "^0.5.8"
-    dagre-layout "^0.8.8"
-    graphlibrary "^2.2.0"
+    dagre "^0.8.4"
+    dagre-d3 dagrejs/dagre-d3
+    graphlib "^2.1.7"
     he "^1.2.0"
     lodash "^4.17.11"
     minify "^4.1.1"
@@ -8829,10 +8875,10 @@ qs@~6.5.2:
   resolved "https://registry.npmjs.org/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-quasar@^1.4.3:
-  version "1.4.3"
-  resolved "https://registry.npmjs.org/quasar/-/quasar-1.4.3.tgz#c7d52eeeac2c4f507038368d18897fd62a49c365"
-  integrity sha512-0647iJgyF52R35RWQcIHfWz8phA5XbCb46TM2R93JnyguYxoxBpG7vIU5ltgc8huKcRYpvlz+DHUd317WjsMPw==
+quasar@^1.4.5:
+  version "1.4.5"
+  resolved "https://registry.npmjs.org/quasar/-/quasar-1.4.5.tgz#abdefe4628fd7f51f2b53c02e702ebe6b4d89807"
+  integrity sha512-LzLQ0kb8L9m4yFffPRh9Wmf/lewDXeED27XIO+WgQUzB4f+SVxnaAr64WL/Cj4m8Xd44VteXRzNq1vc/bk4Eiw==
 
 query-string@^4.1.0:
   version "4.3.4"

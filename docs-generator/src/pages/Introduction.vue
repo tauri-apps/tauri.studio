@@ -21,12 +21,12 @@ The basic process of building a Tauri App is very straightforward and unopiniona
 
 > The first time you build a project it will take some time to collect the resources that Tauri needs from the relevant Rust Crates, but subsequent builds will be much faster.
 
-    ## Technical Details
+## Technical Details
 ### CLI
 The CLI is node.js based, because it is arguably the most accessible for the majority of the web-development community. Using Tauri requires the latest LTS because we track security patches.
 
 ### User Interface
-The first generation User Interface in Tauri apps leverages Cocoa/WebKit on macOS, gtk-webkit2 on Linux and MSHTML (IE10/11) or Webkit via EdgeHTML / Chakra on Windows. **Tauri** is based on the MIT licensed prior work known as [webview](https://github.com/zserge/webview) and [web-view](https://github.com/Boscop/web-view), but was forked because those two libraries were at risk of becoming stale.
+The first generation User Interface in Tauri apps leverages Cocoa/WebKit on macOS, gtk-webkit2 on Linux and MSHTML (IE10/11) or Webkit via EdgeHTML / Chakra on Windows. **Tauri** leverages the MIT licensed prior work known as [webview](https://github.com/zserge/webview) and [web-view](https://github.com/Boscop/web-view).
 
 ### Binding and API
 Amongst the options for bindings and the API, we chose Rust because of its memory safety and speed. Nevertheless, there are options for future extension of the project where other languages such as Go, Nim, C++ and Python could be offered.

@@ -1,18 +1,6 @@
 <template>
   <q-layout view="hHh lpR ffr">
     <q-header>
-      <q-btn
-        flat
-        dense
-        round
-        @click="rightDrawerOpen = !rightDrawerOpen"
-        aria-label="Menu"
-        color="cyan-1"
-        class="fixed-right"
-        style="margin:16px 12px 0 0;z-index:1000001"
-      >
-        <q-icon name="menu" />
-      </q-btn>
     </q-header>
 
     <q-drawer
@@ -69,26 +57,26 @@
       <div class="row q-pa-sm" style="font-size:0.9em">
         <div class="col-6 col-md-4 col-sm-3" dense>
           <q-list>
-            <q-item clickable class="text-center" dense>
+            <q-item clickable class="justify-center" dense>
               <a href="mailto:contact@tauri-apps.org">Email</a>
             </q-item>
-            <q-item clickable class="text-center" dense>
+            <q-item clickable class="justify-center" dense>
               <a href="https://discord.gg/SpmNs4S">Discord</a>
             </q-item>
-            <q-item clickable class="text-center" dense>
+            <q-item clickable class="justify-center" dense>
               <a href="https://twitter.com/tauriapps">Twitter</a>
             </q-item>
           </q-list>
         </div>
         <div class="col-6 col-md-4 col-sm-3" dense>
           <q-list>
-            <q-item clickable class="text-center" dense>
+            <q-item clickable class="justify-center" dense>
               <a href="https://dev.to/tauri">Dev.to</a>
             </q-item>
-            <q-item clickable class="text-center" dense>
+            <q-item clickable class="justify-center" dense>
             <a href="https://opencollective.com/tauri">Open Collective</a>
             </q-item>
-            <q-item clickable class="text-center" dense>
+            <q-item clickable class="justify-center" dense>
               <a href="https://github.com/tauri-apps/tauri">Github</a>
             </q-item>
           </q-list>
@@ -113,7 +101,6 @@ export default {
 
   data () {
     return {
-      rightDrawerOpen: false,
       activeToc: 0
     }
   },
@@ -121,7 +108,16 @@ export default {
   computed: {
     ...mapGetters({
       toc: 'common/toc'
-    })
+    }),
+    rightDrawerOpen: {
+      get () {
+        return this.$store.state.common.rightDrawerOpen
+      },
+      set (rightDrawerOpen) {
+        // console.log('toc:', toc)
+        this.$store.commit('common/rightDrawerOpen', rightDrawerOpen)
+      }
+    }
   },
 
   mounted () {

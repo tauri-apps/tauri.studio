@@ -1,3 +1,14 @@
+## Ultra Quick Start
+```
+npm install -g @tauri-apps/tauri
+cd <your-project-folder>
+tauri init
+tauri dev
+tauri icon
+tauri build
+```
+
+
 ## Test Drive
 This assumes you have git, node 10LTS, yarn, rust and cargo installed. If not, see below.
 
@@ -57,7 +68,7 @@ First install Ubuntu then:
 
     $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-> We have audited this bash script, and it does what it says it is supposed to do. Nevertheless, before blindly curl-bashing a script, it is always wise to look at it first. Here is file as a mere [download link](https://sh.rustup.rs)
+> We have audited this bash script, and it does what it says it is supposed to do. Nevertheless, before blindly curl-bashing a script, it is always wise to look at it first. Here is the file as a mere [download link](https://sh.rustup.rs)
 
 Make sure that `rustc` and `cargo` are in your $PATH. Run
 

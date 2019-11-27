@@ -16,6 +16,9 @@ The initialization phase creates a folder and places a few template files into y
 ### Developing an App
 There are several methods for developing an App and using the built-in development App Window. The most common is to point the Tauri configuration at a localhost port that your front-end framework's development server provides you with. If your framework doesn't provide you with this, or you like everything vanilla, then you can instruct Tauri to serve (and transpile if needed) from a relative file path. In both cases you will have HMR (Hot Module Reloading).
 
+### Making App Icons
+Your app will need icons, and Tauri also provides a command for making all the icons your app will need, no matter which platform you are using. Simply place a 1240x1240 png (with transparency) named `app-icon.png` in your project folder (where the `tauri.conf.js` file is to be found) and run `tauri icon`. The icons will be placed in `src-tauri/icons` and automatically consumed by Tauri during the build process.
+
 ### Bundling an App
 The basic process of building a Tauri App is very straightforward and unopinionated. In the Tauri configuration file you reference a distribution folder e.g. `../dist/spa` where your HTML, CSS, JS and other assets can be found. Then you tell the Tauri CLI to build your app. Tauri prepares your code depending upon your configuration and bundles everything up into a nice and tidy binary.
 
@@ -28,8 +31,15 @@ The CLI is node.js based, because it is arguably the most accessible for the maj
 ### User Interface
 The first generation User Interface in Tauri apps leverages Cocoa/WebKit on macOS, gtk-webkit2 on Linux and MSHTML (IE10/11) or Webkit via EdgeHTML / Chakra on Windows. **Tauri** leverages the MIT licensed prior work known as [webview](https://github.com/zserge/webview) and [web-view](https://github.com/Boscop/web-view).
 
-### Binding and API
-Amongst the options for bindings and the API, we chose Rust because of its memory safety and speed. Nevertheless, there are options for future extension of the project where other languages such as Go, Nim, C++ and Python could be offered.
+## The Templates
+TEMPLATES
+---
+First is the tauri.conf.js file - it is injected into the CWD at tauri init.
+Then is the src-tauri folder, which is injected into the CWD and contains the rust stuff
+Then is the tauri.js FILE that is constructed during the dev / build process according to the API settings that are configured in tauri.conf.js and is injected into /src-tauri
+The node CLI has a bunch of "syntactic" sugar that sets up the dev env or prepares assets for the bundle process (as well as the tauri icon command for making icons.)
+The next piece is the actual rust crate that binds web-view, constructs the webview and has the API (file read / write, etc.)
+Finallly, the bundler, which takes all the stuff and puts it together in a nice and easy to consume binary for the three 1/2 desktop OS's
 
 ## Why Rust
 > Rust is blazingly fast and memory-efficient: with no runtime or garbage collector, it can power performance-critical services, run on embedded devices, and easily integrate with other languages. Rust’s rich type system and ownership model guarantee memory-safety and thread-safety — and enable you to eliminate many classes of bugs at compile-time. Rust has great documentation, a friendly compiler with useful error messages, and top-notch tooling — an integrated package manager and build tool, smart multi-editor support with auto-completion and type inspections, an auto-formatter, and more. - [https://www.rust-lang.org/](https://www.rust-lang.org/)

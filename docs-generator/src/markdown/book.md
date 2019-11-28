@@ -141,7 +141,13 @@ This is an early outline of the contents that we expect to publish. Contents sub
     - Message hashing with OTP
     - Plugin Pattern
     - Kamikaze Function Injection (KFI) Closures
-13. Building
+13. Testing
+    - Unit Testing
+        - Rust
+        - JS
+    - Integration Testing
+    - e2e Testing
+14. Building
     - Debugging
     - Packaging
     - Minification
@@ -167,7 +173,7 @@ This is an early outline of the contents that we expect to publish. Contents sub
             - AWS
             - Homegrown
     - Cross-Platform Bundler
-14. Tauri-Frida Harness
+15. Tauri-Frida Harness
     - Introduction to Reverse Engineering
     - Toolchain
     - Usage
@@ -177,7 +183,7 @@ This is an early outline of the contents that we expect to publish. Contents sub
     - Report Generation
     - Recompilation
     - Post-Binary Analysis
-15. Distribution
+16. Distribution
     - Git
     - Mac Store
     - iOS Store
@@ -259,9 +265,9 @@ This is an early outline of the contents that we expect to publish. Contents sub
             - CPU Throttle
         - Static Analysis Reporting
     -  Binary Repackaging
-        -  Inject License Keys
+        - Inject License Keys
         - Clear Dead Codepoints
-        - Recalculate integrated checksum
+        - Recalculate Integrated Checksum
 6.  Publishing the App
     - Git
     - Mac Store

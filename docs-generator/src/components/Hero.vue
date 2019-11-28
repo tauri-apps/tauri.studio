@@ -25,8 +25,7 @@
           @click="sidebar"
           aria-label="Menu"
           color="cyan-1"
-          class="fixed-right z-max"
-          style="margin:16px 12px 0 0;"
+          style="margin:16px 12px 0 0;position:fixed;top:0;right:0"
         >
         <q-icon name="menu" />
       </q-btn>

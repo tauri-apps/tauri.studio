@@ -25,6 +25,7 @@
           @click="sidebar"
           aria-label="Menu"
           color="cyan-1"
+          class="z-top"
           style="margin:16px 12px 0 0;position:fixed;top:0;right:0"
         >
         <q-icon name="menu" />
@@ -45,6 +46,11 @@
             <q-item dense clickable v-close-popup to="/docs/api" v-if="showDocs">
               <q-item-section>
                   <q-item-label>API</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item dense clickable v-close-popup to="/docs/cli" v-if="showDocs">
+              <q-item-section>
+                  <q-item-label>CLI</q-item-label>
               </q-item-section>
             </q-item>
             <q-item dense clickable v-close-popup to="/docs/quickstart">

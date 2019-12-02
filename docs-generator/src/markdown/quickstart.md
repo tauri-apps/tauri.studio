@@ -1,6 +1,6 @@
 ## Ultra Quick Start
 ```
-npm install -g @tauri-apps/tauri
+npm install -g tauri
 cd <your-project-folder>
 tauri init
 tauri dev
@@ -13,11 +13,12 @@ tauri build
 This assumes you have git, node 10LTS, yarn, rust and cargo installed. If not, see below.
 
 ```
-git clone https://github.com/tauri-apps/smoke-tests
-cd smoke-tests/test
+npm install -g tauri
+git clone https://github.com/tauri-apps/tauri
+cd examples/vue/quasar-demo
 yarn
-cargo install --path node_modules/@tauri-apps/tauri/tools/rust/cargo-tauri-bundle --force
-yarn tauri build
+cargo install tauri-cli
+tauri build
 ```
 
 After tauri has compiled its rust resources, look in the `src-tauri/target/release/bundle`.
@@ -41,15 +42,22 @@ Then install Chocolatey
     > nvm use 10.16.3
     > Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     > choco install yarn
-    >
-
 
 If you are running Windows 64-bit, download and run [rustup‑init.exe](https://win.rustup.rs/x86_64) and then follow the onscreen instructions.
 
 If you are running Windows 32-bit, download and run [rustup‑init.exe](https://win.rustup.rs/i686) and then follow the onscreen instructions.
 
+#### Enable loopback
+Microsoft disables the loopback interface - you need to whitelist it:
+
+Open an administrative console and enter:
+```
+CheckNetIsolation.exe LoopbackExempt -a -n="Microsoft.Win32WebViewHost_cw5n1h2txyewy"
+```
+
 ### Arch
-According to the Arch manual, this is something you were born knowing. But seriously, if you want to help out explaining how newbies to Arch can do this, please feel free to make a PR to this doc.
+According to the Arch manual, this is something you were born knowing. But seriously, if you want to help out
+explaining how newbies to Arch can do this, please feel free to make a PR to this doc.
 
 ### BSD
 Similar to Arch, you already have everything installed because you compile kernels. However:
@@ -106,7 +114,7 @@ After you have installed Rust and the build toolchain, it is wise to open a new 
 
 Setup the bundler:
 
-    $ cargo install --path node_modules/@tauri-apps/tauri/tools/rust/cargo-tauri-bundle --force
+    $ cargo install tauri-cli --force
 
 Want to debug?
 #### *nix

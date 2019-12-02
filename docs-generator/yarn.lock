@@ -1317,17 +1317,24 @@
   resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qpublish/-/quasar-app-extension-qpublish-1.0.0-alpha.10.tgz#8cd00f586902996a72bca6c5882ef8e60f69051b"
   integrity sha512-8iTMPyfZ8KsMI2hIt7UPLMJ4ot/gooQ2+Oeaha9ai7SRB8CqB8z9R/PDK9ASH8BngATEWVjPpStyWXoZ6DHGIQ==
 
-"@quasar/quasar-app-extension-qribbon@^1.0.0-beta.8":
-  version "1.0.0-beta.8"
-  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qribbon/-/quasar-app-extension-qribbon-1.0.0-beta.8.tgz#cd1c40179867fcdab8fed6398321072dca6a01cd"
-  integrity sha512-QuHZu+91pDWHdl71lprcq9KJ21HNTl56CEmoCUjkhcqWEwLmrfh/eQ5Ow/jd4FKEF7wyJyzzmU5T/QfF79/PSA==
+"@quasar/quasar-app-extension-qribbon@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qribbon/-/quasar-app-extension-qribbon-1.0.0-beta.14.tgz#3d9e7560a12293261013d5769b0b9ae61a483be5"
+  integrity sha512-RU80c8kk+vca6qDQ2s8iAwLE0BQ+9MJ+wkczhBPksieUvhX8jt27dfaGrSy/DiKga2JllJ4Uw5bh021K/dHCLw==
   dependencies:
-    q-colorize-mixin "^1.0.0-alpha.3"
+    "@quasar/quasar-ui-qribbon" "1.0.0-beta.14"
 
 "@quasar/quasar-ui-qmediaplayer@1.0.1":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@quasar/quasar-ui-qmediaplayer/-/quasar-ui-qmediaplayer-1.0.1.tgz#6c7c66698b5dbe1e67c5d16b3b796896485056cd"
   integrity sha512-KUEIlMCjmq4uWa8nwRNbEawbWakNGz231A39gsZ2HY/EiXz0HEJ8ffkbJTSO4Cs4YpcDJ8NG0yqhFq2gSA8oCw==
+  dependencies:
+    q-colorize-mixin "^1.0.0"
+
+"@quasar/quasar-ui-qribbon@1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.npmjs.org/@quasar/quasar-ui-qribbon/-/quasar-ui-qribbon-1.0.0-beta.14.tgz#71085c1453b4649832141e973a340700034f72b6"
+  integrity sha512-W0XonmYuy2Xa9k7jwWbRcWwEPFVPQ3Kct5aOb0NsIrWf7wai9wJvD5bAvGNIZ+xSW2wFTbdbisNj5La0G+8+bA==
   dependencies:
     q-colorize-mixin "^1.0.0"
 
@@ -8909,7 +8916,7 @@ punycode@^2.1.0:
   resolved "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-q-colorize-mixin@^1.0.0, q-colorize-mixin@^1.0.0-alpha.3:
+q-colorize-mixin@^1.0.0:
   version "1.0.3"
   resolved "https://registry.npmjs.org/q-colorize-mixin/-/q-colorize-mixin-1.0.3.tgz#08690707faf4beb4ae3085504d4b5a5f213fa259"
   integrity sha512-rux6iG9HFMV8EaNPL/SXZ70toJvic6EHHsTtyVZk3F4DCyWnDBshtYpJ03JAKr+kIToLl0aFV8ihD1E114xHdA==
@@ -8929,10 +8936,10 @@ qs@~6.5.2:
   resolved "https://registry.npmjs.org/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-quasar@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/quasar/-/quasar-1.5.1.tgz#b69b8603ed9c19c849031930c931645c521bb845"
-  integrity sha512-0Q5UC5dY5SNdtikZe64Pg1kUHPwEFknh6MUKGZDQvWGk4LTh1DTW3j2JEs+k021DImTuzbNiXWLYCiFJfPmlXQ==
+quasar@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.npmjs.org/quasar/-/quasar-1.5.2.tgz#b601d765d64d1a41b5f9140139f276608ce575d3"
+  integrity sha512-OcUkk2t7Wbnq+RIro7Vo3LNgkyeBnfcV2mXAJ1PviqezvUtU6vNl5R+IQ8PXsZFRQZqK8KGqueKC8M2kVhsaOQ==
 
 query-string@^4.1.0:
   version "4.3.4"

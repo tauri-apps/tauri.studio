@@ -1298,10 +1298,10 @@
   dependencies:
     "@quasar/quasar-ui-qmediaplayer" "1.0.1"
 
-"@quasar/quasar-app-extension-qpublish@1.0.0-alpha.10":
-  version "1.0.0-alpha.10"
-  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qpublish/-/quasar-app-extension-qpublish-1.0.0-alpha.10.tgz#8cd00f586902996a72bca6c5882ef8e60f69051b"
-  integrity sha512-8iTMPyfZ8KsMI2hIt7UPLMJ4ot/gooQ2+Oeaha9ai7SRB8CqB8z9R/PDK9ASH8BngATEWVjPpStyWXoZ6DHGIQ==
+"@quasar/quasar-app-extension-qpublish@1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qpublish/-/quasar-app-extension-qpublish-1.0.0-alpha.13.tgz#c82ac1ba6853224c658008c1bf506b003b5be347"
+  integrity sha512-ct2be3e12EqCpikub7HHo/JPsrjrhAT6b9jVhfyU/tvAlbTKpPGIVIALxwsaOaSgZx4UFOkLbOK36LK2ejI0yA==
 
 "@quasar/quasar-app-extension-qribbon@1.0.0-beta.14":
   version "1.0.0-beta.14"

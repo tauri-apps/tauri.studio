@@ -1,4 +1,6 @@
-The Tauri API
+# The Tauri API
+
+The Tauri API is a set of opt-in tools that you can enable in order to do things like read and write from the filesystem and pass messages back and forth between the WebView and Rust. They are configured in the `tauri.conf.js` file with the following object:
 
 ```
 whitelist: {              // all whitelist values are default:false
@@ -15,6 +17,154 @@ whitelist: {              // all whitelist values are default:false
   writeFile: false        // write file to local filesystem
 },
 ```
+
+These features will be added to your project's `src-taurl/Cargo.toml` at build time (regardless of whether you are bundling or dev'ing). The API functions that you are not using will be stubbed by tree-flattening (the body of the function will merely reject() instead of throwing), so that there are no orphan functions still available in the JS bundle. This reduces the vulnerability footprint.
+
+```
+/**
+ * @module tauri
+ * @description This API interface makes powerful interactions available
+ * to be run on client side applications. They are opt-in features, and
+ * must be enabled in tauri.conf.js
+ * Each binding MUST provide these interfaces in order to be compliant,
+ * and also whitelist them based upon the developer's settings.
+ */
+
+  /**
+   * @name invoke
+   * @description Calls a Tauri Core feature, such as setTitle
+   * @param {Object} args
+   */
+
+  /**
+   * @name addEventListener
+   * @description Add an event listener to Tauri back end
+   * @param {String} event
+   * @param {Function} handler
+   * @param {Boolean} once
+   */
+
+  /**
+   * @name emit
+   * @description Emits an evt to the Tauri back end
+   * @param {String} evt
+   * @param {Object} payload
+   */
+
+  /**
+   * @name transformCallback
+   * @description Registers a callback with a uid
+   * @param {Function} callback
+   * @param {Boolean} once
+   * @returns {*}
+   */
+
+  /**
+   * @name promisified
+   * @description Turns a request into a chainable promise
+   * @param {Object} args
+   * @returns {Promise<any>}
+   */
+
+  /**
+   * @name readTextFile
+   * @description Accesses a non-binary file on the user's filesystem
+   * and returns the content. Permissions based on the app's PID owner
+   * @param {String} path
+   * @returns {*|Promise<any>|Promise}
+   */
+
+  /**
+   * @name readBinaryFile
+   * @description Accesses a binary file on the user's filesystem
+   * and returns the content. Permissions based on the app's PID owner
+   * @param {String} path
+   * @returns {*|Promise<any>|Promise}
+   */
+
+  /**
+   * @name writeFile
+   * @description Write a file to the Local Filesystem.
+   * Permissions based on the app's PID owner
+   * @param {Object} cfg
+   * @param {String} cfg.file
+   * @param {String|Binary} cfg.contents
+   */
+
+  /**
+   * @name listFiles
+   * @description Get the files in a path.
+   * Permissions based on the app's PID owner
+   * @param {String} path
+   * @returns {*|Promise<any>|Promise}
+   */
+
+  /**
+   * @name listDirs
+   * @description Get the directories in a path.
+   * Permissions based on the app's PID owner
+   * @param {String} path
+   * @returns {*|Promise<any>|Promise}
+   */
+
+  /**
+   * @name setTitle
+   * @description Set the application's title
+   * @param {String} title
+   */
+
+  /**
+   * @name open
+   * @description Open an URI
+   * @param {String} uri
+   */
+
+  /**
+   * @name execute
+   * @description Execute a program with arguments.
+   * Permissions based on the app's PID owner
+   * @param {String} command
+   * @param {String|Array} args
+   * @returns {*|Promise<any>|Promise}
+   */
+
+
+  /**
+   * @name bridge
+   * @description Securely pass a message to the backend.
+   * @example
+   *  this.$q.tauri.bridge('QBP/1/ping/client-1', 'pingback')
+   * @param {String} command - a compressed, slash-delimited and
+   * versioned API call to the backend.
+   * @param {String|Object}payload
+   * @returns {*|Promise<any>|Promise}
+   */
+
+
+  /**
+   * @name setup
+   * @description Inform Rust that the webview has initialized and is
+   * ready for communication
+   */
+  static setup () {
+    document.querySelector('body').addEventListener('click', function (e) {
+      let target = e.target
+      while (target != null) {
+        if (target.matches ? target.matches('a') : target.msMatchesSelector('a')) {
+          tauri.open(target.href)
+          break
+        }
+        target = target.parentElement
+      }
+    }, true)
+
+    tauri.invoke({
+      cmd: 'init'
+    })
+  }
+}
+```
+
 
 ## Custom commands
 

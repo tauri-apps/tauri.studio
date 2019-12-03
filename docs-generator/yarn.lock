@@ -1146,9 +1146,9 @@
   resolved "https://registry.npmjs.org/@positron/stack-trace/-/stack-trace-1.0.0.tgz#14fcc712a530038ef9be1ce6952315a839f466a8"
   integrity sha1-FPzHEqUwA475vhzmlSMVqDn0Zqg=
 
-"@quasar/app@^1.3.1":
+"@quasar/app@1.3.1":
   version "1.3.1"
-  resolved "https://registry.npmjs.org/@quasar/app/-/app-1.3.1.tgz#e1ec9f585054d87f12451f98d902100dc17b02f0"
+  resolved "https://registry.yarnpkg.com/@quasar/app/-/app-1.3.1.tgz#e1ec9f585054d87f12451f98d902100dc17b02f0"
   integrity sha512-dnR5K+d51y4+xIwatUj+ETEFXtwr/cqESmhJXvwAH569YSAz+1Ic2vS9RY7aHQm3MJpQvIkR7VQI0FMaJK5dEA==
   dependencies:
     "@quasar/babel-preset-app" "1.1.7"
@@ -1241,9 +1241,9 @@
     babel-plugin-module-resolver "^3.2.0"
     babel-plugin-transform-imports "^1.0.0"
 
-"@quasar/extras@^1.3.2":
+"@quasar/extras@1.3.2":
   version "1.3.2"
-  resolved "https://registry.npmjs.org/@quasar/extras/-/extras-1.3.2.tgz#d50f34fec235b79d4e570dc7f8b36209b0a9ada1"
+  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.3.2.tgz#d50f34fec235b79d4e570dc7f8b36209b0a9ada1"
   integrity sha512-EGBvl4By7Cv/WFGD4dc2FX+iLA+GX7YOnDj8AH92Df4pSMDKxP3TdvpXRnKs3V6bfHKyafc3VklVdf30hT5EoA==
 
 "@quasar/fastclick@1.1.4":
@@ -1251,14 +1251,14 @@
   resolved "https://registry.npmjs.org/@quasar/fastclick/-/fastclick-1.1.4.tgz#21ed3e9a4387dcb43022a08af4ef08a5f1abf159"
   integrity sha512-i9wbyV4iT+v4KhtHJynUFhH5LiEPvAEgSnwMqPN4hf/8uRe82nDl5qP5agrp2el1h0HzyBpbvHaW7NB0BPrtvA==
 
-"@quasar/quasar-app-extension-colorize@^1.0.0-alpha.1":
+"@quasar/quasar-app-extension-colorize@1.0.0-alpha.1":
   version "1.0.0-alpha.1"
-  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-colorize/-/quasar-app-extension-colorize-1.0.0-alpha.1.tgz#55c8645c2b1d621f13264832f5a258d0114b4368"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-colorize/-/quasar-app-extension-colorize-1.0.0-alpha.1.tgz#55c8645c2b1d621f13264832f5a258d0114b4368"
   integrity sha512-udmfCeDHFDO60bDrXCM+LihxZjUenFkAsYJP3MNRTIh/sUeLJdmzwEvZRlzrGMymJBlZhgL+C/arAn+su1Kyyg==
 
-"@quasar/quasar-app-extension-icon-genie@^1.1.2":
+"@quasar/quasar-app-extension-icon-genie@1.1.2":
   version "1.1.2"
-  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-icon-genie/-/quasar-app-extension-icon-genie-1.1.2.tgz#f0fbdd16aabb3b2ed008daa4b2bd4ffc6c63a580"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-icon-genie/-/quasar-app-extension-icon-genie-1.1.2.tgz#f0fbdd16aabb3b2ed008daa4b2bd4ffc6c63a580"
   integrity sha512-sJWbvy5cpkZwHRJ3vVQV2iXnBTfQHKRc59e5WAKuItKHs3/p8bUH0x7AqRurOHqSAyAUlmacSfYgNea/zk62YA==
   dependencies:
     elementtree "^0.1.7"
@@ -1276,14 +1276,14 @@
     sharp "^0.23.0"
     svgo "^1.3.0"
 
-"@quasar/quasar-app-extension-qactivity@^1.0.0-beta.4":
+"@quasar/quasar-app-extension-qactivity@1.0.0-beta.4":
   version "1.0.0-beta.4"
-  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qactivity/-/quasar-app-extension-qactivity-1.0.0-beta.4.tgz#beef147ec26c1b7e70cba53f29c761d7c4321d22"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qactivity/-/quasar-app-extension-qactivity-1.0.0-beta.4.tgz#beef147ec26c1b7e70cba53f29c761d7c4321d22"
   integrity sha512-5Eq1cKhYwSZgcMkq19LN+h1uMQYg8aKxJYwxIiuPVi4vBHrljBtSpZOxuHb7H+w1Hp9g6DOc1PCNWh0QiTpJog==
 
-"@quasar/quasar-app-extension-qmarkdown@^1.0.0-beta.21":
+"@quasar/quasar-app-extension-qmarkdown@1.0.0-beta.21":
   version "1.0.0-beta.21"
-  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qmarkdown/-/quasar-app-extension-qmarkdown-1.0.0-beta.21.tgz#78d5db84c2a60137797fcb0fe99bc1b63b40bcda"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qmarkdown/-/quasar-app-extension-qmarkdown-1.0.0-beta.21.tgz#78d5db84c2a60137797fcb0fe99bc1b63b40bcda"
   integrity sha512-oSx0YX3HwrXQ63MUYA/4sYRpInfjDusOiW3dtjT9Puz+yUEbYKkunXO/vPXJF2ot/urYqul1hIUjDtrdu1GsnA==
   dependencies:
     front-matter "^3.0.2"
@@ -1305,21 +1305,21 @@
     raw-loader "^3.1.0"
     ware-loader "^0.2.4"
 
-"@quasar/quasar-app-extension-qmediaplayer@^1.0.15":
+"@quasar/quasar-app-extension-qmediaplayer@1.0.15":
   version "1.0.15"
-  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qmediaplayer/-/quasar-app-extension-qmediaplayer-1.0.15.tgz#3ec4e0b7016baca27d57ee1f4eff71508117b18b"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qmediaplayer/-/quasar-app-extension-qmediaplayer-1.0.15.tgz#3ec4e0b7016baca27d57ee1f4eff71508117b18b"
   integrity sha512-YrC0PwcV50OPdYmN0v30GTJQGAfA4s8XgLieZv4o4/U++Odqo9HRI0D900jKO1DHcHgB+YZWnSMofnG7REroPQ==
   dependencies:
     "@quasar/quasar-ui-qmediaplayer" "1.0.1"
 
-"@quasar/quasar-app-extension-qpublish@^1.0.0-alpha.10":
+"@quasar/quasar-app-extension-qpublish@1.0.0-alpha.10":
   version "1.0.0-alpha.10"
-  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qpublish/-/quasar-app-extension-qpublish-1.0.0-alpha.10.tgz#8cd00f586902996a72bca6c5882ef8e60f69051b"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qpublish/-/quasar-app-extension-qpublish-1.0.0-alpha.10.tgz#8cd00f586902996a72bca6c5882ef8e60f69051b"
   integrity sha512-8iTMPyfZ8KsMI2hIt7UPLMJ4ot/gooQ2+Oeaha9ai7SRB8CqB8z9R/PDK9ASH8BngATEWVjPpStyWXoZ6DHGIQ==
 
-"@quasar/quasar-app-extension-qribbon@^1.0.0-beta.14":
+"@quasar/quasar-app-extension-qribbon@1.0.0-beta.14":
   version "1.0.0-beta.14"
-  resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qribbon/-/quasar-app-extension-qribbon-1.0.0-beta.14.tgz#3d9e7560a12293261013d5769b0b9ae61a483be5"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qribbon/-/quasar-app-extension-qribbon-1.0.0-beta.14.tgz#3d9e7560a12293261013d5769b0b9ae61a483be5"
   integrity sha512-RU80c8kk+vca6qDQ2s8iAwLE0BQ+9MJ+wkczhBPksieUvhX8jt27dfaGrSy/DiKga2JllJ4Uw5bh021K/dHCLw==
   dependencies:
     "@quasar/quasar-ui-qribbon" "1.0.0-beta.14"
@@ -1392,9 +1392,9 @@
     source-map "~0.6.1"
     vue-template-es2015-compiler "^1.9.0"
 
-"@vue/eslint-config-standard@^4.0.0":
+"@vue/eslint-config-standard@4.0.0":
   version "4.0.0"
-  resolved "https://registry.npmjs.org/@vue/eslint-config-standard/-/eslint-config-standard-4.0.0.tgz#6be447ee674e3b0f733c584098fd9a22e6d76fcd"
+  resolved "https://registry.yarnpkg.com/@vue/eslint-config-standard/-/eslint-config-standard-4.0.0.tgz#6be447ee674e3b0f733c584098fd9a22e6d76fcd"
   integrity sha512-bQghq1cw1BuMRHNhr3tRpAJx1tpGy0QtajQX873kLtA9YVuOIoXR7nAWnTN09bBHnSUh2N288vMsqPi2fI4Hzg==
   dependencies:
     eslint-config-standard "^12.0.0"
@@ -1904,9 +1904,9 @@ aws4@^1.8.0:
   resolved "https://registry.npmjs.org/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha512-ReZxvNHIOv88FlT7rxcXIIC0fPt4KZqZbOlivyWtXLt8ESx84zd3kMC6iK5jVeS2qt+g7ftS7ye4fi06X5rtRQ==
 
-babel-eslint@^10.0.1:
+babel-eslint@10.0.2:
   version "10.0.2"
-  resolved "https://registry.npmjs.org/babel-eslint/-/babel-eslint-10.0.2.tgz#182d5ac204579ff0881684b040560fdcc1558456"
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.0.2.tgz#182d5ac204579ff0881684b040560fdcc1558456"
   integrity sha512-UdsurWPtgiPgpJ06ryUnuaSXC2s0WoSZnQmEpbAH65XZSdwowgN5MvyP7e88nW07FYXv72erVtpBkxyDVKhH1Q==
   dependencies:
     "@babel/code-frame" "^7.0.0"
@@ -3649,8 +3649,9 @@ d3@^5.7.0:
     d3-voronoi "1"
     d3-zoom "1"
 
-dagre-d3@dagrejs/dagre-d3:
+"dagre-d3@github:dagrejs/dagre-d3":
   version "0.6.4-pre"
+  uid e1a00e5cb518f5d2304a35647e024f31d178e55b
   resolved "https://codeload.github.com/dagrejs/dagre-d3/tar.gz/e1a00e5cb518f5d2304a35647e024f31d178e55b"
   dependencies:
     d3 "^5.12"
@@ -4266,9 +4267,9 @@ eslint-import-resolver-node@^0.3.2:
     debug "^2.6.9"
     resolve "^1.5.0"
 
-eslint-loader@^2.1.1:
+eslint-loader@2.2.1:
   version "2.2.1"
-  resolved "https://registry.npmjs.org/eslint-loader/-/eslint-loader-2.2.1.tgz#28b9c12da54057af0845e2a6112701a2f6bf8337"
+  resolved "https://registry.yarnpkg.com/eslint-loader/-/eslint-loader-2.2.1.tgz#28b9c12da54057af0845e2a6112701a2f6bf8337"
   integrity sha512-RLgV9hoCVsMLvOxCuNjdqOrUqIj9oJg8hF44vzJaYqsAHuY9G2YAeN3joQ9nxP0p5Th9iFSIpKo+SD8KISxXRg==
   dependencies:
     loader-fs-cache "^1.0.0"
@@ -4332,9 +4333,9 @@ eslint-plugin-standard@^4.0.0:
   resolved "https://registry.npmjs.org/eslint-plugin-standard/-/eslint-plugin-standard-4.0.1.tgz#ff0519f7ffaff114f76d1bd7c3996eef0f6e20b4"
   integrity sha512-v/KBnfyaOMPmZc/dmc6ozOdWqekGp7bBGq4jLAecEfPGmfKiWS4sA8sC0LqiV9w5qmXAtXVn4M3p1jSyhY85SQ==
 
-eslint-plugin-vue@^5.0.0:
+eslint-plugin-vue@5.2.3:
   version "5.2.3"
-  resolved "https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-5.2.3.tgz#3ee7597d823b5478804b2feba9863b1b74273961"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-5.2.3.tgz#3ee7597d823b5478804b2feba9863b1b74273961"
   integrity sha512-mGwMqbbJf0+VvpGR5Lllq0PMxvTdrZ/ZPjmhkacrCHbubJeJOt+T6E3HUzAifa2Mxi7RSdJfC9HFpOeSYVMMIw==
   dependencies:
     vue-eslint-parser "^5.0.0"
@@ -4367,9 +4368,9 @@ eslint-visitor-keys@^1.0.0:
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz#e2a82cea84ff246ad6fb57f9bde5b46621459ec2"
   integrity sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
 
-eslint@^5.10.0:
+eslint@5.16.0:
   version "5.16.0"
-  resolved "https://registry.npmjs.org/eslint/-/eslint-5.16.0.tgz#a1e3ac1aae4a3fbd8296fcf8f7ab7314cbb6abea"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.16.0.tgz#a1e3ac1aae4a3fbd8296fcf8f7ab7314cbb6abea"
   integrity sha512-S3Rz11i7c8AA5JPv7xAH+dOyq/Cu/VXHiHXBPOU1k/JAM5dXqQPt3qcrhpHSorXmrpu2g0gkIBVXAqCpzfoZIg==
   dependencies:
     "@babel/code-frame" "^7.0.0"
@@ -7061,16 +7062,16 @@ merge2@^1.3.0:
   resolved "https://registry.npmjs.org/merge2/-/merge2-1.3.0.tgz#5b366ee83b2f1582c48f87e47cf1a9352103ca81"
   integrity sha512-2j4DAdlBOkiSZIsaXk4mTE3sRS02yBHAtfy127xRV3bQUFqXkjHCHLW6Scv7DwNRbIWNHH8zpnz9zMaKXIdvYw==
 
-mermaid@^8.4.2:
+mermaid@8.4.2:
   version "8.4.2"
-  resolved "https://registry.npmjs.org/mermaid/-/mermaid-8.4.2.tgz#91d3d8e9541e72eed7a78d0e882db11564fab3bb"
+  resolved "https://registry.yarnpkg.com/mermaid/-/mermaid-8.4.2.tgz#91d3d8e9541e72eed7a78d0e882db11564fab3bb"
   integrity sha512-vYSCP2u4XkOnjliWz/QIYwvzF/znQAq22vWJJ3YV40SnwV2JQyHblnwwNYXCprkXw7XfwBKDpSNaJ3HP4WfnZw==
   dependencies:
     "@braintree/sanitize-url" "^3.1.0"
     crypto-random-string "^3.0.1"
     d3 "^5.7.0"
     dagre "^0.8.4"
-    dagre-d3 dagrejs/dagre-d3
+    dagre-d3 "github:dagrejs/dagre-d3"
     graphlib "^2.1.7"
     he "^1.2.0"
     lodash "^4.17.11"
@@ -8936,9 +8937,9 @@ qs@~6.5.2:
   resolved "https://registry.npmjs.org/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-quasar@^1.5.2:
+quasar@1.5.2:
   version "1.5.2"
-  resolved "https://registry.npmjs.org/quasar/-/quasar-1.5.2.tgz#b601d765d64d1a41b5f9140139f276608ce575d3"
+  resolved "https://registry.yarnpkg.com/quasar/-/quasar-1.5.2.tgz#b601d765d64d1a41b5f9140139f276608ce575d3"
   integrity sha512-OcUkk2t7Wbnq+RIro7Vo3LNgkyeBnfcV2mXAJ1PviqezvUtU6vNl5R+IQ8PXsZFRQZqK8KGqueKC8M2kVhsaOQ==
 
 query-string@^4.1.0:

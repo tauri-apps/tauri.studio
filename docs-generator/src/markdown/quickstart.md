@@ -55,6 +55,9 @@ Open an administrative console and enter:
 CheckNetIsolation.exe LoopbackExempt -a -n="Microsoft.Win32WebViewHost_cw5n1h2txyewy"
 ```
 
+#### Devtools
+https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide
+
 ### Arch
 According to the Arch manual, this is something you were born knowing. But seriously, if you want to help out
 explaining how newbies to Arch can do this, please feel free to make a PR to this doc.
@@ -121,6 +124,9 @@ Want to debug?
 
     $ cd src-tauri
     $ RUST_DEBUG=1 cargo build
+
+OR
+    $ tauri build --debug
 
 #### Windows
 

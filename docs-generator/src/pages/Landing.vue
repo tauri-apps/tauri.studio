@@ -30,7 +30,7 @@
     </div>
 
     <div id="Quicklinks" class="row full-width wrap justify-center items-center content-center items-start q-mt-xl">
-      <q-card class="q-ma-md col-md-3 col-sm-5 q-mt-sm bg-cyan-1"  flat bordered v-for="(item, index) in actions" :key="index">
+      <q-card :class="{ 'q-ma-md col-md-3 col-sm-5 q-mt-sm': true, 'bg-cyan-1': !$q.dark.isActive, 'bg-grey-8': $q.dark.isActive }"  flat bordered v-for="(item, index) in actions" :key="index">
         <q-icon :name="item.icon" class="float-left q-pa-lg q-ma-xs text-h5" style="margin: 11px 5px -1px 10px"></q-icon>
         <q-card-section>
           {{ item.claim }}
@@ -88,7 +88,11 @@
 
     <q-markdown :src="markdown" toc @data="onToc" />
     <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
-      <q-btn fab icon="keyboard_arrow_up" color="primary" />
+      <q-btn
+        fab
+        icon="keyboard_arrow_up"
+        :class="{ 'text-black bg-grey-4': $q.dark.isActive, 'text-white bg-primary': !$q.dark.isActive }"
+      />
     </q-page-scroller>
   </hero>
 </template>

@@ -4,7 +4,11 @@
     <q-markdown :src="markdown" toc @data="onToc" line-number-alt="$" />
 
     <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
-      <q-btn fab icon="keyboard_arrow_up" color="warning" />
+      <q-btn
+        fab
+        icon="keyboard_arrow_up"
+        :class="{ 'text-black bg-grey-4': $q.dark.isActive, 'text-white bg-warning': !$q.dark.isActive }"
+      />
     </q-page-scroller>
   </hero>
 </template>

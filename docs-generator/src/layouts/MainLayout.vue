@@ -9,7 +9,7 @@
       side="right"
       bordered
       behavior="mobile"
-      content-style="background-color: #FDFADE;margin-top: 260px;padding-top:30px;"
+      :content-style="contentStyle"
     >
       <q-scroll-area
         id="scrollHolder"
@@ -116,6 +116,13 @@ export default {
       set (rightDrawerOpen) {
         // console.log('toc:', toc)
         this.$store.commit('common/rightDrawerOpen', rightDrawerOpen)
+      }
+    },
+    contentStyle () {
+      return {
+        background: this.$q.dark.isActive ? '' : '#FDFADE',
+        marginTop: '260px',
+        paddingTop: '30px'
       }
     }
   },

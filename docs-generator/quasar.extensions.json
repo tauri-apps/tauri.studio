@@ -4,7 +4,6 @@
     "import_vmd": true
   },
   "@quasar/qribbon": {},
-  "@quasar/qpublish": {},
   "@quasar/icon-genie": {
     "minify_dev": "zopfli",
     "minify_build": "zopfli",
@@ -26,7 +25,6 @@
       }
     }
   },
-  "@quasar/colorize": {},
   "@quasar/qmediaplayer": {},
   "@quasar/qactivity": {}
 }

@@ -95,7 +95,7 @@ export default {
     }
   },
   mounted () {
-    this.scrolled(document.offset().top)
+    this.scrolled(document.offsetTop)
   },
   computed: {
     showDocs () {
@@ -122,20 +122,20 @@ export default {
       // the buttons
       if (pos >= 110 && this.buttons !== false) {
         this.buttons = false
-        document.getElementsByClassName('scroll-determined')[0].setAttribute('style', `height: 70px`)
+        document.getElementsByClassName('scroll-determined')[0].setAttribute('style', 'height: 70px')
         // the icon
         document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `height: 55px;width: 55px;transform: rotate(${position}deg)`)
         // the name
-        document.getElementsByClassName('tauri-name')[0].setAttribute('style', `height: 30px`)
+        document.getElementsByClassName('tauri-name')[0].setAttribute('style', 'height: 30px')
         document.getElementsByClassName('tauri-name')[0].classList.add('animateLeft')
         // claim
         // the sidebar id="scrollHolder" style="height:50%"
-        document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', `background-color: #FDFADE;margin-top: 60px;padding-top:20px`)
-        document.getElementById('scrollHolder').setAttribute('style', `height: calc(100% - 132px)`)
-        document.getElementById('padding').setAttribute('style', `height: 70px`)
+        document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', 'background-color: #FDFADE;margin-top: 60px;padding-top:20px')
+        document.getElementById('scrollHolder').setAttribute('style', 'height: calc(100% - 132px)')
+        document.getElementById('padding').setAttribute('style', 'height: 70px')
       } else if (this.buttons === false) {
         document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `height: 55px;width: 55px;transform: rotate(${position}deg)`)
-        document.getElementById('claim').setAttribute('style', `display: none`)
+        document.getElementById('claim').setAttribute('style', 'display: none')
       } else {
         document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `transform: rotate(${position}deg)`)
         document.getElementsByClassName('scroll-determined')[0].setAttribute('style', `height: ${this.height}px`)
@@ -144,7 +144,7 @@ export default {
         // the name
         document.getElementsByClassName('tauri-name')[0].setAttribute('style', `height: ${this.heightName}px;`)
         // claim
-        document.getElementById('claim').setAttribute('style', `display: none`)
+        document.getElementById('claim').setAttribute('style', 'display: none')
         // the sidebar
         document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', `margin-top: ${this.height + 10}px`)
       }

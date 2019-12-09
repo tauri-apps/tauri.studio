@@ -97,7 +97,7 @@
 import Hero from '../components/Hero'
 import markdown from '../markdown/landing.md'
 
-let images = [
+const images = [
   'statics/images/locks.jpg',
   'statics/images/hammers.jpg',
   'statics/images/lightning.jpg',
@@ -119,11 +119,11 @@ export default {
     // which is TONS of useless traffic - and makes a flash of white
     // between slides on some browsers (iOS for example)
     for (let x = 0; x < images.length; x++) {
-      let img = new Image()
+      const img = new Image()
       img.crossOrigin = 'Anonymous'
       img.onload = () => {
         let canvas = document.createElement('CANVAS')
-        let ctx = canvas.getContext('2d')
+        const ctx = canvas.getContext('2d')
         canvas.height = img.naturalHeight
         canvas.width = img.naturalWidth
         ctx.drawImage(img, 0, 0)

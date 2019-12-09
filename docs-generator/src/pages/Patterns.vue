@@ -531,7 +531,7 @@ tauri: {
       handler (val, oldVal) {
         oldVal = !oldVal ? 'none' : oldVal
         val = !val ? 'none' : val
-        let pattern = this.patterns.find(pattern => pattern.name === val)
+        const pattern = this.patterns.find(pattern => pattern.name === val)
         if (typeof pattern !== 'undefined') this.goMermaid(pattern.graph)
       },
       immediate: true

@@ -23,7 +23,7 @@ const routes = [
       { path: '/docs/examples', component: () => import('pages/Examples.vue'), meta: { name: 'Examples' } },
       { path: '/docs/security', component: () => import('pages/Security.vue'), meta: { name: 'Security' } },
       { path: '/docs/api', component: () => import('pages/API.vue'), meta: { name: 'API' } },
-      { path: '/docs/cli', component: () => import('pages/cli.vue'), meta: { name: 'CLI' } }
+      { path: '/docs/cli', component: () => import('pages/Cli.vue'), meta: { name: 'CLI' } }
     ]
   }
 ]

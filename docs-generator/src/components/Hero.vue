@@ -28,49 +28,52 @@
           class="z-top"
           style="margin:16px 12px 0 0;position:fixed;top:0;right:0"
         >
-        <q-icon name="menu" />
-      </q-btn>
-      <div class="absolute-right" style="margin:18px 30px 0 0;">
-        <q-btn-dropdown flat dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
-          <q-list color="yellow-2" >
-            <q-item dense clickable v-close-popup to="/docs" v-if="showDocs">
-              <q-item-section>
-                <q-item-label>Docs</q-item-label>
-              </q-item-section>
-            </q-item>
-            <q-item dense clickable v-close-popup to="/book" v-if="showDocs">
-              <q-item-section>
-                  <q-item-label>Book</q-item-label>
-              </q-item-section>
-            </q-item>
-            <q-item dense clickable v-close-popup to="/docs/api" v-if="showDocs">
-              <q-item-section>
-                  <q-item-label>API</q-item-label>
-              </q-item-section>
-            </q-item>
-            <q-item dense clickable v-close-popup to="/docs/cli" v-if="showDocs">
-              <q-item-section>
-                  <q-item-label>CLI</q-item-label>
-              </q-item-section>
-            </q-item>
-            <q-item dense clickable v-close-popup to="/docs/quickstart">
-              <q-item-section>
-                <q-item-label>Quick Start</q-item-label>
-              </q-item-section>
-            </q-item>
-            <q-item dense clickable v-close-popup to="/docs/patterns">
-              <q-item-section>
-                <q-item-label>Patterns</q-item-label>
-              </q-item-section>
-            </q-item>
-            <q-item dense clickable v-close-popup to="/governance-and-guidance">
-              <q-item-section>
-                <q-item-label>Governance</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-btn-dropdown>
-      </div>
+          <q-icon name="menu" />
+        </q-btn>
+        <div class="absolute-right" style="margin:18px 30px 0 0;">
+          <q-btn-dropdown flat dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
+            <q-list color="yellow-2" >
+              <q-item dense clickable v-close-popup to="/docs" v-if="showDocs">
+                <q-item-section>
+                  <q-item-label>Docs</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item dense clickable v-close-popup to="/book" v-if="showDocs">
+                <q-item-section>
+                    <q-item-label>Book</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item dense clickable v-close-popup to="/docs/api" v-if="showDocs">
+                <q-item-section>
+                    <q-item-label>API</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item dense clickable v-close-popup to="/docs/cli" v-if="showDocs">
+                <q-item-section>
+                    <q-item-label>CLI</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item dense clickable v-close-popup to="/docs/quickstart">
+                <q-item-section>
+                  <q-item-label>Quick Start</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item dense clickable v-close-popup to="/docs/patterns">
+                <q-item-section>
+                  <q-item-label>Patterns</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item dense clickable v-close-popup to="/governance-and-guidance">
+                <q-item-section>
+                  <q-item-label>Governance</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+
+          <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'brightness_2' : 'brightness_5'" />
+
+        </div>
       </div>
     </q-page-sticky>
     <main class="flex flex-start justify-center">

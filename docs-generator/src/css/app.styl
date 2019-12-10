@@ -11,18 +11,6 @@ $bgColor ?= #263239
 h2, h3, h4
   padding-top 50px!important
 
-.qribbon__container
-  position relative
-
-.qribbon__horizontal--left
-  position unset !important
-  padding unset !important
-  margin-left -22px !important
-  z-index 1 !important
-
-  &:before
-    margin-left -22px
-
 .example-title
   cursor pointer
   &:after
@@ -44,8 +32,13 @@ body
   /* font-family "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif */
   /* font-size 16px */
   line-height 1.5
-  background-color #FFFDFA
+  background #FFFDFA
   color #606c71
+
+.body--dark
+  body
+    background #606c71
+    color #FFFDFA
 
 a
   color #1e6bb8

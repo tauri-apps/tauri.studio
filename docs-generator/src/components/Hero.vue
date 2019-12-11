@@ -30,7 +30,10 @@
         >
           <q-icon name="menu" />
         </q-btn>
-        <div class="absolute-right" style="margin:18px 30px 0 0;">
+        <div  class="absolute-right" style="margin:12px 44px 0 0;">
+          <q-btn class="z-top" flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'brightness_2' : 'brightness_5'" />
+        </div>
+        <div class="absolute-right" style="margin:18px 60px 0 0;">
           <q-btn-dropdown flat dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
             <q-list color="yellow-2" >
               <q-item dense clickable v-close-popup to="/docs" v-if="showDocs">
@@ -70,9 +73,6 @@
               </q-item>
             </q-list>
           </q-btn-dropdown>
-
-          <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'brightness_2' : 'brightness_5'" />
-
         </div>
       </div>
     </q-page-sticky>

@@ -42,7 +42,7 @@
     </div>
 
     <!-- roadmap -->
-    <q-card id="Roadmap" class="q-ma-xl full-width bg-cyan-1"  flat bordered>
+    <q-card id="Roadmap" class="q-ma-xl full-width"  flat bordered>
       <q-card-section class="justify-center items-center content-center text-center">
         <div style="position:absolute;top:130px;left:30px;width:5px;height:20px;background:#E0F7FA;z-index:2"></div>
         <div style="position:absolute;bottom:50px;left:30px;width:5px;height:20px;background:#E0F7FA;z-index:2"></div>
@@ -69,7 +69,7 @@
                 <q-item-label caption lines="2">{{ item.caption }}</q-item-label>
               </q-item-section>
             </q-item>
-            <q-chip dense color="yellow-1" class="vertical-middle side-text">
+            <q-chip dense class="vertical-middle side-text">
               {{ item.time }}
             </q-chip>
           </q-activity-item>
@@ -255,7 +255,7 @@ export default {
           time: 'Q4 2019'
         },
         {
-          icon: 'ti-layers-alt',
+          icon: 'ti-desktop',
           iconColor: 'blue',
           iconTextColor: 'white',
           label: 'Desktop Bundler',
@@ -271,12 +271,12 @@ export default {
           time: 'Q4 2019'
         },
         {
-          icon: 'ti-layers',
+          icon: 'ti-cup',
           iconColor: 'blue',
           iconTextColor: 'white',
-          label: 'Mobile Bundler',
-          caption: 'Bundle to all major mobile device operating systems.',
-          time: 'Q4 2019'
+          label: 'DENO',
+          caption: 'Enable alternative DENO CLI.',
+          time: 'Q1 2020'
         },
         {
           icon: 'ti-bolt',
@@ -303,12 +303,20 @@ export default {
           time: 'Q1 2020'
         },
         {
+          icon: 'ti-mobile',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Mobile Bundler',
+          caption: 'Bundle to all major mobile device operating systems.',
+          time: 'Q1 2020'
+        },
+        {
           icon: 'ti-flag-alt',
           iconColor: 'red',
           iconTextColor: 'white',
           label: 'Beta Release',
           caption: 'Mostly stable on Desktop & Mobile.',
-          time: 'Q1 2020'
+          time: 'Q2 2020'
         },
         {
           icon: 'ti-direction-alt',

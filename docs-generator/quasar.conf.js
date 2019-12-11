@@ -33,7 +33,9 @@ module.exports = function (ctx) {
       // all: true, // --- includes everything; for dev only!
       all: 'auto',
       components: [],
-
+      config: {
+        dark: true
+      },
       directives: [
         'Ripple', 'Scroll', 'ClosePopup'
       ],

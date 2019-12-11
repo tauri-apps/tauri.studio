@@ -128,6 +128,8 @@ export default {
   },
 
   mounted () {
+    // todo: fade the landing logo out instead of this brutal hack
+    document.getElementById('_main').setAttribute('style', '')
     // code to handle anchor link on refresh/new page, etc
     if (location.hash !== '') {
       const id = location.hash.substring(1, location.hash.length)

@@ -1,8 +1,7 @@
 <template>
   <q-layout view="hHh lpR ffr">
-    <q-header>
-    </q-header>
-
+    <q-page-sticky id="tauri-studio-logo" class="page-header full-width full-height z-top" style="background-image:url(/statics/tauri-studio.svg);background-position:center;background-repeat:no-repeat;background-size:50%;width:100vw!important;height:100vh!important;overflow:hidden; z-index:10000000;position:fixed;display:none">
+    </q-page-sticky>
     <q-drawer
       ref="drawer"
       v-model="rightDrawerOpen"
@@ -48,7 +47,9 @@
 
     <q-page-container>
       <keep-alive include="Patterns">
-        <router-view />
+        <hero>
+          <router-view />
+        </hero>
       </keep-alive>
     </q-page-container>
 
@@ -95,10 +96,13 @@ import { mapGetters } from 'vuex'
 import { scroll } from 'quasar'
 const { getScrollTarget, setScrollPosition } = scroll
 import { slugify, makeUrl } from 'assets/page-utils'
+import Hero from '../components/Hero'
 
 export default {
   name: 'MainLayout',
-
+  components: {
+    Hero
+  },
   data () {
     return {
       activeToc: 0
@@ -129,7 +133,7 @@ export default {
 
   mounted () {
     // todo: fade the landing logo out instead of this brutal hack
-    document.getElementById('_main').setAttribute('style', '')
+    document.getElementById('tauri-studio-logo').setAttribute('style', 'display:none')
     // code to handle anchor link on refresh/new page, etc
     if (location.hash !== '') {
       const id = location.hash.substring(1, location.hash.length)

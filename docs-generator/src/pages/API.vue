@@ -1,5 +1,5 @@
 <template>
-  <hero>
+  <div>
     <div id="padding" style="padding-top:260px"></div>
     <q-markdown :src="markdown" toc @data="onToc" no-line-numbers />
 
@@ -10,19 +10,14 @@
         :class="{ 'text-black bg-grey-4': $q.dark.isActive, 'text-white bg-primary': !$q.dark.isActive }"
       />
     </q-page-scroller>
-  </hero>
+  </div>
 </template>
 
 <script>
-import Hero from '../components/Hero'
 import markdown from '../markdown/api.md'
 
 export default {
   name: 'API',
-
-  components: {
-    Hero
-  },
 
   data () {
     return {

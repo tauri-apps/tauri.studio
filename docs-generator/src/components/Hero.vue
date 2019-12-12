@@ -1,6 +1,6 @@
 <template>
   <div class="full-width q-pa-md">
-    <q-page-sticky expand class="page-header fixed-top shadow-8 scroll-determined z-top" v-scroll="scrolled" style="position:fixed!important">
+    <q-page-sticky id="hero" expand class="page-header fixed-top shadow-8 scroll-determined z-top" v-scroll="scrolled" style="position:fixed!important;">
       <q-chip id="claim" outline dense square class="claim text-weight-light text-black bg-cyan-1 shadow-8" style="top: 84%">
         <q-icon name="star"></q-icon>
         <span class="text-weight-light text-caption">Build more secure native apps with fast, tiny binaries.</span>
@@ -10,7 +10,7 @@
       <div>
         <router-link to="/">
           <div id="tauri-name--holder">
-            <img src="statics/tauri-wordmark.png" class="tauri-name scroll-determined" style="cursor:pointer">
+            <img src="statics/tauri.svg" class="tauri-name scroll-determined" style="cursor:pointer">
           </div>
         </router-link>
         <div v-if="buttons" class="row" style="margin-top:90px">

@@ -1,5 +1,5 @@
 <template>
-  <hero>
+  <div>
     <div id="padding" style="padding-top:260px"></div>
     <p class="q-mt-xl">Tauri patterns are descriptions of use-cases that are entirely configurable within the tauri.conf.js file. These are not the limits of what Tauri can do, and there are probably more out there. If you discover one, why not get in touch and help us update this collection!
     </p>
@@ -52,9 +52,9 @@
       </q-card-section>
       <q-separator></q-separator>
       <q-card-section>
-
-        <q-markdown :src="active.intro"></q-markdown>
-
+        <q-no-ssr>
+          <q-markdown :src="active.intro"></q-markdown>
+        </q-no-ssr>
         <div class="text-center" id="temp" v-html="graph"></div>
       </q-card-section>
       <q-separator></q-separator>
@@ -80,11 +80,10 @@
         :class="{ 'text-black bg-grey-4': $q.dark.isActive, 'text-white bg-primary': !$q.dark.isActive }"
       />
     </q-page-scroller>
-  </hero>
+  </div>
 </template>
 
 <script>
-import Hero from '../components/Hero'
 // import markdown from '../markdown/patterns.md'
 // import * as mermaid from 'mermaid'
 
@@ -101,10 +100,6 @@ const colors = {
 
 export default {
   name: 'Patterns',
-
-  components: {
-    Hero
-  },
 
   data () {
     return {
@@ -568,14 +563,16 @@ tauri: {
     },
     goMermaid (pattern) {
       // null it so that we don't accidentally append
-      this.graph = null
+      if (typeof window !== 'undefined') {
+        this.graph = null
 
-      // otherwise mermaid gets lost
-      this.$nextTick(() => {
-        this.graph = this.$mermaid.render('mermaid', pattern)
-        // then measure height of svg
-        // resize card / dom
-      })
+        // otherwise mermaid gets lost
+        this.$nextTick(() => {
+          this.graph = this.$mermaid.render('mermaid', pattern)
+          // then measure height of svg
+          // resize card / dom
+        })
+      }
     }
   }
 }

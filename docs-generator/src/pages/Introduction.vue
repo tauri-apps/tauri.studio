@@ -1,5 +1,5 @@
 <template>
-  <hero>
+  <div>
     <div id="padding" style="padding-top:260px"></div>
     <q-markdown toc @data="onToc">
 ## High Level Overview
@@ -74,20 +74,15 @@ And finally, there are a couple Rust communities on Discord that you can always 
         :class="{ 'text-black bg-grey-4': $q.dark.isActive, 'text-white bg-primary': !$q.dark.isActive }"
       />
     </q-page-scroller>
-  </hero>
+  </div>
 </template>
 
 <script>
-import Hero from '../components/Hero'
 import markdown from '../markdown/tauri.md'
 import json from '../json/tauri.json'
 
 export default {
   name: 'Introduction',
-
-  components: {
-    Hero
-  },
 
   data () {
     return {

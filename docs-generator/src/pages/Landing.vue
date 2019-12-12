@@ -111,8 +111,9 @@ const images = [
 ]
 
 export default {
-  name: 'PageIndex',
+  name: 'LandingPage',
 
+  serverCacheKey: () => 'landing',
   components: {
     Hero
   },

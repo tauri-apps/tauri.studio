@@ -6,7 +6,7 @@ module.exports = function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     boot: [
-      'mermaid',
+      {path: 'mermaid', server: false },
       'markdown'
     ],
 
@@ -79,12 +79,26 @@ module.exports = function (ctx) {
     animations: [],
 
     ssr: {
-      pwa: false
+      componentCache: {
+        max: 1000,
+        maxAge: 1000 * 60 * 15
+      },
+      pwa: {
+        runtimeCaching: [
+          {
+            urlPattern: '/statics',
+            handler: 'cacheFirst'
+          }
+        ]
+      }
     },
 
     pwa: {
       // workboxPluginMode: 'InjectManifest',
-      // workboxOptions: {}, // only for NON InjectManifest
+      workboxOptions: {
+        skipWaiting: true,
+        clientsClaim: true
+      }, // only for NON InjectManifest
       manifest: {
         // name: 'Quasar App',
         // short_name: 'Quasar App',

@@ -86,22 +86,21 @@ module.exports = function (ctx) {
       pwa: {
         runtimeCaching: [
           {
-            urlPattern: '/statics',
-            handler: 'cacheFirst'
+            urlPattern: '/statics/*',
+            handler: 'CacheFirst'
           }
         ]
       }
     },
 
     pwa: {
-      // workboxPluginMode: 'InjectManifest',
       workboxOptions: {
         skipWaiting: true,
         clientsClaim: true
-      }, // only for NON InjectManifest
+      },
       manifest: {
-        // name: 'Quasar App',
-        // short_name: 'Quasar App',
+        name: 'Tauri.studio',
+        short_name: 'Tauri Apps Documentation',
         // description: 'A Quasar Framework app',
         display: 'standalone',
         orientation: 'portrait',

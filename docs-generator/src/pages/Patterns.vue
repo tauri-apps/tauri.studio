@@ -11,13 +11,13 @@
         <q-btn class="q-mx-xs" outline flat dense no-caps v-for="p in patterns" v-bind:key="p.id"  @click="pattern = p.name" :class="{'bg-cyan-2 text-black': pattern === p.name}" :disabled="pattern === p.name">{{ p.name }}</q-btn>
       </q-card-section>
       <q-separator></q-separator>
-      <q-card-section class="bg-cyan-1">
+      <q-card-section :class="$q.dark.isActive ? 'bg-blue-grey-6' : 'bg-cyan-1'">
         <q-ribbon :leaf-color="yellow.dark" :background-color="yellow.light" color="black" style="margin:-16px" type="corner" position="top-right">
           <small class="q-pa-md text-weight-bold">{{ active.most }}</small>
         </q-ribbon>
         <div id="tryout" class="fit row inline wrap" style="margin-top:26px">
           <img class="col-1 q-mt-md q-mr-md" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto">
-          <h4 class="col-grow text-weight-light text-cyan-10" style="margin:-30px 0">{{ pattern }}</h4>
+          <h4 class="col-grow text-weight-light" :class="$q.dark.isActive ? 'text-cyan-1' : 'text-cyan-10'" style="margin:-30px 0">{{ pattern }}</h4>
           <span class="col-12 q-pa-sm text-weight-bold text-black">{{ active.bestWhen }}</span>
 
           <div class="row justify-around full-width">

@@ -133,7 +133,7 @@ export default {
         document.getElementsByClassName('tauri-name')[0].classList.add('animateLeft')
         // claim
         // the sidebar id="scrollHolder" style="height:50%"
-        document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', 'background-color: #FDFADE;margin-top: 60px;padding-top:20px')
+        document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', 'margin-top: 60px')
         document.getElementById('scrollHolder').setAttribute('style', 'height: calc(100% - 132px)')
         document.getElementById('padding').setAttribute('style', 'height: 70px')
       } else if (this.buttons === false) {
@@ -149,7 +149,7 @@ export default {
         // claim
         document.getElementById('claim').setAttribute('style', 'display: none')
         // the sidebar
-        document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', `margin-top: ${this.height + 10}px`)
+        document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', `margin-top: ${this.height + 20}px`)
       }
 
       /*

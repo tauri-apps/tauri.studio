@@ -1,5 +1,5 @@
 <template>
-  <hero>
+  <div>
     <div id="padding" style="padding-top:240px"></div>
     <q-carousel
       animated
@@ -42,13 +42,11 @@
     </div>
 
     <!-- roadmap -->
-    <q-card id="Roadmap" class="q-ma-xl full-width"  flat bordered>
+    <q-card id="Roadmap" class="q-ma-xl full-width"  flat>
       <q-card-section class="justify-center items-center content-center text-center">
-        <div style="position:absolute;top:130px;left:30px;width:5px;height:20px;background:#E0F7FA;z-index:2"></div>
-        <div style="position:absolute;bottom:50px;left:30px;width:5px;height:20px;background:#E0F7FA;z-index:2"></div>
         <q-activity
           dense
-          bar-color="rgba(0,0,0,0.2)"
+          :bar-color="$q.dark.isActive ? '#ccd' : '#223'"
           bar-width="3px"
           bar-distance="15px"
           style="margin-top:110px"
@@ -74,7 +72,7 @@
             </q-chip>
           </q-activity-item>
         </q-activity>
-        <small class="text-weight-light text-black">Notice: This roadmap is subject to change.</small>
+        <small class="text-weight-light">Notice: This roadmap is subject to change.</small>
         <q-parallax
           :height="130"
           src="statics/images/skycave.jpg"
@@ -94,11 +92,10 @@
         :class="{ 'text-black bg-grey-4': $q.dark.isActive, 'text-white bg-primary': !$q.dark.isActive }"
       />
     </q-page-scroller>
-  </hero>
+  </div>
 </template>
 
 <script>
-import Hero from '../components/Hero'
 import markdown from '../markdown/landing.md'
 
 const images = [
@@ -112,11 +109,7 @@ const images = [
 
 export default {
   name: 'LandingPage',
-
   serverCacheKey: () => 'landing',
-  components: {
-    Hero
-  },
   mounted () {
     // have to do this to squeeze perf on slow connections because the
     // method that quasar uses to change the slide actually forces a
@@ -288,11 +281,11 @@ export default {
           time: 'Q1 2020'
         },
         {
-          icon: 'ti-control-shuffle',
+          icon: 'ti-shine',
           iconColor: 'blue',
           iconTextColor: 'white',
-          label: 'Cross Compiler',
-          caption: 'Generate bundled binaries from select operating system environments.',
+          label: 'PureOS App Store',
+          caption: 'Verified builds for PureOS.',
           time: 'Q1 2020'
         },
         {
@@ -301,6 +294,14 @@ export default {
           iconTextColor: 'white',
           label: 'App Tray',
           caption: 'Desktop Cross-platform Icon Tray.',
+          time: 'Q1 2020'
+        },
+        {
+          icon: 'ti-announcement',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Native Notifications',
+          caption: 'Cross-platform notifications using polyfilled WEB API.',
           time: 'Q1 2020'
         },
         {
@@ -320,12 +321,20 @@ export default {
           time: 'Q2 2020'
         },
         {
+          icon: 'ti-control-shuffle',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Cross Compiler',
+          caption: 'Generate bundled binaries from select operating system environments.',
+          time: 'Q3 2020'
+        },
+        {
           icon: 'ti-direction-alt',
           iconColor: 'blue',
           iconTextColor: 'white',
           label: 'Alternative Renderer',
           caption: 'Candidate presentation for Webview Alternatives, including GL windowing.',
-          time: 'Q2 2020'
+          time: 'Q3 2020'
         },
         {
           icon: 'ti-slice',
@@ -333,7 +342,7 @@ export default {
           iconTextColor: 'white',
           label: 'Tauri-Frida',
           caption: 'A decompiler and threat analyzer for Tauri Apps, using Frida.',
-          time: 'Q3 2020'
+          time: 'Q4 2020'
         },
         {
           icon: 'ti-flag-alt',
@@ -341,7 +350,7 @@ export default {
           iconTextColor: 'white',
           label: 'Stable Release',
           caption: 'Stable on On all Platforms.',
-          time: 'Q3 2020'
+          time: 'Q4 2020'
         },
         {
           icon: 'ti-world',

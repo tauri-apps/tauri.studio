@@ -32,7 +32,7 @@
           </q-item>
         </q-list>
       </q-scroll-area>
-      <div class="absolute-bottom full-width text-center bg-cyan-1">
+      <div class="absolute-bottom full-width text-center" :class="$q.dark.isActive ? 'bg-blue-grey-6' : 'bg-cyan-1'">
         <q-separator></q-separator>
         <div class="q-pa-sm" style="font-size:0.9em">
           Tauri is an Open Source Project<br/>
@@ -53,7 +53,7 @@
       </keep-alive>
     </q-page-container>
 
-    <div class="full-width text-center bg-cyan-1">
+    <div class="full-width text-center" :class="$q.dark.isActive ? 'bg-blue-grey-6' : 'bg-cyan-1'">
       <q-separator></q-separator>
       <div class="row q-pa-sm" style="font-size:0.9em">
         <div class="col-6 col-md-4 col-sm-3" dense>

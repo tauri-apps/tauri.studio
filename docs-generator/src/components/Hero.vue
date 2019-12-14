@@ -10,13 +10,13 @@
       <div>
         <router-link to="/">
           <div id="tauri-name--holder">
-            <img src="statics/tauri.svg" class="tauri-name scroll-determined" style="cursor:pointer">
+            <img src="statics/tauri.svg" class="tauri-name scroll-determined" style="cursor:pointer" alt="Tauri Wordmark" title="Tauri">
           </div>
         </router-link>
         <div v-if="buttons" class="row" style="margin-top:90px">
-          <q-btn dense size="small" to="/docs/quickstart"  class="btn" label="Quick Start" no-caps color="yellow-2" text-color="black"/>
-          <q-btn dense size="small" to="/docs/patterns" class="btn" label="Patterns" no-caps  color="yellow-2" text-color="black"/>
-          <q-btn v-if="showDocs" dense size="small" to="/docs" class="btn" label="Docs" no-caps  color="yellow-2" text-color="black"/>
+          <q-btn name="Quick Start" dense size="small" to="/docs/quickstart" class="btn" label="Quick Start" no-caps color="yellow-2" text-color="black"/>
+          <q-btn name="Patterns" dense size="small" to="/docs/patterns" class="btn" label="Patterns" no-caps color="yellow-2" text-color="black"/>
+          <q-btn name="Docs" v-if="showDocs" dense size="small" to="/docs" class="btn" label="Docs" no-caps  color="yellow-2" text-color="black"/>
         </div>
         <q-btn
           flat
@@ -36,24 +36,9 @@
         <div class="absolute-right" style="margin:18px 60px 0 0;">
           <q-btn-dropdown flat dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
             <q-list color="yellow-2" >
-              <q-item dense clickable v-close-popup to="/docs" v-if="showDocs">
+              <q-item dense clickable v-close-popup to="/docs/introduction" v-if="showDocs">
                 <q-item-section>
-                  <q-item-label>Docs</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item dense clickable v-close-popup to="/book" v-if="showDocs">
-                <q-item-section>
-                    <q-item-label>Book</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item dense clickable v-close-popup to="/docs/api" v-if="showDocs">
-                <q-item-section>
-                    <q-item-label>API</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item dense clickable v-close-popup to="/docs/cli" v-if="showDocs">
-                <q-item-section>
-                    <q-item-label>CLI</q-item-label>
+                  <q-item-label>Introduction</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item dense clickable v-close-popup to="/docs/quickstart">
@@ -61,9 +46,44 @@
                   <q-item-label>Quick Start</q-item-label>
                 </q-item-section>
               </q-item>
+
+              <q-item dense clickable v-close-popup to="/security" v-if="showDocs">
+                <q-item-section>
+                  <q-item-label>Security</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-separator />
+              <q-item dense clickable v-close-popup to="/docs/api" v-if="showDocs">
+                <q-item-section>
+                  <q-item-label>API</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item dense clickable v-close-popup to="/docs/cli" v-if="showDocs">
+                <q-item-section>
+                    <q-item-label>CLI</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item dense clickable v-close-popup to="/docs/bundler" v-if="showDocs">
+                <q-item-section>
+                    <q-item-label>Bundler</q-item-label>
+                </q-item-section>
+              </q-item>
               <q-item dense clickable v-close-popup to="/docs/patterns">
                 <q-item-section>
                   <q-item-label>Patterns</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-separator />
+              <q-item dense clickable v-close-popup to="/docs/frameworks">
+                <q-item-section>
+                  <q-item-label>Frameworks</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-separator />
+
+              <q-item dense clickable v-close-popup to="/book" v-if="showDocs">
+                <q-item-section>
+                    <q-item-label>Book</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item dense clickable v-close-popup to="/governance-and-guidance">
@@ -71,6 +91,7 @@
                   <q-item-label>Governance</q-item-label>
                 </q-item-section>
               </q-item>
+
             </q-list>
           </q-btn-dropdown>
         </div>

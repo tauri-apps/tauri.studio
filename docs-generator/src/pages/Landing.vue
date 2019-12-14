@@ -85,13 +85,6 @@
     </q-card>
 
     <q-markdown :src="markdown" toc @data="onToc" />
-    <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
-      <q-btn
-        fab
-        icon="keyboard_arrow_up"
-        :class="{ 'text-black bg-grey-4': $q.dark.isActive, 'text-white bg-primary': !$q.dark.isActive }"
-      />
-    </q-page-scroller>
   </div>
 </template>
 
@@ -196,7 +189,7 @@ export default {
           icon: 'ti-settings',
           claim: 'Tauri lets you use any frontend-framework to build apps, and it can be integrated into any pipeline.',
           btnLabel: 'Learn How!',
-          btnTarget: '/docs/examples'
+          btnTarget: '/docs/frameworks'
         },
         {
           icon: 'ti-package',
@@ -214,7 +207,7 @@ export default {
           icon: 'ti-shield',
           claim: 'With security features baked in and many additional tools available, your code will be safer than ever.',
           btnLabel: 'Be Safer!',
-          btnTarget: '/docs/security'
+          btnTarget: '/security'
         },
         {
           icon: 'ti-gift',

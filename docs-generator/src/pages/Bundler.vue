@@ -2,12 +2,11 @@
   <div>
     <div id="padding" style="padding-top:260px"></div>
     <q-markdown :src="markdown" toc @data="onToc" no-line-numbers no-highlight />
-
   </div>
 </template>
 
 <script>
-import markdown from '../markdown/cli.md'
+import markdown from '../markdown/bundler.md'
 
 export default {
   name: 'PageIndex',

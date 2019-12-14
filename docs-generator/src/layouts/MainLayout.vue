@@ -51,6 +51,7 @@
           <router-view />
         </hero>
       </keep-alive>
+      <UpScroller />
     </q-page-container>
 
     <div class="full-width text-center" :class="$q.dark.isActive ? 'bg-blue-grey-6' : 'bg-cyan-1'">
@@ -62,23 +63,23 @@
               <a href="mailto:contact@tauri-apps.org">Email</a>
             </q-item>
             <q-item clickable class="justify-center" dense>
-              <a href="https://discord.gg/SpmNs4S">Discord</a>
+              <a href="https://discord.gg/SpmNs4S" target="_blank" rel="noreferrer">Discord</a>
             </q-item>
             <q-item clickable class="justify-center" dense>
-              <a href="https://twitter.com/tauriapps">Twitter</a>
+              <a href="https://twitter.com/tauriapps" target="_blank" rel="noreferrer">Twitter</a>
             </q-item>
           </q-list>
         </div>
         <div class="col-6 col-md-4 col-sm-3" dense>
           <q-list>
             <q-item clickable class="justify-center" dense>
-              <a href="https://dev.to/tauri">Dev.to</a>
+              <a href="https://dev.to/tauri" target="_blank" rel="noreferrer">Dev.to</a>
             </q-item>
             <q-item clickable class="justify-center" dense>
-            <a href="https://opencollective.com/tauri">Open Collective</a>
+            <a href="https://opencollective.com/tauri" target="_blank" rel="noreferrer">Open Collective</a>
             </q-item>
             <q-item clickable class="justify-center" dense>
-              <a href="https://github.com/tauri-apps/tauri">Github</a>
+              <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">Github</a>
             </q-item>
           </q-list>
         </div>
@@ -92,24 +93,68 @@
 </template>
 
 <script>
+/* eslint quotes: 0 */
+
 import { mapGetters } from 'vuex'
 import { scroll } from 'quasar'
 const { getScrollTarget, setScrollPosition } = scroll
 import { slugify, makeUrl } from 'assets/page-utils'
 import Hero from '../components/Hero'
+import UpScroller from 'src/components/UpScroller'
 
 export default {
   name: 'MainLayout',
   components: {
-    Hero
+    Hero: Hero,
+    UpScroller: UpScroller
   },
   data () {
     return {
       activeToc: 0
     }
   },
-
+  meta () {
+    return {
+      title: this.metaRoute.page_title,
+      meta: {
+        ogUrl: { name: 'og:title', content: this.metaRoute.page_title },
+        ogTitle: { name: 'og:title', content: this.metaRoute.page_title },
+        twitterTitle: { name: 'twitter:title', content: this.metaRoute.page_title },
+        ogSiteName: { name: 'og:site_name', content: this.metaRoute.site_name },
+        desc: { name: 'description', content: this.metaRoute.description },
+        ogDesc: { name: 'og:description', content: this.metaRoute.description },
+        twitterDesc: { name: 'twitter:description', content: this.metaRoute.description },
+        keywords: { name: 'keywords', content: this.metaRoute.tags }
+      },
+      script: {
+        ldJson: {
+          type: 'application/ld+json',
+          innerHTML: `
+{
+  "@context": "http://schema.org",
+  "@type": "",
+  "name": "${this.metaRoute.page_title}",
+  "author": {
+    "@type": "Organization",
+    "name": "Tauri"
+  },
+  "image": [
+    "https://tauri.studio/statics/thetaTauri_logo.png"
+  ],
+  "description": "${this.metaRoute.description}",
+  "keywords": "${this.metaRoute.tags}"
+}`
+        }
+      },
+      noscript: {
+        default: `Welcome to tauri.studio: ${this.metaRoute.page_title} This website requires JavaScript - and here you would have learned about the following: ${this.metaRoute.description}`
+      }
+    }
+  },
   computed: {
+    metaRoute () {
+      return this.$route.meta
+    },
     ...mapGetters({
       toc: 'common/toc'
     }),

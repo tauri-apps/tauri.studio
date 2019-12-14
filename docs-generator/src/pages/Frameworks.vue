@@ -1,13 +1,12 @@
 <template>
   <div>
     <div id="padding" style="padding-top:260px"></div>
-    <q-markdown :src="markdown" toc @data="onToc" no-line-numbers no-highlight />
-
+    <q-markdown :src="markdown" toc @data="onToc" line-number-alt="$" />
   </div>
 </template>
 
 <script>
-import markdown from '../markdown/cli.md'
+import markdown from '../markdown/frameworks.md'
 
 export default {
   name: 'PageIndex',
@@ -43,6 +42,6 @@ export default {
 }
 </script>
 <style lang="stylus">
-  .q-markdown--line-numbers-wrapper
-    margin-bottom 14px
+.q-markdown--line-numbers-wrapper
+  margin-bottom 14px
 </style>

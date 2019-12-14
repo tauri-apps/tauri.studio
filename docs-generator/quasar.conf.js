@@ -42,7 +42,8 @@ module.exports = function (ctx) {
 
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Notify',
+        'Meta'
       ]
     },
 
@@ -101,7 +102,7 @@ module.exports = function (ctx) {
       manifest: {
         name: 'Tauri.studio',
         short_name: 'Tauri Apps Documentation',
-        // description: 'A Quasar Framework app',
+        description: 'Find out all about Tauri and read the docs.',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

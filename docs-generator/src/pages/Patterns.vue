@@ -8,7 +8,7 @@
     </p>
     <q-card class="q-mt-xl">
       <q-card-section class="text-center" style="padding-bottom:-20px">
-        <q-btn class="q-mx-xs" outline flat dense no-caps v-for="p in patterns" v-bind:key="p.id"  @click="pattern = p.name" :class="{'bg-cyan-2 text-black': pattern === p.name}" :disabled="pattern === p.name">{{ p.name }}</q-btn>
+        <q-btn :name="`${p.name} Selector`" class="q-mx-xs" outline flat dense no-caps v-for="p in patterns" v-bind:key="p.id"  @click="pattern = p.name" :class="{'bg-cyan-2 text-black': pattern === p.name}" :disabled="pattern === p.name">{{ p.name }}</q-btn>
       </q-card-section>
       <q-separator></q-separator>
       <q-card-section :class="$q.dark.isActive ? 'bg-blue-grey-6' : 'bg-cyan-1'">
@@ -16,7 +16,7 @@
           <small class="q-pa-md text-weight-bold">{{ active.most }}</small>
         </q-ribbon>
         <div id="tryout" class="fit row inline wrap" style="margin-top:26px">
-          <img class="col-1 q-mt-md q-mr-md" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto">
+          <img class="col-1 q-mt-md q-mr-md" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto" :alt="pattern" :title="pattern + ' badge'">
           <h4 class="col-grow text-weight-light" :class="$q.dark.isActive ? 'text-cyan-1' : 'text-cyan-10'" style="margin:-30px 0">{{ pattern }}</h4>
           <span class="col-12 q-pa-sm text-weight-bold text-black">{{ active.bestWhen }}</span>
 
@@ -72,21 +72,12 @@
     </q-card>
 
     <!-- <q-markdown :src="markdown" toc @data="onToc" /> -->
-
-    <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
-      <q-btn
-        fab
-        icon="keyboard_arrow_up"
-        :class="{ 'text-black bg-grey-4': $q.dark.isActive, 'text-white bg-primary': !$q.dark.isActive }"
-      />
-    </q-page-scroller>
   </div>
 </template>
 
 <script>
 // import markdown from '../markdown/patterns.md'
 // import * as mermaid from 'mermaid'
-
 const colors = {
   blue: {
     light: '#BAE5F2',
@@ -100,7 +91,6 @@ const colors = {
 
 export default {
   name: 'Patterns',
-
   data () {
     return {
       // markdown: markdown,

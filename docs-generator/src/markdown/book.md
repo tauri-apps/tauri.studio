@@ -1,4 +1,6 @@
-![book](/statics/images/bookCover.png)
+<div style="text-align:center">
+    <img src="/statics/images/bookCover.png" alt="Tauri - From Theory to Practice" title="Book Cover Mockup" style="max-width:80%">
+</div>
 
 ## Get the Book
 ::: info Tauri: From Theory to Practice

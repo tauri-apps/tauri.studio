@@ -15,6 +15,7 @@ jobs:
         node-version: 12.x
     - name: Install and build
       run: |
+        cd docs-generator
         yarn install --frozen-lockfile
         yarn test
-        quasar build -m ssr
+        yarn quasar build -m ssr

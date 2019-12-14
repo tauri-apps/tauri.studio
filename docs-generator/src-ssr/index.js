@@ -13,8 +13,7 @@
 
 const
   express = require('express'),
-  compression = require('compression'),
-  LRU = require('lru-cache')
+  compression = require('compression')
 
 const
   ssr = require('../ssr'),
@@ -24,11 +23,6 @@ const
 
 const serve = (path, cache) => express.static(ssr.resolveWWW(path), {
   maxAge: cache ? 1000 * 60 * 60 * 24 * 30 : 0
-})
-
-const microCache = LRU({
-  max: 100,
-  maxAge: 1000 // Important: entries expires after 1 second.
 })
 
 // gzip

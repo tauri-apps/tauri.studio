@@ -126,7 +126,7 @@ const routes = [
       },
       {
         path: '/docs/cli',
-        component: () => import('pages/CLI.vue'),
+        component: () => import('pages/Cli.vue'),
         meta: {
           name: 'CLI',
           page_title: 'Tauri - Node.js CLI.',

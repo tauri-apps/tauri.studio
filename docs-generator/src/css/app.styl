@@ -9,7 +9,7 @@ $fgColor ?= #263239
 $bgColor ?= #263239
 
 h2, h3, h4
-  padding-top 50px!important
+  padding: 10px 0 0 0
 
 .example-title
   cursor pointer
@@ -42,21 +42,15 @@ body
 
   a
     color #00D5ED
-    text-decoration none
-    &:hover
-      text-decoration underline
+    text-decoration none!important
 
   a.q-markdown--link
     color #00D5ED!important
-    text-decoration none
-    &:hover
-      text-decoration underline
+    text-decoration none!important
 
 a
   color #1e6bb8
-  text-decoration none
-  &:hover
-    text-decoration underline
+  text-decoration none!important
 
 a.q-markdown--link
   color #1e6bb8!important
@@ -135,6 +129,10 @@ a.q-markdown--link
   .project-tagline
     font-size 1rem
 
+code.q-markdown--token
+  font-size 0.9em
+  margin-top -2px!important
+  border unset!important
 .main-content :first-child
   margin-top 0
 .main-content img
@@ -166,7 +164,7 @@ a.q-markdown--link
 .main-content pre > code
   padding 0
   margin 0
-  font-size 0.9rem
+  font-size 0.8rem
   color #567482
   word-break normal
   white-space pre

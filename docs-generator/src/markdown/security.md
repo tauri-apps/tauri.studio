@@ -1,4 +1,4 @@
-## Security 
+## Security
 This guide seeks to explain the high level concepts and Security Features at the core of Tauri's design that make you, your apps and your users safer by default.
 
 ::: tip Please Note
@@ -15,40 +15,46 @@ If you feel that there is a security concern or issue with anything in Tauri, pl
 
 Although we do not currently have a budget for Security Bounties, in some cases we will consider rewarding responsible disclosure with our limited resources.
 
-## Secure by Design 
+## No Server Required
+Tauri enables you to construct an application that uses web-technology for the user interface without requiring you to use a server to communicate with the backend. Even if you used advanced techniques of dynamic imports and offload work to the backend, no traffic can be sniffed on TCP ports or external processes - because it just isn't there. This reduces not only the footprint of your final binary by a good deal, it also reduces the surface area of potential attack vectors by removing them from the equation.
 
-### Dynamic Ahead of Time Compilation
-This process of compilation happens several times during the build phase of a Tauri app. By using a dynamic Ahead of Time compiler, you can generate code references that are unique for every session and are still technically static code units.
+## Language Features of Rust
+By turning to the programming language reknowned for its memory-safety and speed, Tauri simply erases whole classes of conventional attacks. `Use after free` just isn't something that can happen with Tauri.
 
-### One Time Pad Tokenization and Hashing
-Hashing important messages with a OTP salt, you are able to encrypt messages between the UI and the Rust backend.
+## Dynamic Ahead of Time Compilation (AOT)
+This process of compilation happens several times during the bootstrapping phase of a Tauri app. By using a dynamic Ahead of Time compiler, you can generate code references that are unique for every session and are still technically static code units.
 
+## Function Hardening
 ### functional ASLR
 Functional address Space Layout Randomization techniques randomize function names at runtime and can implement OTP hashing so no two sessions are ever the same. We propose a novel type of function naming at boot time and optionally after every execution. Using a UID for each function pointer prevents static attacks.
-
-### Bridge, don't serve
-Instead of passing potentially unsafe functions, a bridge can be used to pass messages and commands to named brokers at each respective side of the bridge. Most of the time you don't NEED a local server, and its inclusion opens security gaps in the final application.
-
-### API Whitelisting
-You have the ability to pick and choose which API functions are available to the UI and to Rust. If they are not enabled, the code will not be shipped with your app, which reduces binary size and attack surface.
 
 ### Kamikaze Function Injection
 This advanced type of fASLR using the `EVENT` API endpoint, is a promise wrapped in a closure (with randomized handle) that Rust inserts at runtime into the Webview, where its interface is locked within the promise resolution handler and is nulled after execution.
 
-### Content Security Policy Management
+### Bridge, don't serve
+Instead of passing potentially unsafe functions, an event bridge can be used to pass messages and commands to named brokers at each respective side of a the application.
+
+### One Time Pad Tokenization and Hashing
+Hashing important messages with a OTP salt, you are able to encrypt messages between the user interface and the Rust backend. We are currently investigatin the use of additional sources of entropy such as the amazing [Infinite Noise TRNG](https://13-37.org/en/shop/infinite-noise-trng/).
+
+## API Whitelisting
+You have the ability to pick and choose which API functions are available to the UI and to Rust. If they are not enabled, the code will not be shipped with your app, which reduces binary size and attack surface.
+
+## Content Security Policy Management
 Preventing unauthorized code execution for websites has long since been "resolved" by using CSPs. Tauri can inject CSPs into the index.html of the user interface, and when using a localhost server it will also send these headers to the UI or any other clients that connect with it.
 
-### Decompilation is Difficult
+## Decompilation is Difficult
 This means that your apps cannot be easily decompiled as is the case with Electron ASAR  files, which makes the process of reverse engineering your project much more time intensive and requires specialist training.
 
+## Future Work
 ### Signed Binaries
-Because the entire project is shipped within a monolithic binary, code can be signed for all distributables. This makes it virtually impossible for hackers to change an installed Application without the operating system noticing. [Reference](https://github.com/electron/asar/issues/123)
+Because the entire project is shipped within a monolithic binary, code can be signed for all distributables. (Currently using external tooling, but we are actively working on making the bundler a one-stop-shop.) This makes it virtually impossible for hackers to change an installed Application without the operating system noticing. [Reference](https://github.com/electron/asar/issues/123)
 
 ### Post-Binary Analysis
-Use industrial-grade pentester-tooling (via our custom Tauri-Frida GUI) to discover and fix security weaknesses in your final binaries. 
+Use industrial-grade pentester-tooling (via our forthcoming Tauri-Frida GUI) to discover and fix security weaknesses in your final binaries.
 
 ### Post-Binary Enhancement
-After the build is before the shipping, and Tauri will provide you with advanced processes for integrated licensing including multi-layer checksums,
+After the build is before the delivery, and Tauri will provide you with tools never seen before. Stay tuned!
 
-## Audits
-We have not yet undertaken an audit, but this is planned to be realized before the 1.0 stable release.
+### Audits
+We have not yet undertaken an audit, but this is planned for realization before the 1.0 stable release.

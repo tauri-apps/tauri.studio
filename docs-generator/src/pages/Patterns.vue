@@ -17,7 +17,7 @@
         </q-ribbon>
         <div id="tryout" class="fit row inline wrap" style="margin-top:26px">
           <img class="col-1 q-mt-md q-mr-md" :src="`statics/patterns/${pattern}.png`" style="height:50px; width:auto" :alt="pattern" :title="pattern + ' badge'">
-          <h4 class="col-grow text-weight-light" :class="$q.dark.isActive ? 'text-cyan-1' : 'text-cyan-10'" style="margin:-30px 0">{{ pattern }}</h4>
+          <h4 class="col-grow text-weight-light q-pt-xl" :class="$q.dark.isActive ? 'text-cyan-1' : 'text-cyan-10'" style="margin:-30px 0">{{ pattern }}</h4>
           <span class="col-12 q-pa-sm text-weight-bold text-black">{{ active.bestWhen }}</span>
 
           <div class="row justify-around full-width">
@@ -77,7 +77,6 @@
 
 <script>
 // import markdown from '../markdown/patterns.md'
-// import * as mermaid from 'mermaid'
 const colors = {
   blue: {
     light: '#BAE5F2',
@@ -93,7 +92,6 @@ export default {
   name: 'Patterns',
   data () {
     return {
-      // markdown: markdown,
       mermaidHTML: '',
       blue: colors.blue,
       yellow: colors.yellow,
@@ -568,7 +566,6 @@ tauri: {
 }
 </script>
 <style lang="stylus">
-
 #mermaid .arrowheadPath
   fill #2B6063!important
 #mermaid .path

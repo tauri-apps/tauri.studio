@@ -1,16 +1,15 @@
 <template>
   <div>
-    <div id="padding" style="height:260px;background-image:url(/statics/tauri-studio.svg);background-repeat:0;background-cover:fit;background-align:center"></div>
-    <q-markdown :src="markdown" toc @data="onToc" no-line-numbers />
+    <div id="padding" style="padding-top:260px"></div>
+    <q-markdown :src="markdown" toc @data="onToc"  />
   </div>
 </template>
 
 <script>
-import markdown from '../markdown/api.md'
+import markdown from '../markdown/noserver.md'
 
 export default {
-  name: 'API',
-
+  name: 'PageIndex',
   data () {
     return {
       markdown: markdown
@@ -18,13 +17,13 @@ export default {
   },
 
   computed: {
-
     toc:
       {
         get () {
           return this.$store.state.common.toc
         },
         set (toc) {
+          // console.log('toc:', toc)
           this.$store.commit('common/toc', toc)
         }
       }
@@ -42,3 +41,7 @@ export default {
 
 }
 </script>
+<style lang="stylus">
+.q-markdown--line-numbers-wrapper
+  margin-bottom 14px
+</style>

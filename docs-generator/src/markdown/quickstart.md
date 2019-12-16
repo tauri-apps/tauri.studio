@@ -1,21 +1,10 @@
-## Ultra Quick Start
-```
-npm install -g tauri
-cd <your-project-folder>
-tauri init
-tauri dev
-tauri icon
-tauri build
-```
-
-
 ## Test Drive
-This assumes you have git, node 10LTS, yarn, rust and cargo installed. If not, see below.
+This assumes you have git, node 10LTS or above, yarn, rust and cargo installed. If not, see below.
 
-```
+```bash
 npm install -g tauri
 git clone https://github.com/tauri-apps/tauri
-cd examples/vue/quasar-demo
+cd examples/vue/quasar-app
 yarn
 cargo install tauri-cli
 tauri build
@@ -26,23 +15,22 @@ After tauri has compiled its rust resources, look in the `src-tauri/target/relea
 ## Add Rust and Build Toolchain
 ### Windows 64 or 32 bit
 
-> If you've never installed any of this,
-
 First you should [download](https://aka.ms/buildtools) and install Visual Studio MSBuild Tools and C++ build tools.
 
-> This is a big download (over 1GB) and takes the most time
+> This is a big download (over 1GB) and takes the most time, so go grab a :coffee:
 
 Chocolatey is a great package manager for Windows. Follow these [these official instructions](https://chocolatey.org/install), or just do this:
 
 Then install [nvm-windows](https://github.com/coreybutler/nvm-windows)
 Then install Chocolatey
 
-    # BE SURE YOU ARE IN AN ADMINISTRATIVE PowerShell!
-    > nvm install 10.16.3
-    > nvm use 10.16.3
-    > Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-    > choco install yarn
-
+```powershell
+# BE SURE YOU ARE IN AN ADMINISTRATIVE PowerShell!
+nvm install 10.16.3
+nvm use 10.16.3
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+choco install yarn
+```
 If you are running Windows 64-bit, download and run [rustup‑init.exe](https://win.rustup.rs/x86_64) and then follow the onscreen instructions.
 
 If you are running Windows 32-bit, download and run [rustup‑init.exe](https://win.rustup.rs/i686) and then follow the onscreen instructions.
@@ -57,6 +45,8 @@ CheckNetIsolation.exe LoopbackExempt -a -n="Microsoft.Win32WebViewHost_cw5n1h2tx
 
 #### Devtools
 https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide
+
+<hr>
 
 ### Arch
 According to the Arch manual, this is something you were born knowing. But seriously, if you want to help out
@@ -92,7 +82,9 @@ and make sure you are on latest update on 2019-11-07, rust version 1.39.0 - othe
     $ rustup override set 1.39.0
 
 
-## About `rustup` (from their [website](https://rustup.rs))
+## About rustup
+- (from their [website](https://rustup.rs))
+
 `rustup` installs rustc, cargo, rustup and other standard tools to Cargo's bin directory. On Unix it is located at `$HOME/.cargo/bin` and on Windows at `%USERPROFILE%\.cargo\bin`. This is the same directory that cargo install will install Rust programs and Cargo plugins.
 
 This directory will be in your `$PATH` environment variable, which means you can run them from the shell without further configuration. **Open a new shell** and type the following:
@@ -112,66 +104,13 @@ If you don't see 1.39.0 or later, then you'll need to upgrade your rust.
     $ rustup update stable
     $ rustup override set 1.39.0
 
-### bundler
+## bundler
 After you have installed Rust and the build toolchain, it is wise to open a new shell before continuing.
 
 Setup the bundler:
 
     $ cargo install tauri-cli --force
 
-Want to debug?
-#### *nix
-
-    $ cd src-tauri
-    $ RUST_DEBUG=1 cargo build
-
-OR
-    $ tauri build --debug
-
-#### Windows
-
-    $ cd src-tauri
-    $ set RUST_DEBUG=1
-    $ cargo build
-
-
-
-## experimental anti-bloat features
-
-see: https://github.com/RazrFalcon/cargo-bloat
-https://lifthrasiir.github.io/rustlog/why-is-a-rust-executable-large.html
-https://doc.rust-lang.org/cargo/reference/manifest.html#the-profile-sections
-
-### Bundler
-add this to your `/src-tauri/Cargo.toml` (currently being used in the /test project)
-
-    [profile.release]
-    panic = "abort"
-    codegen-units = 1
-    lto = true
-    incremental = false
-    opt-level = "z"
-
-
-### upx
-UPX, **Ultimate Packer for eXecutables**, is a dinosaur amongst the binary packers. This 23-year old, well-maintained piece of kit is GPL-v2 licensed with a pretty liberal usage declaration. Our understanding of the licensing is that you can use it for any purposes (commercial or otherwise) without needing to change your license unless you modify the source code of UPX.
-
- Basically it compresses the binary and decompresses it at runtime. It should work for pretty much any binary type out there. Read more: https://github.com/upx/upx
-
-> You should know that this technique might flag your binary as a virus on Windows and MacOS - so use at your own discretion, and as always validate with Frida and do real distribution testing!
-
-#### Usage on MacOS
-    $ brew install upx
-    $ yarn tauri build
-    $ upx --ultra-brute src-tauri/target/release/bundle/osx/app.app/Contents/MacOS/app
-                           Ultimate Packer for eXecutables
-                              Copyright (C) 1996 - 2018
-    UPX 3.95        Markus Oberhumer, Laszlo Molnar & John Reiser   Aug 26th 2018
-
-            File size         Ratio      Format      Name
-       --------------------   ------   -----------   -----------
-        963140 ->    274448   28.50%   macho/amd64   app
 
 ## error reporting
 Please report all library errors at https://github.com/tauri-apps/tauri
-

@@ -7,14 +7,11 @@
 
 <script>
 import markdown from '../markdown/security.md'
-import json from '../json/tauri.json'
-
 export default {
   name: 'PageIndex',
   data () {
     return {
-      markdown: markdown,
-      json: json
+      markdown: markdown
     }
   },
 

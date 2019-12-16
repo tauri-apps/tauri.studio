@@ -1,11 +1,13 @@
 <template>
   <div class="full-width q-pa-md">
     <q-page-sticky id="hero" expand class="page-header fixed-top shadow-8 scroll-determined z-top" v-scroll="scrolled" style="position:fixed!important;">
-      <q-chip id="claim" outline dense square class="claim text-weight-light text-black bg-cyan-1 shadow-8" style="top: 84%">
-        <q-icon name="star"></q-icon>
-        <span class="text-weight-light text-caption">Build more secure native apps with fast, tiny binaries.</span>
-        <q-icon name="star"></q-icon>
-      </q-chip>
+      <div id="claim">
+        <q-chip v-if="$route.name === 'landing'" outline dense square class="claim text-weight-light text-black bg-cyan-1 shadow-8" style="top: 84%">
+          <q-icon name="star"></q-icon>
+          <span class="text-weight-light text-caption">Build more secure native apps with fast, tiny binaries.</span>
+          <q-icon name="star"></q-icon>
+        </q-chip>
+      </div>
       <div class="bg-container scroll-determined q-pa-md q-ml-lg"></div>
       <div>
         <router-link to="/">
@@ -30,10 +32,7 @@
         >
           <q-icon name="menu" />
         </q-btn>
-        <div  class="absolute-right" style="margin:12px 44px 0 0;">
-          <q-btn class="z-top" flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'brightness_2' : 'brightness_5'" />
-        </div>
-        <div class="absolute-right" style="margin:18px 60px 0 0;">
+        <div class="absolute-right" style="margin:18px 20px 0 0;">
           <q-btn-dropdown flat dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
             <q-list color="yellow-2" >
               <q-item dense clickable v-close-popup to="/docs/introduction" v-if="showDocs">
@@ -43,7 +42,7 @@
               </q-item>
               <q-item dense clickable v-close-popup to="/docs/quickstart">
                 <q-item-section>
-                  <q-item-label>Quick Start</q-item-label>
+                  <q-item-label>Quickstart</q-item-label>
                 </q-item-section>
               </q-item>
 
@@ -52,7 +51,18 @@
                   <q-item-label>Security</q-item-label>
                 </q-item-section>
               </q-item>
+              <q-item dense clickable v-close-popup to="/contribute" v-if="showDocs">
+                <q-item-section>
+                  <q-item-label>Contribute</q-item-label>
+                </q-item-section>
+              </q-item>
+
               <q-separator />
+              <q-item dense clickable v-close-popup to="/docs/config" v-if="showDocs">
+                <q-item-section>
+                  <q-item-label>Config</q-item-label>
+                </q-item-section>
+              </q-item>
               <q-item dense clickable v-close-popup to="/docs/api" v-if="showDocs">
                 <q-item-section>
                   <q-item-label>API</q-item-label>
@@ -68,19 +78,30 @@
                     <q-item-label>Bundler</q-item-label>
                 </q-item-section>
               </q-item>
+
+              <q-separator />
               <q-item dense clickable v-close-popup to="/docs/patterns">
                 <q-item-section>
                   <q-item-label>Patterns</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-separator />
               <q-item dense clickable v-close-popup to="/docs/frameworks">
                 <q-item-section>
                   <q-item-label>Frameworks</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-separator />
+              <q-item dense clickable v-close-popup to="/docs/no-server">
+                <q-item-section>
+                  <q-item-label>No Server</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item dense clickable v-close-popup to="/wtf">
+                <q-item-section>
+                  <q-item-label>WTF</q-item-label>
+                </q-item-section>
+              </q-item>
 
+              <q-separator />
               <q-item dense clickable v-close-popup to="/book" v-if="showDocs">
                 <q-item-section>
                     <q-item-label>Book</q-item-label>

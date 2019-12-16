@@ -1,16 +1,15 @@
 <template>
   <div>
-    <div id="padding" style="height:260px;background-image:url(/statics/tauri-studio.svg);background-repeat:0;background-cover:fit;background-align:center"></div>
-    <q-markdown :src="markdown" toc @data="onToc" no-line-numbers />
+    <div id="padding" style="padding-top:260px"></div>
+    <q-markdown :src="markdown" toc @data="onToc" />
   </div>
 </template>
 
 <script>
-import markdown from '../markdown/api.md'
+import markdown from '../markdown/wtf.md'
 
 export default {
-  name: 'API',
-
+  name: 'Governance',
   data () {
     return {
       markdown: markdown

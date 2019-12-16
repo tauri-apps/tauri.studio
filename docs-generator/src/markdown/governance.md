@@ -3,8 +3,8 @@ One of the main goals of the organizational structure of Tauri is to guarantee t
 
 ### Organizational Structure
 Tauri apps is governed by the community and work is done in the context of public working groups. Each working group has a dedicated channel on the Discord server as well as a Team on GitHub. Other than that, each WG is free to use whatever type of organizational model it chooses.
- 
- The current working groups are: 
+
+ The current working groups are:
 - WG Governance & Guidance
 - WG Tech
 - WG Education
@@ -25,9 +25,6 @@ We have a Social Contract that informs our decision making and organization. You
 We, the contributors to Tauri Apps, use the MIT and Apache licenses for all code content. Images and bodies of text, unless otherwise noted are CC-BY-ND-NC.
 
 ### Trademark
-It is a permissible use of the name "Tauri App" or the Tauri logo to show that a project uses Tauri. Any language that gives the impression that the Tauri Apps organization approves, authorizes or otherwise supports a project, person or company is not permissible without written authorization from the Guidance and Governance Working Group.
+It is a permissible use of the name "Tauri App" or the Tauri logo to show that a project uses Tauri. "Tauri Studio" is reserved for use by the organization.
 
-### Sourcecred
-We use sourcecred for tracking contributions, and once we have enough funding to cover our operational costs, we will use it to distribute funds fairly amongst contributors.
-
-You can have a look here:  https://sourcecred.teamopen.dev/prototype/tauri-apps
+Any language that gives the impression that the Tauri organization approves, authorizes or otherwise supports a project, person or company is not permissible without written authorization from the Guidance and Governance Working Group.

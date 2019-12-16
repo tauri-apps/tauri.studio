@@ -7,6 +7,7 @@ const routes = [
     children: [
       {
         path: '',
+        name: 'landing',
         component: () => import('pages/Landing.vue'),
         meta: {
           name: 'Menu',
@@ -43,8 +44,8 @@ const routes = [
         component: () => import('pages/Security.vue'),
         meta: {
           name: 'Security',
-          page_title: 'Tauri - Security.',
-          description: 'Learn about the current and forthcoming security approaches that Tauri apps use and that you can profit from.',
+          page_title: 'Tauri - Secure by Design.',
+          description: 'Learn about the current and forthcoming security approaches that Tauri apps leverage and for which your users will thank you.',
           tags: 'tauri, open-source, native-apps, development, macos, windows, linux',
           url: 'https://tauri.studio/docs/security'
         }
@@ -60,11 +61,12 @@ const routes = [
     children: [
       {
         path: '/docs', // todo: make this a nice list
-        component: () => import('pages/Introduction.vue'),
+        name: 'docs',
+        component: () => import('pages/Docs.vue'),
         meta: {
           name: 'Docs',
           page_title: 'Tauri - Documentation Overview.',
-          description: 'Learn about how Tauri works under the hood.',
+          description: 'Table of Contents for the Documentation Pages.',
           tags: 'open-source, native-apps, development, macos, windows, linux, documentation',
           url: 'https://tauri.studio/docs'
         }
@@ -110,7 +112,29 @@ const routes = [
           page_title: 'Tauri - Design Patterns',
           description: 'Learn about the variety of systems you can design with simple configuration changes - now includes flowcharts and grading to make it easier to compare and choose!',
           tags: 'tauri, architecture, flowcharts, open-source, native-apps, development, macos, windows, linux',
-          url: 'https://tauri.studio/docs/patterns'
+          url: 'https://tauri.studio/docs/frameworks'
+        }
+      },
+      {
+        path: '/docs/no-server',
+        component: () => import('pages/Noserver.vue'),
+        meta: {
+          name: 'Patterns',
+          page_title: 'Tauri - Design Patterns',
+          description: 'Learn about the variety of systems you can design with simple configuration changes - now includes flowcharts and grading to make it easier to compare and choose!',
+          tags: 'tauri, architecture, flowcharts, open-source, native-apps, development, macos, windows, linux',
+          url: 'https://tauri.studio/docs/no-server'
+        }
+      },
+      {
+        path: '/docs/config',
+        component: () => import('pages/Config.vue'),
+        meta: {
+          name: 'Config',
+          page_title: 'Tauri - Configuration',
+          description: 'Learn about the variety of ways you can configure tauri to meet your needs.',
+          tags: 'tauri, api, open-source, native-apps, development, macos, windows, linux',
+          url: 'https://tauri.studio/docs/config'
         }
       },
       {
@@ -120,7 +144,7 @@ const routes = [
           name: 'API',
           page_title: 'Tauri - API',
           description: 'Learn about the various endpoints and communication protocols that Tauri enables you to use',
-          tags: 'books, open-source, native-apps, development, macos, windows, linux',
+          tags: 'tauri, api, open-source, native-apps, development, macos, windows, linux',
           url: 'https://tauri.studio/docs/api'
         }
       },
@@ -131,7 +155,7 @@ const routes = [
           name: 'CLI',
           page_title: 'Tauri - Node.js CLI.',
           description: 'Learn about the Node CLI commands and their configurations.',
-          tags: 'books, open-source, native-apps, development, macos, windows, linux',
+          tags: 'tauri, cli, open-source, native-apps, development, macos, windows, linux',
           url: 'https://tauri.studio/docs/cli'
         }
       },
@@ -139,11 +163,44 @@ const routes = [
         path: '/docs/bundler',
         component: () => import('pages/Bundler.vue'),
         meta: {
-          name: 'CLI',
+          name: 'Bundler',
           page_title: 'Tauri - Rust Bundler.',
           description: 'Learn about the Rust bundler.',
-          tags: 'books, open-source, native-apps, development, macos, windows, linux',
-          url: 'https://tauri.studio/docs/cli'
+          tags: 'tauri, bundler, open-source, native-apps, development, macos, windows, linux',
+          url: 'https://tauri.studio/docs/bundler'
+        }
+      },
+      {
+        path: '/contribute',
+        component: () => import('pages/Contribute.vue'),
+        meta: {
+          name: 'Develop',
+          page_title: 'Tauri - Contribute.',
+          description: 'Learn about the stack and processes involved in Tauri Development, and get involved in making it better.',
+          tags: 'development, contributions, open-source, native-apps, development, macos, windows, linux',
+          url: 'https://tauri.studio/contribute'
+        }
+      },
+      {
+        path: '/wtf',
+        component: () => import('pages/WTF.vue'),
+        meta: {
+          name: 'Develop',
+          page_title: 'WTF Tauri?',
+          description: 'When things go wrong, this page will help you get back and track.',
+          tags: 'development, open-source, native-apps, development, macos, windows, linux',
+          url: 'https://tauri.studio/wtf'
+        }
+      },
+      {
+        path: '/partners',
+        component: () => import('pages/Partners.vue'),
+        meta: {
+          name: 'Partners',
+          page_title: 'Tauri - Partners',
+          description: 'Meet the ',
+          tags: 'development, open-source, native-apps, development, macos, windows, linux',
+          url: 'https://tauri.studio/partners'
         }
       }
     ]

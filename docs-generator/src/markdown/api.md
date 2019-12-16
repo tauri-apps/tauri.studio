@@ -1,13 +1,39 @@
-# The Tauri API
+The Tauri API is a set of opt-in tools that you can enable in order to do things like read and write from the filesystem and pass messages back and forth between the WebView and Rust. There are two parts to it, the Rust API and the JS API. The former is consumed in your `src-tauri/src/main.rs` file, and the latter is available at the `window.tauri` object.
 
-The Tauri API is a set of opt-in tools that you can enable in order to do things like read and write from the filesystem and pass messages back and forth between the WebView and Rust. They are configured in the `tauri.conf.js` file with the following object:
+## Installation
+If you want to use the API, you will need to first choose how to integrate it into your UI. There are two suggested methods:
+1. Use the webpack plugin (better)
+2. Inject the official helper (easier)
 
+### Webpack Plugin
+Webpack will take care of everything for you, so after you have this done right, you can use `window.tauri` wherever you need to.
+#### Installation
+```bash
+yarn add @tauri-apps/tauri-webpack
+```
+
+#### Integration
+In your webpack config, add the following:
+```js
+chainWebpack (chain) {
+  require('@tauri-apps/tauri-webpack').chain(chain, {
+    tauriLazyLoading: !ctx.dev
+  })
+}
+```
+
+### Official Helper
+The official helper waits for
+
+
+They are configured in the `tauri.conf.js` file with the following object:
+
+## Whitelist
 ```
 whitelist: {              // all whitelist values are default:false
   all: false,             // use this flag to enable all API features
   answer: false,          // enable rust to direct the UI
-  bridge: false,          // enable Tauri Bridge
-  event: false,           // enable binding to message
+  event: false,           // enable listening to messages from webview
   execute: false,         // enable application execution
   listFiles: false,       // list files in a directory
   open: false,            // open link in a browser
@@ -26,143 +52,106 @@ These features will be added to your project's `src-taurl/Cargo.toml` at build t
  * @description This API interface makes powerful interactions available
  * to be run on client side applications. They are opt-in features, and
  * must be enabled in tauri.conf.js
- * Each binding MUST provide these interfaces in order to be compliant,
- * and also whitelist them based upon the developer's settings.
  */
 
-  /**
-   * @name invoke
-   * @description Calls a Tauri Core feature, such as setTitle
-   * @param {Object} args
-   */
+/**
+  * @name invoke
+  * @description Calls a Tauri Core feature, such as setTitle
+  * @param {Object} args
+  */
 
-  /**
-   * @name addEventListener
-   * @description Add an event listener to Tauri back end
-   * @param {String} event
-   * @param {Function} handler
-   * @param {Boolean} once
-   */
+/**
+  * @name addEventListener
+  * @description Add an event listener to Tauri back end
+  * @param {String} event
+  * @param {Function} handler
+  * @param {Boolean} once
+  */
 
-  /**
-   * @name emit
-   * @description Emits an evt to the Tauri back end
-   * @param {String} evt
-   * @param {Object} payload
-   */
+/**
+  * @name emit
+  * @description Emits an evt to the Tauri back end
+  * @param {String} evt
+  * @param {Object} payload
+  */
 
-  /**
-   * @name transformCallback
-   * @description Registers a callback with a uid
-   * @param {Function} callback
-   * @param {Boolean} once
-   * @returns {*}
-   */
+/**
+  * @name transformCallback
+  * @description Registers a callback with a uid
+  * @param {Function} callback
+  * @param {Boolean} once
+  * @returns {*}
+  */
 
-  /**
-   * @name promisified
-   * @description Turns a request into a chainable promise
-   * @param {Object} args
-   * @returns {Promise<any>}
-   */
+/**
+  * @name promisified
+  * @description Turns a request into a chainable promise
+  * @param {Object} args
+  * @returns {Promise<any>}
+  */
 
-  /**
-   * @name readTextFile
-   * @description Accesses a non-binary file on the user's filesystem
-   * and returns the content. Permissions based on the app's PID owner
-   * @param {String} path
-   * @returns {*|Promise<any>|Promise}
-   */
+/**
+  * @name readTextFile
+  * @description Accesses a non-binary file on the user's filesystem
+  * and returns the content. Permissions based on the app's PID owner
+  * @param {String} path
+  * @returns {*|Promise<any>|Promise}
+  */
 
-  /**
-   * @name readBinaryFile
-   * @description Accesses a binary file on the user's filesystem
-   * and returns the content. Permissions based on the app's PID owner
-   * @param {String} path
-   * @returns {*|Promise<any>|Promise}
-   */
+/**
+  * @name readBinaryFile
+  * @description Accesses a binary file on the user's filesystem
+  * and returns the content. Permissions based on the app's PID owner
+  * @param {String} path
+  * @returns {*|Promise<any>|Promise}
+  */
 
-  /**
-   * @name writeFile
-   * @description Write a file to the Local Filesystem.
-   * Permissions based on the app's PID owner
-   * @param {Object} cfg
-   * @param {String} cfg.file
-   * @param {String|Binary} cfg.contents
-   */
+/**
+  * @name writeFile
+  * @description Write a file to the Local Filesystem.
+  * Permissions based on the app's PID owner
+  * @param {Object} cfg
+  * @param {String} cfg.file
+  * @param {String|Binary} cfg.contents
+  */
 
-  /**
-   * @name listFiles
-   * @description Get the files in a path.
-   * Permissions based on the app's PID owner
-   * @param {String} path
-   * @returns {*|Promise<any>|Promise}
-   */
+/**
+  * @name listFiles
+  * @description Get the files in a path.
+  * Permissions based on the app's PID owner
+  * @param {String} path
+  * @returns {*|Promise<any>|Promise}
+  */
 
-  /**
-   * @name listDirs
-   * @description Get the directories in a path.
-   * Permissions based on the app's PID owner
-   * @param {String} path
-   * @returns {*|Promise<any>|Promise}
-   */
+/**
+  * @name listDirs
+  * @description Get the directories in a path.
+  * Permissions based on the app's PID owner
+  * @param {String} path
+  * @returns {*|Promise<any>|Promise}
+  */
 
-  /**
-   * @name setTitle
-   * @description Set the application's title
-   * @param {String} title
-   */
+/**
+  * @name setTitle
+  * @description Set the application's title
+  * @param {String} title
+  */
 
-  /**
-   * @name open
-   * @description Open an URI
-   * @param {String} uri
-   */
+/**
+  * @name open
+  * @description Open an URI
+  * @param {String} uri
+  */
 
-  /**
-   * @name execute
-   * @description Execute a program with arguments.
-   * Permissions based on the app's PID owner
-   * @param {String} command
-   * @param {String|Array} args
-   * @returns {*|Promise<any>|Promise}
-   */
+/**
+  * @name execute
+  * @description Execute a program with arguments.
+  * Permissions based on the app's PID owner
+  * @param {String} command
+  * @param {String|Array} args
+  * @returns {*|Promise<any>|Promise}
+  */
 
-
-  /**
-   * @name bridge
-   * @description Securely pass a message to the backend.
-   * @example
-   *  this.$q.tauri.bridge('QBP/1/ping/client-1', 'pingback')
-   * @param {String} command - a compressed, slash-delimited and
-   * versioned API call to the backend.
-   * @param {String|Object}payload
-   * @returns {*|Promise<any>|Promise}
-   */
-
-
-  /**
-   * @name setup
-   * @description Inform Rust that the webview has initialized and is
-   * ready for communication
-   */
-  static setup () {
-    document.querySelector('body').addEventListener('click', function (e) {
-      let target = e.target
-      while (target != null) {
-        if (target.matches ? target.matches('a') : target.msMatchesSelector('a')) {
-          tauri.open(target.href)
-          break
-        }
-        target = target.parentElement
-      }
-    }, true)
-
-    tauri.invoke({
-      cmd: 'init'
-    })
-  }
-}
 ```
 
 
@@ -203,36 +192,40 @@ tauri.addEventListener('key-generated', res => {
 ```
 
 ## Event
-Here is a `src-tauri/main.rs` file that uses the Event API to rig Rust to listen for an event named `hello`, it then puts that in a `Reply` struct and passes the stringified struct back the WebView as a JSON object as an event `reply`. If you need a more performant version of this, consider using the `Bridge`.
+Here is a `src-tauri/main.rs` file that uses the Event API to rig Rust to listen for an event named `hello`, it then puts that in a `Reply` struct and passes the stringified struct back the WebView as a JSON object as an event `reply`.
 
 ```rust
 // rustlang
+mod cmd;
+
+#[macro_use]
+extern crate serde_derive;
+extern crate serde_json;
+
 fn main() {
   tauri::AppBuilder::new()
-  .invoke_handler(|_webview, arg| {
-    use cmd::Cmd::*;
-    let handle = _webview.handle();
-    tauri::event::listen("hello", |msg| {
+    .setup(|_webview| {
+      let handle = _webview.handle();
+      tauri::event::listen("hello", move |msg| {
+        #[derive(Serialize)]
+        pub struct Reply {
+          pub msg: String,
+          pub rep: String
+        }
 
-      #[derive(Serialize)]
-      pub struct Reply {
-        pub msg: String,
-        pub rep: String
-      }
+        let reply = Reply {
+          msg: format!("{}", msg).to_string(),
+          rep: "something else".to_string()
+        };
 
-      let reply = Reply {
-        msg: format!("{}", msg).to_string(),
-        rep: "something else".to_string()
-      };
+        tauri::event::emit(&handle, "reply",  serde_json::to_string(&reply).unwrap());
 
-      tauri::event::emit(handle, "reply",  serde_json::to_string(&reply).unwrap());
-
-      println!("Message from emit:hello => {}", msg);
+        println!("Message from emit:hello => {}", msg);
+      });
     })
     .build()
     .run();
-  }
-});
+}
 ```
 
 On the WebView side, your code can look like this:

@@ -8,6 +8,14 @@ This page seeks to help you integrate your front-end framework of choice with Ta
 ## Vue-CLI
 
 ## Quasar
+Add this to your `quasar.conf.js`
+```
+chainWebpack (chain) {
+  require('@tauri-apps/tauri-webpack').chain(chain, {
+    tauriLazyLoading: !ctx.dev
+  })
+}
+```
 
 ## Angular
 

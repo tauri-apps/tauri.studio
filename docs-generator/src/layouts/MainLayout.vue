@@ -15,7 +15,7 @@
         style="height:calc(100% - 320px)"
         :thumb-style="{ right: '3px', borderRadius: '2px', background: '#ffaa00', width: '6px', opacity: 0.5 }"
       >
-        <q-list dense>
+        <q-list dense class="q-pt-lg">
           <q-item
             v-for="item in toc"
             :key="item.id"
@@ -34,13 +34,21 @@
       </q-scroll-area>
       <div class="absolute-bottom full-width text-center" :class="$q.dark.isActive ? 'bg-blue-grey-6' : 'bg-cyan-1'">
         <q-separator></q-separator>
+        <div  class="absolute-left" style="margin:6px 0 0 10px">
+          <q-btn flat round type="a" href="https://github.com/tauri-apps/tauri" icon="fab fa-github" />
+        </div>
         <div class="q-pa-sm" style="font-size:0.9em">
           Tauri is an Open Source Project<br/>
           <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">GitHub</a>
-          &nbsp;||&nbsp;
-          <a href="https://opencollective.com/tauri" target="_blank" rel="noreferrer">Donate</a>
-          &nbsp;||&nbsp;
+          &nbsp;|&nbsp;
+          <router-link to="/partners">
+            Partners
+          </router-link>
+          &nbsp;|&nbsp;
           <router-link to="/governance-and-guidance">Governance</router-link>
+        </div>
+        <div  class="absolute-right" style="margin:5px 10px 0 0">
+          <q-btn type="a" flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'brightness_2' : 'brightness_5'" />
         </div>
       </div>
     </q-drawer>
@@ -132,7 +140,11 @@ export default {
           innerHTML: `
 {
   "@context": "http://schema.org",
-  "@type": "",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "${this.metaRoute.url}"
+  },
   "name": "${this.metaRoute.page_title}",
   "author": {
     "@type": "Organization",

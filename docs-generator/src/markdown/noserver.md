@@ -8,12 +8,6 @@ If you want the highest degree of security, then you will never ship a server wi
 yarn add @tauri-apps/tauri-webpack
 ```
 
-In your webpack config:
-```js
-chainWebpack (chain) {
-  require('@tauri-apps/tauri-webpack').chain(chain)
-}
-```
 
 In your `tauri.conf.js`
 ```js
@@ -24,10 +18,21 @@ tauri: {
 }
 ```
 
-### Multimode
-If you are using Tauri for just one of your targets, you may want to avoid using the tauri webpack config if you aren't shipping to Tauri. Here is a nice little trick to do that:
-
+### webpack
+If you are handcrafting your own webpack, you can do this:
+`webpack.config.js`
 ```js
+const mode = process.env.NODE_ENV || 'development'
+const devMode = mode !== 'production'
+const tauriMode = !!process.env.TAURI
+
+const webpackConfig = {
+    entry: {
+        bundle: ['./src-ui/index.js']
+    },
+    ... CONFIG HERE
+}
+
 if (tauriMode) {
     const merge = require('webpack-merge')
     const tauriWebpackConfig = require('@tauri-apps/tauri-webpack').config()
@@ -35,5 +40,22 @@ if (tauriMode) {
 }
 else {
     module.exports = webpackConfig
+}
+```
+
+And then in the `scripts` of your package.json:
+```
+"dev": "webpack-dev-server --content-base .build/ --port 3000 --host 0.0.0.0",
+"build": "cross-env NODE_ENV=production webpack",
+"build:tauri": "TAURI=1 npm run build",
+"dev:tauri": "TAURI=1 npm run dev",
+```
+
+The webpack plugin
+
+### webpack chain
+```js
+chainWebpack (chain) {
+  require('@tauri-apps/tauri-webpack').chain(chain)
 }
 ```

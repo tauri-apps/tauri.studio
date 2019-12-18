@@ -108,7 +108,7 @@ const routes = [
         path: '/docs/frameworks',
         component: () => import('pages/Frameworks.vue'),
         meta: {
-          name: 'Patterns',
+          name: 'Frameworks',
           page_title: 'Tauri - Design Patterns',
           description: 'Learn about the variety of systems you can design with simple configuration changes - now includes flowcharts and grading to make it easier to compare and choose!',
           tags: 'tauri, architecture, flowcharts, open-source, native-apps, development, macos, windows, linux',
@@ -119,7 +119,7 @@ const routes = [
         path: '/docs/no-server',
         component: () => import('pages/Noserver.vue'),
         meta: {
-          name: 'Patterns',
+          name: 'No-Server',
           page_title: 'Tauri - Design Patterns',
           description: 'Learn about the variety of systems you can design with simple configuration changes - now includes flowcharts and grading to make it easier to compare and choose!',
           tags: 'tauri, architecture, flowcharts, open-source, native-apps, development, macos, windows, linux',
@@ -174,7 +174,7 @@ const routes = [
         path: '/contribute',
         component: () => import('pages/Contribute.vue'),
         meta: {
-          name: 'Develop',
+          name: 'Contribute',
           page_title: 'Tauri - Contribute.',
           description: 'Learn about the stack and processes involved in Tauri Development, and get involved in making it better.',
           tags: 'development, contributions, open-source, native-apps, development, macos, windows, linux',
@@ -185,7 +185,7 @@ const routes = [
         path: '/wtf',
         component: () => import('pages/WTF.vue'),
         meta: {
-          name: 'Develop',
+          name: 'WTF',
           page_title: 'WTF Tauri?',
           description: 'When things go wrong, this page will help you get back and track.',
           tags: 'development, open-source, native-apps, development, macos, windows, linux',

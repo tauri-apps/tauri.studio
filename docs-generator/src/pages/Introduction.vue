@@ -7,10 +7,11 @@
     <div class="text-center" id="temp" v-html="graph"></div>
     <q-markdown toc @data="onToc">
 
-The above graphic shows the high-level flow of the way Tauri works:
+## How it all works
+
 1. First you make an interface in your [GUI framework](/docs/frameworks) and prepare the HTML/CSS/JS for consumption
 2. The tauri.js [Node CLI](/docs/cli) takes it and rigs the rust runner according to your configuration.
-3. In [dev mode](/docs/cli#dev) it creates a webview window with debugging and hot-module-reloading
+3. In [dev mode](/docs/cli#dev) it creates a webview window with debugging and hot-module-reloading.
 4. In [build mode](/docs/cli#build) it rigs the [bundler](/docs/bundler) and creates a final application according to your settings.
 
 ### Setting up Your Environment

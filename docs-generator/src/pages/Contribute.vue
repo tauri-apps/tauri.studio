@@ -9,7 +9,7 @@
 import markdown from '../markdown/contribute.md'
 
 export default {
-  name: 'Governance',
+  name: 'Contribute',
   data () {
     return {
       markdown: markdown
@@ -31,10 +31,6 @@ export default {
 
   methods: {
     onToc (toc) {
-      // add anything not picked uip by the markdown processor
-      // toc.push({ id: 'Tauri-API', label: 'Tauri API', level: 1, children: Array(0) })
-      // toc.push({ id: 'Donate', label: 'Donate', level: 1, children: Array(0) })
-
       this.toc = toc
     }
   }

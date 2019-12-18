@@ -1,67 +1,58 @@
 <template>
   <div>
     <div id="padding" style="padding-top:260px"></div>
-    <q-markdown toc @data="onToc">
-
-## Sponsors
-
-### wallaby.js
-The awesome folks at wallaby.js comped the core team of Tauri with their futuristic `REPL in the IDE` test runner. If you avoid testing your JS because it takes so long - with wallaby you'll appreciate the immediate inline feedback. We do.
-https://wallabyjs.com
-
-### github.com
-Although not an official partner, without the awesome support of GitHub donating GitHub actions for our build pipelines, we would not be as far as we are today.
-
-## Collaborators
-### IOTA FOUNDATION
-The first adopter of Tauri, close collaborators with common interests.
-https://iota.org
-
-### PureOS
-It can be argued that the humble beginnings of Tauri stretch back to a conversation where it was made clear in no simple terms that Electron apps will never ship on the official PureOS store.
-https://www.pureos.net/
-
-### Meros
-If PureOS planted the seed of Tauri, Kayaba from Meros really kicked the can down the road with a perfectly timed question.
-https://meroscrypto.io/
-
-### TensorProgramming
-One of the most polyglot professionals out there, TensorProgramming shares his knowledge and excitement about dozens of different programming languages on his YouTube channel.
-https://youtube.com/c/tensorprogramming
-
-## Sponsors
-(In alphabetic order)
-- Anonymous
-- Robin van Boven
-- Jonathan Baginski
-- Allan Gaunt
-
-## And You?
-
-    </q-markdown>
+    <div class="text-h4 text-center text-weight-thin q-ma-sm">Sponsors</div>
+    <div class="row justify-center">
+      <PartnerCard
+        class="col-lg-3 col-md-4 col-sm-6 col-xs-12"
+        v-for="partner in partners.sponsors"
+        :key="partner.id"
+        :title="partner.title"
+        :tags="partner.tags"
+        :url="partner.url"
+        :logoUrl="$q.dark.isActive ? partner.logoUrl[0] : partner.logoUrl[1]"
+        :description="partner.description"
+        :flair="partner.flair"
+      />
+    </div>
+    <q-separator class="q-my-lg" />
+    <div class="text-h4 text-weight-thin text-center q-ma-sm">Collaborators</div>
+    <div class="row justify-center">
+      <PartnerCard
+        class="col-lg-3 col-md-4 col-sm-6 col-xs-12 q-ma-md"
+        v-for="collaborator in partners.collaborators"
+        :key="collaborator.id"
+        :title="collaborator.title"
+        :tags="collaborator.tags"
+        :url="collaborator.url"
+        :logoUrl="$q.dark.isActive ? collaborator.logoUrl[0] : collaborator.logoUrl[1]"        :description="collaborator.description"
+        :flair="collaborator.flair"
+      />
+    </div>
+    <q-separator class="q-my-lg" />
+    <div class="text-h4 text-center text-weight-thin q-ma-sm">Patrons</div>
+    <div class="row justify-center">
+      <q-list>
+        <q-item v-for="patron in partners.patrons"
+        :key="patron.id"> {{ patron.name }} </q-item>
+      </q-list>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Introduction',
+import PartnerCard from 'src/components/PartnerCard'
+import partners from 'src/assets/partners'
 
+export default {
+  name: 'Partners',
+  components: {
+    PartnerCard
+  },
   data () {
     return {
-      graph: '',
-      flow: {
-        lifecycle: `
-        graph LR
-          A==>H
-          H==>G
-          A-->D
-          D-->G
-        `
-      }
+      partners: partners
     }
-  },
-  mounted () {
-    this.goMermaid(this.flow.lifecycle)
   },
   computed: {
     toc:
@@ -77,22 +68,7 @@ export default {
 
   methods: {
     onToc (toc) {
-      // add anything not picked uip by the markdown processor
-      // toc.push({ id: 'Tauri-API', label: 'Tauri API', level: 1, children: Array(0) })
-      // toc.push({ id: 'Donate', label: 'Donate', level: 1, children: Array(0) })
-
       this.toc = toc
-    },
-    goMermaid (pattern) {
-      // null it so that we don't accidentally append
-      this.graph = null
-
-      // otherwise mermaid gets lost
-      this.$nextTick(() => {
-        this.graph = this.$mermaid.render('mermaid', pattern)
-        // then measure height of svg
-        // resize card / dom
-      })
     }
   }
 

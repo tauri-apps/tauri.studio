@@ -11,18 +11,18 @@ If you need help or want a review, you are welcome to contact the Tauri team for
 ### Security Researchers
 If you feel that there is a security concern or issue with anything in Tauri, please do not publicly comment on your findings. Instead, reach out directly to our security team:
 
-> <center>security@tauri-apps.org</center>
+> <center>security@tauri.studio</center>
 
 Although we do not currently have a budget for Security Bounties, in some cases we will consider rewarding responsible disclosure with our limited resources.
 
 ## No Server Required
-Tauri enables you to construct an application that uses web-technology for the user interface without requiring you to use a server to communicate with the backend. Even if you used advanced techniques of dynamic imports and offload work to the backend, no traffic can be sniffed on TCP ports or external processes - because it just isn't there. This reduces not only the footprint of your final binary by a good deal, it also reduces the surface area of potential attack vectors by removing them from the equation.
+Tauri enables you to construct an application that uses web-technology for the user interface without requiring you to use a server to communicate with the backend. Even if you used advanced techniques of dynamic imports and offload work to the backend, no traffic can be sniffed on TCP ports or external processes - because they just aren't there. This reduces not only the physical and virtual footprint of your final binary by a good deal, it also reduces the surface area of potential attack vectors by removing them from the equation.
 
 ## Language Features of Rust
 By turning to the programming language reknowned for its memory-safety and speed, Tauri simply erases whole classes of conventional attacks. `Use after free` just isn't something that can happen with Tauri.
 
 ## Dynamic Ahead of Time Compilation (AOT)
-This process of compilation happens several times during the bootstrapping phase of a Tauri app. By using a dynamic Ahead of Time compiler, you can generate code references that are unique for every session and are still technically static code units.
+This process of compilation happens several times during the bootstrapping phase of a Tauri app. By using our default dynamic Ahead of Time compiler, you can generate code references that are unique for every session and are still technically static code units.
 
 ## Function Hardening
 ### functional ASLR
@@ -32,13 +32,13 @@ Functional address Space Layout Randomization techniques randomize function name
 This advanced type of fASLR using the `EVENT` API endpoint, is a promise wrapped in a closure (with randomized handle) that Rust inserts at runtime into the Webview, where its interface is locked within the promise resolution handler and is nulled after execution.
 
 ### Bridge, don't serve
-Instead of passing potentially unsafe functions, an event bridge can be used to pass messages and commands to named brokers at each respective side of a the application.
+Instead of passing potentially unsafe functions, an event bridge can be used to pass messages and commands to named brokers at each respective side of the application.
 
 ### One Time Pad Tokenization and Hashing
-Hashing important messages with a OTP salt, you are able to encrypt messages between the user interface and the Rust backend. We are currently investigatin the use of additional sources of entropy such as the amazing [Infinite Noise TRNG](https://13-37.org/en/shop/infinite-noise-trng/).
+Hashing important messages with a OTP salt, you are able to encrypt messages between the user interface and the Rust backend. We are currently investigating the use of additional sources of entropy such as the amazing [Infinite Noise TRNG](https://13-37.org/en/shop/infinite-noise-trng/).
 
 ## API Whitelisting
-You have the ability to pick and choose which API functions are available to the UI and to Rust. If they are not enabled, the code will not be shipped with your app, which reduces binary size and attack surface.
+You have the ability to pick and choose which API functions are available to the UI and to Rust. If they are not enabled, the code will not be shipped with your app, which reduces binary size and attack surface. They are opt-in, so you have to consciously choose to progressively enhance your application.
 
 ## Content Security Policy Management
 Preventing unauthorized code execution for websites has long since been "resolved" by using CSPs. Tauri can inject CSPs into the index.html of the user interface, and when using a localhost server it will also send these headers to the UI or any other clients that connect with it.

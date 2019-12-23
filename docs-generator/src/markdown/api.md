@@ -251,3 +251,48 @@ tauri::event::emit(handle, "reply", "eval(alert('you really should know better')
 ::: warning
 Because of the way that this injection works, events can be very difficult to trace and may fail silently.
 :::
+
+
+
+    build: {
+      distDir: distDir, (string required)
+      devPath: 'http://localhost:7334' // devServer URL or path to folder where index.html is found
+    },
+    ctx: {
+      prod: false,          // readonly
+      dev: false,           // readonly
+      debug: false          // readonly
+    },
+    tauri: {
+      embeddedServer: {
+        active: false
+      },
+      bundle: {
+        active: true
+      },
+      whitelist: {        // all whitelist values are default:false
+        all: false,             // use this flag to enable all API features
+        answer: false,          // enable rust to direct the UI
+        event: false,           // enable listening to messages from webview
+        execute: false,         // enable application execution
+        listFiles: false,       // list files in a directory
+        open: false,            // open link in a browser
+        readBinaryFile: false,  // read binary file from local filesystem
+        readTextFile: false,    // read text file from local filesystem
+        setTitle: false,        // set the window title
+        writeFile: false        // write file to local filesystem
+      },
+      window: {
+        title: 'Tauri App',
+        width: 800,
+        height: 600,
+        resizable: true
+      },
+      security: {
+        csp: 'default-src data: filesystem: ws: http: https: \'unsafe-eval\' \'unsafe-inline\''
+      },
+      edge: {
+        active: true
+      }
+    }
+  }

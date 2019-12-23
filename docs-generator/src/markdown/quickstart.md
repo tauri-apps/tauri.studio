@@ -114,3 +114,15 @@ Setup the bundler:
 
 ## error reporting
 Please report all library errors at https://github.com/tauri-apps/tauri
+
+## NOTES
+
+first, the JS calls the init API, which injects a function on JS that's responsible for notifying JS events from Rust:
+https://github.com/tauri-apps/tauri/blob/dev/tauri/src/api.rs#L19
+
+called here: https://github.com/tauri-apps/tauri/blob/dev/tauri/src/event.rs#L47
+-----
+the Listeners Hashmap is populated here: https://github.com/tauri-apps/tauri/blob/0a42119b529d573164dee40313d4312beae7eacb/tauri/src/event.rs#L31
+these listeners are called from the "emit" API, as Khionu pointed out
+it's confusing because there's two pairs of "emit" and "listen"
+

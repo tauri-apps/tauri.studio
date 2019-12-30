@@ -49,7 +49,7 @@ This means that your apps cannot be easily decompiled as is the case with Electr
 
 ## Ecosystem
 ### Dependency Rescue
-Sometimes the Tauri team finds packages in the wild that technically work and are highly valuable, but are out of date and include vulnerabilities. A great example of this is [tauri-inliner](https://github.com/tauri-apps/tauri-inliner). Mrely including this module would have introduced over 30 vulnerabilities to our core. So we forked the original library, updated vulnerable modules to the latest versions and modified changed function signatures. Once adopted, we will continue to maintain these libraries.
+Sometimes the Tauri team finds packages in the wild that technically work and are highly valuable, but are out of date and include vulnerabilities. A great example of this is [tauri-inliner](https://github.com/tauri-apps/tauri-inliner). Merely including this module would have introduced over 30 vulnerabilities to our core. So we forked the original library, updated vulnerable modules to the latest versions and modified changed function signatures. Once adopted, we will continue to maintain these libraries.
 
 ### Build Pipelines and Artifact Authenticity
 The process of releasing our source-code artifacts is highly automated, yet mandates kickoff and review from real humans. Our current release strategy uses a combination of Github Actions and IOTO Tangle publication

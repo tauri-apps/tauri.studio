@@ -1,0 +1,76 @@
+{
+  "langLabel": "ES",
+  "properName": "Español",
+  "shortCode": "es",
+  "titles": {
+    "splash": "NuYu MD",
+    "login": "NuYu Login",
+    "register": "NuYu Registro"
+  },
+  "cookies": {
+    "title": "Nuestro sitio web utiliza cookies.",
+    "review": "Tómese un momento para revisar nuestra",
+    "linkText": "política de privacidad."
+  },
+  "messages": {
+    "account_created": "Please check your email to verify your registration. This sometimes can take up to 10 minutes. Please check the spam folder if the email has not been received.",
+    "password_forgot": "Please check your email to reset your password.",
+    "verification_success": "Your e-mail has been verified. You can now login.",
+    "verification_failed": "Verification has failed.",
+    "password_recover_success": "Your password has been reset. You can now login with the new password.",
+    "logout_confirmation": "Are you sure you want to log out?",
+    "confirm": "Confirm",
+    "update_available": "A new update is available. Click on ok to reload the page.",
+    "hello": "Hola"
+  },
+  "errors": {
+    "general_error": "An error occurred. Please try again.",
+    "not_found": "Sorry, nothing here...",
+    "network": "Network error. Please check your internet connection",
+    "fields": "Please correct the input fields"
+  },
+  "buttons": {
+    "submit": "Entregar",
+    "logout": "Cerrar sesión",
+    "cancel": "Cancelar",
+    "login": "Iniciar sesión",
+    "register": "Registrar",
+    "accept": "Aceptar",
+    "go_back": "Go back",
+    "send": "Send",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "headers": {
+    "login": "Iniciar sesión",
+    "register": "Registrar",
+    "password_forgot": "Request a new password",
+    "password_recover": "Reset password",
+    "administrator": "Administrator",
+    "navigation": "Navigation",
+    "overview": "Overview",
+    "today": "Today",
+    "this_week": "This Week",
+    "upcoming": "Upcoming",
+    "articles": "Articles",
+    "article": "Article"
+  },
+  "labels": {
+    "my_account": "My account",
+    "register": "Registrar",
+    "logout": "Cerrar sesión",
+    "login": "Inicio de sesión",
+    "email": "E-mail",
+    "name": "Nombre",
+    "firstName": "Nombre de pila",
+    "lastName": "Apellido",
+    "password": "Contraseña",
+    "repeat_password": "Repeat password",
+    "remember_me": "Recuérdame",
+    "password_forgot": "Forgot your password?",
+    "home": "Home",
+    "returnToLogin": "Volver al inicio de sesión",
+    "interfaceLanguage": "Interface Language"
+  }
+}

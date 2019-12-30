@@ -1,7 +1,5 @@
-
 const routes = [
   {
-    // redirect to docs
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [

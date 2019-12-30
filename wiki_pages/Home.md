@@ -25,11 +25,12 @@ It is primarily written from the perspective of enabling contributors to underst
 12. [CLI]()
 13. [Bundler]()
 ### For Contributors
-14. [Detailed Flow]()
-15. [Continuous Integration]()
-16. [Testing]()
-17. [Security]()
-18. [Ecosystem Notes]()
+14. [Contributor Introduction]()
+15. [Detailed Flow]()
+16. [Continuous Integration]()
+17. [Testing]()
+18. [Security]()
+19. [Ecosystem Notes]()
 
 
 ***

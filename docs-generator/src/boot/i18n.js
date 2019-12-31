@@ -17,32 +17,10 @@
 
 // todo: add Meta
 
-import { Cookies } from 'quasar'
-import Quasar from 'quasar'
+import Quasar, { Cookies } from 'quasar'
 import VueI18n from 'vue-i18n'
-import localesList from '@nuyu/quasar-app-extension-i18n/src/i18n/localesList.json'
-import LangSwitcher from '../components/LangSwitcher.vue'
-// import { forage } from '@nuyu/quasar-app-extension-common/src/boot/curriedForage'
-import { me } from '@nuyu/quasar-app-extension-common/src/boot/me'
-
-/**
- * Get and set the locale cookie
- * @category i18n
- * @type {function}
- * @returns {string|boolean}
- */
-const getLocaleForage = async function () {
-  const locale = await me.get('locale')
-  if (locale) {
-    // guard to make sure the cookie IS a real value
-    if (localesList.includes(locale)) {
-      return locale.toLowerCase()
-    }
-  } else {
-    return false
-  }
-}
-
+import localesList from '../../../i18n/localesList.json'
+// import LangSwitcher from '../components/LangSwitcher.vue'
 
 /**
  * Get and set the locale cookie
@@ -77,7 +55,7 @@ const getBrowserLocale = function (ssrContext) {
     const language = Quasar.lang.getLocale()
     if (language) {
       // todo: fix it. what the heck does this really do?
-      for (let locales of localesList) {
+      for (const locales of localesList) {
         if (locales.startsWith(language.split('-')[0])) {
           return locales
         }
@@ -140,8 +118,8 @@ const replaceLocale = function (route, locale) {
  * @property {object} router - object for route detection
  * @returns {string} Decision tree result
  */
-const getLocale = async function (routeLocale) {
-  const locale = await getLocaleForage()
+const getLocale = function (ssrContext, routeLocale) {
+  const locale = getLocaleCookie(ssrContext)
   if (typeof locale !== 'undefined') {
     return getRoute(locale)
   } else {
@@ -149,6 +127,7 @@ const getLocale = async function (routeLocale) {
   }
 }
 
+/*
 const reroute = function (val) {
   let hostName = window.location.hostname
   hostName = hostName.substring(hostName.lastIndexOf('.', hostName.lastIndexOf('.') - 1) + 1)
@@ -158,9 +137,10 @@ const reroute = function (val) {
   if (location.search) route = route + location.search
   return route
 }
+*/
 
 export default async ({ app, Vue, ssrContext, router }) => {
-  Vue.component('LangSwitcher', LangSwitcher )
+  // Vue.component('LangSwitcher', LangSwitcher)
   Vue.use(VueI18n)
   app.i18n = new VueI18n({
     silentTranslationWarn: true,
@@ -171,16 +151,9 @@ export default async ({ app, Vue, ssrContext, router }) => {
   })
   // always make sure that the fallback is loaded
   app.loadedLanguages = ['en']
-  app.i18n.setLocaleMessage('en', require(`@nuyu/quasar-app-extension-i18n/src/i18n/locales/en.json`))
+  app.i18n.setLocaleMessage('en', require('../../../i18n/locales/en.json'))
 
   router.beforeEach(async (to, from, next) => {
-    // todo: ignore quasar ? is this still needed for SSR?
-    /*
-    if (to.params.locale === 'src') {
-      next()
-    }
-    */
-
     // guard against non-available locales
     if (to.params.locale) {
       try {
@@ -195,7 +168,7 @@ export default async ({ app, Vue, ssrContext, router }) => {
     }
 
     try {
-      const userLocale = await me.get('locale')
+      const userLocale = Cookies.get('locale') || 'en' // app.$q.cookies.get('en') // Cookies.get('locale')
       if (typeof userLocale !== 'function' && to.params.locale !== userLocale) {
         next({
           name: to.name,
@@ -214,7 +187,7 @@ export default async ({ app, Vue, ssrContext, router }) => {
     }
 
     const routeLocale = to.params.locale
-    const cookieLocale = await getLocale()
+    const cookieLocale = getLocale(ssrContext)
 
     if (to.params.locale !== cookieLocale) {
       // here we need to reroute
@@ -258,19 +231,17 @@ export default async ({ app, Vue, ssrContext, router }) => {
       qLocale = locale
     }
 
-    me.set({locale:  locale})
-
+    // app.$q.cookies.set('locale', locale)
     // on first load this will always be true
     if (!app.loadedLanguages.includes(locale)) {
       app.loadedLanguages.push(locale)
-      app.i18n.setLocaleMessage(locale, require(`@nuyu/quasar-app-extension-i18n/src/i18n/locales/${locale}.json`))
+      app.i18n.setLocaleMessage(locale, require(`../../../i18n/locales/${locale}.json`))
       try {
         await import(`quasar/lang/${qLocale}`)
           .then((lang) => {
             Quasar.lang.set(lang.default)
           })
       } catch (err) {
-        // todo: use sentry
         console.log(err)
       }
     } else {
@@ -298,9 +269,9 @@ export default async ({ app, Vue, ssrContext, router }) => {
      * @param ssrContext
      * @returns {Promise<*>}
      */
-    async preFetch ({  currentRoute, redirect, ssrContext }) {
+    async preFetch ({ currentRoute, redirect, ssrContext }) {
       if (ssrContext) {
-        let locale = getRoute(currentRoute.params.locale)
+        const locale = getRoute(currentRoute.params.locale)
         let qLocale
         if (locale === 'en') {
           qLocale = 'en-us'
@@ -310,11 +281,10 @@ export default async ({ app, Vue, ssrContext, router }) => {
         if (localesList.includes(locale)) {
           await import(`quasar/lang/${qLocale}`)
             .then((loc) => {
-              Quasar.lang.set(loc.default)
+              this.$q.lang.set(loc.default)
             })
         }
       }
-      // todo: solve for app
     }
   })
 }

@@ -6,8 +6,9 @@ module.exports = function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     boot: [
-      {path: 'mermaid', server: false },
-      'markdown'
+      { path: 'mermaid', server: false },
+      'markdown',
+      'i18n'
     ],
 
     css: [
@@ -31,7 +32,7 @@ module.exports = function (ctx) {
       // lang: 'de', // Quasar language
 
       // all: true, // --- includes everything; for dev only!
-      all: 'auto',
+      all: true,
       components: [],
       config: {
         dark: true

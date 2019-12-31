@@ -6,12 +6,11 @@
   "author": "Daniel Thompson-Yvetot <denjell@sfosc.dev>",
   "private": true,
   "scripts": {
-    "build": "quasar build && cp ./src/CNAME ./dist/spa && cp ./src/404.html ./dist/spa && cp -r ./dist/spa/. ../docs",
     "dev": "quasar dev",
     "lint": "eslint --ext .js,.vue src",
     "lint-fix": "eslint --ext .js,.vue src --fix",
     "test": "echo \"No test specified\" && exit 0",
-    "deploy": "git pull && yarn quasar build -m ssr && yarn deploy:ssr-pm2_restart",
+    "deploy": "git pull && yarn install && quasar build -m ssr --debug && cd dist/ssr && yarn install && cd ../../ && yarn deploy:ssr-pm2_restart",
     "deploy:ssr-pm2": "pm2 start ./dist/ssr/index.js --name quasar-ssr",
     "deploy:ssr-pm2_clusterize": "pm2 start ./dist/ssr/index.js --name quasar-ssr -i max",
     "deploy:ssr-pm2_watch": "pm2 start ./dist/ssr/index.js --name quasar-ssr --watch ./dist/ssr",

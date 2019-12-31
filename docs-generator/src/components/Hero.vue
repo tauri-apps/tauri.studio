@@ -20,8 +20,11 @@
         >
           <q-icon name="menu" />
         </q-btn>
-        <div class="absolute-right" style="margin:18px 20px 0 0;">
-          <q-btn-dropdown flat dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
+        <div class="absolute-right" style="margin:18px 24px 0 0;">
+          <router-link v-if="$route.name === 'landing'" :to="{name: 'introduction'}">
+            <q-btn dense outline text-color="cyan-1" no-caps class="q-mr-xl">Introduction</q-btn>
+          </router-link>
+          <q-btn-dropdown v-else outline dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
             <q-list color="yellow-2" >
               <q-item dense clickable v-close-popup :to="{name: 'introduction'}" v-if="showDocs">
                 <q-item-section>
@@ -35,15 +38,15 @@
                 </q-item-section>
               </q-item>
 
-              <q-item dense clickable v-close-popup :to="{name: 'governance-and-guidance'}">
-                <q-item-section>
-                  <q-item-label>Governance</q-item-label>
-                </q-item-section>
-              </q-item>
-
               <q-item dense clickable v-close-popup :to="{name: 'patterns'}">
                 <q-item-section>
                   <q-item-label>Patterns</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item dense clickable v-close-popup>
+                <q-item-section>
+                  <q-item-label><a href="https://github.com/tauri-apps/tauri/wiki" target="_blank">Documentation</a></q-item-label>
                 </q-item-section>
               </q-item>
 
@@ -54,12 +57,17 @@
                 </q-item-section>
               </q-item>
 
-              <q-item dense clickable v-close-popup>
+              <q-item dense clickable v-close-popup :to="{name: 'partners'}" v-if="showDocs">
                 <q-item-section>
-                  <q-item-label><a href="https://github.com/tauri-apps/tauri/wiki" target="_blank">Documentation</a></q-item-label>
+                    <q-item-label>Partners</q-item-label>
                 </q-item-section>
               </q-item>
 
+              <q-item dense clickable v-close-popup :to="{name: 'governance-and-guidance'}">
+                <q-item-section>
+                  <q-item-label>Governance</q-item-label>
+                </q-item-section>
+              </q-item>
             </q-list>
           </q-btn-dropdown>
         </div>

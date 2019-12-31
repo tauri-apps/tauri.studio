@@ -1,6 +1,7 @@
 <template>
   <div>
     <div id="padding" style="padding-top:60px"></div>
+    <h5>Introduction</h5>
     <p>
       Tauri is a polyglot system for building apps. It uses NodeJS to scaffold an HTML/CSS/JS rendering Window as a User Interface that is bootstrapped and managed by Rust. The final product is a monolithic binary that can be distributed as common file-types for Windows (exe/msi), Linux (deb/appimage) and Macintosh (app/dmg).
     </p>

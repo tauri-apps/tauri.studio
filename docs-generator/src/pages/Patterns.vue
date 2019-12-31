@@ -6,7 +6,7 @@
     <p>If you haven't read about the general design of Tauri, then it would make the most sense for you to visit the
       <router-link :to="{name: 'introduction'}">INTRODUCTION</router-link> and become familiar with the basic architecture and terminology used in these patterns.
     </p>
-    <q-card class="q-mt-xl">
+    <q-card class="q-mt-xl" id="overview">
       <q-card-section class="text-center" style="padding-bottom:-20px">
         <q-btn :name="`${p.name} Selector`" class="q-mx-xs" outline flat dense no-caps v-for="p in patterns" v-bind:key="p.id"  @click="pattern = p.name" :class="{'bg-cyan-2 text-black': pattern === p.name}" :disabled="pattern === p.name">{{ p.name }}</q-btn>
       </q-card-section>
@@ -54,8 +54,8 @@
       <q-card-section>
         <q-no-ssr>
           <q-markdown :src="active.intro"></q-markdown>
+          <div class="text-center" id="temp" v-html="graph" style="background-color:#F2E8C7"></div>
         </q-no-ssr>
-        <div class="text-center" id="temp" v-html="graph"></div>
       </q-card-section>
       <q-separator></q-separator>
       <!--<q-card-section>
@@ -65,9 +65,9 @@
       </q-card-section>
       <q-separator></q-separator>-->
       <q-card-section>
-        <h6>Configuration</h6>
-        <span>tauri.conf.js</span>
-        <q-markdown :src="active.configMD" toc @data="onToc" no-line-numbers />
+        <h6 id="configuration">Configuration</h6>
+        <span>tauri.conf.json</span>
+        <q-markdown :src="active.configMD" no-line-numbers />
       </q-card-section>
     </q-card>
 
@@ -97,18 +97,18 @@ export default {
       yellow: colors.yellow,
       graph: '',
       clearfix: ' ',
-      pattern: 'Bridge',
+      pattern: 'Hermit',
       patterns: [
         {
           name: 'Hermit',
-          most: 'MOST SECURE',
+          most: 'TAURI DEFAULT',
 
           intro: 'The Hermit recipe is a pattern for ultimate application isolation where all logic is self-contained in the Window and the binary exists merely to bootstrap the Window. There is no communication back to Rust from the Window, there is no localhost server, and the Window has no access to any remote resources. The Hermit is great for interactive Kiosk Mode and standalone HTML based games.',
           ratings: {
             easeOfUse: 5,
             security: 5,
             extensibility: 0,
-            performance: 6
+            performance: 5
           },
           bestWhen: 'Best when you want to lock down your app from all external influences.',
           features: [
@@ -123,17 +123,13 @@ export default {
             'No access to API'
           ],
           configMD: `
-\`\`\`
-tauri: {
-  embeddedServer: {
-    active: false               // do not use a localhost server
+\`\`\`json
+"tauri": {
+  "embeddedServer": {
+    "active": false     // do not use a localhost server
   },
-  whitelist: {
-    all: false,                 // disable and tree-shake all api functions
-  },
-  security: {
-    csp: 'default-src data: \\'unsafe-eval\\' \\'unsafe-inline\\''
-    fASLR: 'aot'               // bootstrap with dynamic AOT of interface at every launch
+  "whitelist": {
+    "all": false,       // disable and tree-shake all api functions
   }
 }
 \`\`\`
@@ -157,7 +153,7 @@ tauri: {
         {
           name: 'Bridge',
           most: 'MOST POPULAR',
-          intro: 'The Bridge recipe is a secure pattern where messages are passed between brokers via an implicit bridge using the API. ',
+          intro: 'The Bridge recipe is a secure pattern where messages are passed between brokers via an implicit bridge using the API. It isolates functionality to scope and passes messages instead of functionality.',
           bestWhen: 'Best when you want two-way communication between Rust and WebView.',
           ratings: {
             easeOfUse: 3,
@@ -174,33 +170,27 @@ tauri: {
             'Challenge to implement'
           ],
           configMD: `
-\`\`\`
-tauri: {
-  embeddedServer: {
-    active: false               // do not use a localhost server
+\`\`\`json
+"tauri": {
+  "embeddedServer": {
+    "active": false               // do not use a localhost server
   },
-  whitelist: {                  // all whitelist values are default false
-    all: true,                  // use this flag to enable all API features
-    answer: false,              // enable rust to direct the UI
-    bridge: false,              // enable Quasar Bridge
-    event: false,               // enable binding to message
-    execute: false,             // enable application execution
-    listFiles: false,           // list files in a directory
-    open: false,                // open link in a browser
-    readBinaryFile: false,      // read binary file from local filesystem
-    readTextFile: false,        // read text file from local filesystem
-    setTitle: false,            // set the window title
-    writeFile: false            // write file to local filesystem
-  },
-  security: {
-    csp: 'default-src data: \\'unsafe-eval\\' \\'unsafe-inline\\'',
-    messageSalt: 'none',        // one of: ['none'|'aot'|'otp']
-    fASLR: 'none'               // one of: ['none'|'aot'|'otp']
+  "whitelist": {                  // all whitelist values are default false
+    "all": false,                 // use this flag to enable all API features
+    "answer": true,               // enable rust to direct the UI
+    "event": true,                // enable binding to message
+    "execute": false,             // enable application execution
+    "listFiles": false,           // list files in a directory
+    "open": false,                // open link in a browser
+    "readBinaryFile": false,      // read binary file from local filesystem
+    "readTextFile": false,        // read text file from local filesystem
+    "setTitle": false,            // set the window title
+    "writeFile": false            // write file to local filesystem
   }
 }
 \`\`\`
           `,
-          graph: `graph LR
+          graph: `graph TD
           H==>F
 
           subgraph WEBVIEW
@@ -227,7 +217,6 @@ tauri: {
           E{JS Broker}
           F[Window]
           H{Bootstrap}
-          click D "/docs/api" "Visit the API page"
           style D fill:#ccc,stroke:#333,stroke-width:4px,color:white
           style RUST fill:${colors.yellow.light},stroke:${colors.yellow.dark},stroke-width:4px
           style WEBVIEW fill:${colors.blue.light},stroke:${colors.blue.dark},stroke-width:4px`
@@ -252,21 +241,18 @@ tauri: {
             'Uses a localhost server'
           ],
           configMD: `
-\`\`\`
-tauri: {
-  embeddedServer: {
-    active: true                // ship with a localhost server
+\`\`\`json
+"tauri": {
+  "embeddedServer": {
+    "active": true                // ship with a localhost server
   },
-  whitelist: {
-    all: false                  // disable entire API
-  },
-  security: {
-    csp: 'default-src data: http: https: \\'unsafe-eval\\' \\'unsafe-inline\\''
+  "whitelist": {
+    "all": false                  // disable entire API
   }
 }
 \`\`\`
           `,
-          graph: `graph LR
+          graph: `graph TD
           H==>F
           H==>D
           D-->F
@@ -299,10 +285,10 @@ tauri: {
           most: 'MOST COMPLEX',
           intro: 'The Cloudbridge recipe combines the flexibility of a localhost and the security of the bridge. With so many features, it can be easy to get lost.',
           ratings: {
-            easeOfUse: 2,
+            easeOfUse: 1,
             security: 2,
-            extensibility: 6,
-            performance: 2
+            extensibility: 5,
+            performance: 3
           },
           bestWhen: 'Best when your project is complex and you need all available options.',
           pros: [
@@ -314,29 +300,62 @@ tauri: {
             'Hard to separate concerns'
           ],
           configMD: `
-\`\`\`
-tauri: {
-  embeddedServer: {
-    active: true                // ship with a localhost server
+\`\`\`json
+"tauri": {
+  "embeddedServer": {
+    "active": true                // ship with a localhost server
   },
-  whitelist: {
-    all: true                   // enable entire API
-  },
-  security: {
-    csp: 'default-src data: http: https: \\'unsafe-eval\\' \\'unsafe-inline\\''
+  "whitelist": {
+    "all": true                   // enable entire API
   }
 }
 \`\`\`
           `,
-          graph: `graph LR
-          A== Bootstrap ==>F
-          A[Rust Binary]
-          F[WebView Window]
+          graph: `graph TD
+          H==>F2
+          H==>D2
+          D2-->F2
+          F2-->D2
+          B-->D
+          D-->B
+          E2-->D
+          D-->E2
+
+          subgraph WEBVIEW
+          F2
+          E2
+          end
+
+          subgraph SERVER
+          D2
+          E-->D2
+          end
+
+          subgraph RUST
+          A==>H
+          A-->B
+          B-.-C
+          end
+
+          A[Binary]
+          B{Rust Broker}
+          C[Subprocess]
+          D(( API BRIDGE ))
+          E{JS Broker}
+          D2(( localhost ))
+          E[bundled resources]
+          E2{JS Broker}
+          F2[Window]
+          H{Bootstrap}
+          style D fill:#ccc,stroke:#333,stroke-width:4px,color:white
+          style RUST fill:${colors.yellow.light},stroke:${colors.yellow.dark},stroke-width:4px
+          style WEBVIEW fill:${colors.blue.light},stroke:${colors.blue.dark},stroke-width:4px
+          style SERVER fill:#49A24A,stroke:#2B6063,stroke-width:4px
           `
         },
         {
           name: 'Kamikaze',
-          most: 'MOST AWESOME',
+          most: 'BEST IN CLASS',
           intro: 'The Kamikaze recipe is a minimal usage of the Bridge pattern, which only allows interaction between Rust and the Window via expiring JS Promise Closures that are injected into the Window by Rust and nulled as part of the callback.',
           ratings: {
             easeOfUse: 2,
@@ -357,24 +376,18 @@ tauri: {
             'No remote resources'
           ],
           configMD: `
-\`\`\`
-tauri: {
-  embeddedServer: {
-    active: false               // do not use a localhost server
+\`\`\`json
+"tauri": {
+  "embeddedServer": {
+    "active": false               // do not use a localhost server
   },
-  whitelist: {                  // all API endpoints are default false
-    event: true,                // Use the EVENT API for injections
-  },
-  security: {
-    csp: 'default-src data: \\'unsafe-eval\\' \\'unsafe-inline\\'',
-    fASLR: 'aot'               // bootstrap with dynamic AOT of interface on launch
-    messageSalt: 'otp',        // use One-Time-Pads for injected function handles
-    eventRecycle: 0            // never use an event twice
+  "whitelist": {                  // all API endpoints are default false
+    "event": true,                // Use the EVENT API for injections
   }
 }
 \`\`\`
           `,
-          graph: `graph LR
+          graph: `graph TD
           H==>F
           G-.->B
           B-->G
@@ -415,19 +428,13 @@ tauri: {
             'Not yet available'
           ],
           configMD: `
-\`\`\`
-tauri: {
-  embeddedServer: {
-    active: false               // do not use a localhost server
+\`\`\`json
+"tauri": {
+  "embeddedServer": {
+    "active": false               // do not use a localhost server
   },
-  whitelist: {                  // all API endpoints are default false
-    event: true,                // Use the EVENT API for injections
-  },
-  security: {
-    csp: 'default-src data: \\'unsafe-eval\\' \\'unsafe-inline\\'',
-    fASLR: 'aot'               // bootstrap with dynamic AOT of interface on launch
-    messageSalt: 'otp',        // use One-Time-Pads for injected function handles
-    eventRecycle: 0            // never use an event twice
+  "whitelist": {                  // all API endpoints are default false
+    "event": true,                // Use the EVENT API for injections
   }
 }
 \`\`\`
@@ -474,22 +481,22 @@ tauri: {
             'Broken on your machine'
           ],
           configMD: `
-\`\`\`
-tauri: {
-  embeddedServer: {
-    active: false               // do not use a localhost server
+\`\`\`json
+"tauri": {
+  "embeddedServer": {
+    "active": false               // do not use a localhost server
   },
-  whitelist: {                  // all API endpoints are default false
-    all: false,                // Use the EVENT API for injections
+  "whitelist": {                  // all API endpoints are default false
+    "all": false,                 // disable the api
   },
-  window: {
-    glutin: true,
-    webview: false
+  "window": {                     // not yet normative
+    "glutin": true,
+    "webview": false
   }
 }
 \`\`\`
           `,
-          graph: `graph LR
+          graph: `graph TD
           A==>H
           H==>G
           A-->D
@@ -525,6 +532,9 @@ tauri: {
     }
   },
   computed: {
+    graphOrientation () {
+      return this.$q.screen.lt.md ? 'TD' : 'LR'
+    },
     toc: {
       get () {
         return this.$store.state.common.toc
@@ -540,12 +550,14 @@ tauri: {
     }
   },
   mounted () {
+    this.onToc(this.toc)
   },
   methods: {
     onToc (toc) {
       // add anything not picked uip by the markdown processor
-      // toc.push({ id: 'Tauri-API', label: 'Tauri API', level: 1, children: Array(0) })
-      // toc.push({ id: 'Donate', label: 'Donate', level: 1, children: Array(0) })
+      toc.push({ id: 'overview', label: 'Overview', level: 1, children: Array(0) })
+      toc.push({ id: 'temp', label: 'Flowchart', level: 1, children: Array(0) })
+      toc.push({ id: 'configuration', label: 'Configuration', level: 1, children: Array(0) })
 
       this.toc = toc
     },
@@ -570,4 +582,8 @@ tauri: {
   fill #2B6063!important
 #mermaid .path
   stroke #2B6063!important
+#mermaid
+  font-family 'trebuchet ms', verdana, arial!important
+  font-weight 200
+  font-size 1em
 </style>

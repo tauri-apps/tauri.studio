@@ -21,10 +21,9 @@
         </q-btn>
       </q-carousel-slide>
     </q-carousel>
-
-    <router-link :to="{name: 'introduction'}">
-      <p class="text-h5 text-center q-my-xl">Read more about Tauri...</p>
-    </router-link>
+    <div class="full-width text-center">
+      <q-btn outline rounded class="text-h6 q-my-xl" type="a" href="https://github.com/tauri-apps/tauri/wiki">Setup Tauri for my Environment</q-btn>
+    </div>
     <div id="testimonials">
       <q-markdown>
 > I never understood why HTML/JS etc. should not be separated from rust and processed into a separate area. All frameworks I tested and tried always wanted to squeeze the HTML or design area IN Rust. What if I have a UI team and a backend team? With Tauri it's incredibly easy, I can separate the UI from the code and the frontend developers don't even have to know Rust. - **PeShor**

@@ -10,6 +10,7 @@ Tauri apps is governed by the community and work is done in the context of publi
 - WG Education
 - WG Media
 - WG Security
+- WG Devops
 
 With the exception of the security working group, which is by invite only and convenes privately, all other working groups are public and open to any and all participants.
 

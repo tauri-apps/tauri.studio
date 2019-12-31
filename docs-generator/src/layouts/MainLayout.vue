@@ -72,17 +72,23 @@
               CONTACT
             </span>
             <q-separator></q-separator>
-            <q-list class="q-pl-md">
-              <q-item clickable class="footer-item">
-                <a href="mailto:contact@tauri.studio">Email</a>
-              </q-item>
-              <q-item clickable class="footer-item">
-                <a href="https://discord.gg/SpmNs4S" target="_blank" rel="noreferrer">Discord</a>
-              </q-item>
-              <q-item clickable class="footer-item">
-                <a href="https://twitter.com/tauriapps" target="_blank" rel="noreferrer">Twitter</a>
-              </q-item>
-            </q-list>
+            <div class="row q-mt-xs">
+              <q-btn flat round class="footer-item">
+                <a href="mailto:contact@tauri.studio" target="_blank">
+                  <q-icon name="mail"></q-icon>
+                </a>
+              </q-btn>
+              <q-btn flat round class="footer-item">
+                <a href="https://discord.gg/SpmNs4S" target="_blank" rel="noreferrer">
+                  <q-icon name="chat"></q-icon>
+                </a>
+              </q-btn>
+              <q-btn flat round class="footer-item">
+                <a href="https://twitter.com/tauriapps" target="_blank" rel="noreferrer">
+                  <q-icon name="fab fa-twitter"></q-icon>
+                </a>
+              </q-btn>
+            </div>
           </div>
         </div>
         <div class="col-1 col-md-1 col-sm-1"></div>
@@ -93,17 +99,23 @@
               NETWORK
             </span>
             <q-separator></q-separator>
-            <q-list class="q-pl-md">
-              <q-item clickable class="footer-item">
-                <a href="https://dev.to/tauri" target="_blank" rel="noreferrer">Dev.to</a>
-              </q-item>
-              <q-item clickable class="footer-item">
-              <a href="https://opencollective.com/tauri" target="_blank" rel="noreferrer">Open Collective</a>
-              </q-item>
-              <q-item clickable class="footer-item">
-                <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">Github</a>
-              </q-item>
-          </q-list>
+            <div class="row q-mt-xs">
+              <q-btn flat round class="footer-item">
+                <a href="https://dev.to/tauri" target="_blank" rel="noreferrer">
+                  <q-icon name="fab fa-dev"></q-icon>
+                </a>
+              </q-btn>
+              <q-btn flat round class="footer-item">
+              <a href="https://opencollective.com/tauri" target="_blank" rel="noreferrer">
+                <q-icon name="img:statics/icons/open-collective.svg" />
+              </a>
+              </q-btn>
+              <q-btn flat round class="footer-item">
+                <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">
+                  <q-icon name="fab fa-github"></q-icon>
+                </a>
+              </q-btn>
+            </div>
           </div>
         </div>
         <div class="col"></div>
@@ -233,11 +245,8 @@ export default {
 </script>
 
 <style lang="stylus">
-.q-item.footer-item
-  margin 2px 0!important
-  padding 0!important
-  height 10px!important
-  min-height 20px!important
+.footer-item
+  font-size 16px
 h2
   margin-left -10px!important
 .toc-level

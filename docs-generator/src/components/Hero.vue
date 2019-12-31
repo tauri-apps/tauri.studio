@@ -1,25 +1,13 @@
 <template>
   <div class="full-width q-pa-md">
-    <q-page-sticky id="hero" expand class="page-header fixed-top shadow-8 scroll-determined z-top" v-scroll="scrolled" style="position:fixed!important;">
-      <div id="claim">
-        <q-chip v-if="$route.name === 'landing'" outline dense square class="claim text-weight-light text-black bg-cyan-1 shadow-8" style="top: 84%">
-          <q-icon name="star"></q-icon>
-          <span class="text-weight-light text-caption">Build more secure native apps with fast, tiny binaries.</span>
-          <q-icon name="star"></q-icon>
-        </q-chip>
-      </div>
+    <q-page-sticky id="hero" expand class="page-header fixed-top shadow-8 scroll-determined z-top" style="position:fixed!important;">
       <div class="bg-container scroll-determined q-pa-md q-ml-lg"></div>
       <div>
         <router-link to="/">
           <div id="tauri-name--holder">
-            <img src="statics/tauri.svg" class="tauri-name scroll-determined" style="cursor:pointer" alt="Tauri Wordmark" title="Tauri">
+            <img src="statics/tauri.svg" class="animateLeft tauri-name scroll-determined" style="cursor:pointer" alt="Tauri Wordmark" title="Tauri">
           </div>
         </router-link>
-        <div v-if="buttons" class="row" style="margin-top:90px">
-          <q-btn name="Quick Start" dense size="small" to="/docs/quickstart" class="btn" label="Quick Start" no-caps color="yellow-2" text-color="black"/>
-          <q-btn name="Patterns" dense size="small" to="/docs/patterns" class="btn" label="Patterns" no-caps color="yellow-2" text-color="black"/>
-          <q-btn name="Docs" v-if="showDocs" dense size="small" to="/docs" class="btn" label="Docs" no-caps  color="yellow-2" text-color="black"/>
-        </div>
         <q-btn
           flat
           dense
@@ -35,81 +23,40 @@
         <div class="absolute-right" style="margin:18px 20px 0 0;">
           <q-btn-dropdown flat dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
             <q-list color="yellow-2" >
-              <q-item dense clickable v-close-popup to="/docs/introduction" v-if="showDocs">
+              <q-item dense clickable v-close-popup :to="{name: 'introduction'}" v-if="showDocs">
                 <q-item-section>
                   <q-item-label>Introduction</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item dense clickable v-close-popup to="/docs/quickstart">
-                <q-item-section>
-                  <q-item-label>Quickstart</q-item-label>
-                </q-item-section>
-              </q-item>
 
-              <q-item dense clickable v-close-popup to="/security" v-if="showDocs">
+              <q-item dense clickable v-close-popup :to="{name: 'security'}" v-if="showDocs">
                 <q-item-section>
                   <q-item-label>Security</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item dense clickable v-close-popup to="/contribute" v-if="showDocs">
+
+              <q-item dense clickable v-close-popup :to="{name: 'governance-and-guidance'}">
                 <q-item-section>
-                  <q-item-label>Contribute</q-item-label>
+                  <q-item-label>Governance</q-item-label>
                 </q-item-section>
               </q-item>
 
-              <q-separator />
-              <q-item dense clickable v-close-popup to="/docs/config" v-if="showDocs">
-                <q-item-section>
-                  <q-item-label>Config</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item dense clickable v-close-popup to="/docs/api" v-if="showDocs">
-                <q-item-section>
-                  <q-item-label>API</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item dense clickable v-close-popup to="/docs/cli" v-if="showDocs">
-                <q-item-section>
-                    <q-item-label>CLI</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item dense clickable v-close-popup to="/docs/bundler" v-if="showDocs">
-                <q-item-section>
-                    <q-item-label>Bundler</q-item-label>
-                </q-item-section>
-              </q-item>
-
-              <q-separator />
-              <q-item dense clickable v-close-popup to="/docs/patterns">
+              <q-item dense clickable v-close-popup :to="{name: 'patterns'}">
                 <q-item-section>
                   <q-item-label>Patterns</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item dense clickable v-close-popup to="/docs/frameworks">
-                <q-item-section>
-                  <q-item-label>Frameworks</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item dense clickable v-close-popup to="/docs/no-server">
-                <q-item-section>
-                  <q-item-label>No Server</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item dense clickable v-close-popup to="/wtf">
-                <q-item-section>
-                  <q-item-label>WTF</q-item-label>
-                </q-item-section>
-              </q-item>
 
               <q-separator />
-              <q-item dense clickable v-close-popup to="/book" v-if="showDocs">
+              <q-item dense clickable v-close-popup :to="{name: 'book'}" v-if="showDocs">
                 <q-item-section>
                     <q-item-label>Book</q-item-label>
                 </q-item-section>
               </q-item>
-              <q-item dense clickable v-close-popup to="/governance-and-guidance">
+
+              <q-item dense clickable v-close-popup>
                 <q-item-section>
-                  <q-item-label>Governance</q-item-label>
+                  <q-item-label><a href="https://github.com/tauri-apps/tauri/wiki" target="_blank">Documentation</a></q-item-label>
                 </q-item-section>
               </q-item>
 
@@ -140,7 +87,7 @@ export default {
     }
   },
   mounted () {
-    this.scrolled(document.offsetTop)
+    // this.scrolled(document.offsetTop)
   },
   computed: {
     showDocs () {
@@ -155,7 +102,8 @@ export default {
     sidebar () {
       // const action = !!this.rightDrawerOpen
       this.$store.commit('common/rightDrawerOpen', true)
-    },
+    }
+    /*
     scrolled (position) {
       const pos = position / 4.5
       this.height = 270 - (pos)
@@ -207,7 +155,7 @@ export default {
       // the sidebar
       document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', `margin-top: ${this.height + 10}px`)
       */
-    }
+    // }
   }
 }
 </script>
@@ -222,17 +170,16 @@ export default {
   right 0
   background red
 .tauri-name
-  max-height 110px!important
+  height 30px
   min-height 30px
   max-width 50%
-  height inherit
   position fixed
   text-align center
   margin 0 30%
   top 21px
   left 0
 .page-header
-  height 270px
+  height 70px
   border-bottom 2px solid #212111
 .bg-container
   background-image url(/statics/thetaTauri_logo.png)
@@ -241,24 +188,15 @@ export default {
   position absolute
   left -10px
   top 5px
-  height 250px
-  width 250px
+  height 60px
+  width 60px
   max-height 250px
   max-width 250px
   min-height 60px
   min-width 60px
-.claim
-  position absolute
-  margin 0 auto
-  left 20px
-  right 20px
-  width 346px
-  i
-    margin: 0 2px
-    color rebeccapurple
-    text-shadow 0 0 1px #0099dd
 .animateLeft
   animation-duration 1s
+  animation-delay 5s
   animation-name slideover
   animation-iteration-count 1
   animation-fill-mode forwards

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="padding" style="padding-top:260px"></div>
+    <div id="padding" style="padding-top:60px"></div>
     <p>
       Tauri is a polyglot system for building apps. It uses NodeJS to scaffold an HTML/CSS/JS rendering Window as a User Interface that is bootstrapped and managed by Rust. The final product is a monolithic binary that can be distributed as common file-types for Windows (exe/msi), Linux (deb/appimage) and Macintosh (app/dmg).
     </p>
@@ -9,10 +9,10 @@
 
 ## How it all works
 
-1. First you make an interface in your [GUI framework](/docs/frameworks) and prepare the HTML/CSS/JS for consumption
-2. The tauri.js [Node CLI](/docs/cli) takes it and rigs the rust runner according to your configuration.
-3. In [dev mode](/docs/cli#dev) it creates a webview window with debugging and hot-module-reloading.
-4. In [build mode](/docs/cli#build) it rigs the [bundler](/docs/bundler) and creates a final application according to your settings.
+1. First you make an interface in your GUI framework and prepare the HTML/CSS/JS for consumption
+2. The tauri.js Node CLI takes it and rigs the rust runner according to your configuration.
+3. In dev mode it creates a webview window with debugging and hot-module-reloading.
+4. In build mode it rigs the bundler and creates a final application according to your settings.
 
 ### Setting up Your Environment
 We are assuming that you know what the command line is, how to install packages on your operating system and generally know your way around the development side of computing. Obviously, you must first make sure that all required languages / compilers are available and in your PATH. Then you globally install the Tauri CLI with your Node package manager.
@@ -147,14 +147,11 @@ export default {
           U(HTML<BR>CSS<BR>JS)
           JS(tauri.js)
           style JS stroke:#77CFE4,stroke-width:4px
-          click JS "/docs/cli"
           WIN[WebView<br>in container]
           B{tauri core<br>CLI}
           style B stroke:#D08050,stroke-width:4px
-          click B "/docs/api"
           BND((tauri<br>bundler))
           style BND stroke:#EFD3AF, stroke-width:4px
-          click BND "/docs/bundler"
           DBG[WebView:Debug<br>with HMR]
         `
       }

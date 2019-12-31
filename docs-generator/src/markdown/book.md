@@ -216,7 +216,7 @@ This is an early outline of the contents that we expect to publish. Contents sub
     - Encrypt All the Things, All the Time
     - Constantly Audit Project Dependencies
     - Harden Yourself, Your Organization and Your Ecosystem
-    - “Do What You Can Until You Run Out of Time.” - [ROBERT C. SEACORD](http://bit.ly/ep35robertseacord)
+    - “Do What You Can Until You Run Out of Time.” - [ROBERT C. SEACORD]
 3.  Production Strategies for Sustainability (with Rhys Parry (Independent))
     - Develop in the “Perfect” Environment
     - Minimal Impact for Existing Enterprise Architectures

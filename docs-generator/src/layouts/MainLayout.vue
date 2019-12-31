@@ -12,7 +12,7 @@
     >
       <q-scroll-area
         id="scrollHolder"
-        style="height:calc(100% - 320px)"
+        style="height:calc(100% - 80px)"
         :thumb-style="{ right: '3px', borderRadius: '2px', background: '#ffaa00', width: '6px', opacity: 0.5 }"
       >
         <q-list dense class="q-pt-lg">
@@ -41,11 +41,11 @@
           Tauri is an Open Source Project<br/>
           <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">GitHub</a>
           &nbsp;|&nbsp;
-          <router-link to="/partners">
+          <router-link :to="{name: 'partners'}">
             Partners
           </router-link>
           &nbsp;|&nbsp;
-          <router-link to="/governance-and-guidance">Governance</router-link>
+          <router-link :to="{name: 'governance-and-guidance'}">Governance</router-link>
         </div>
         <div  class="absolute-right" style="margin:5px 10px 0 0">
           <q-btn type="a" flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'brightness_2' : 'brightness_5'" />
@@ -62,37 +62,49 @@
       <UpScroller />
     </q-page-container>
 
-    <div class="full-width text-center" :class="$q.dark.isActive ? 'bg-blue-grey-6' : 'bg-cyan-1'">
+    <div class="full-width" :class="$q.dark.isActive ? 'bg-blue-grey-8' : 'bg-cyan-1'">
       <q-separator></q-separator>
-      <div class="row q-pa-sm" style="font-size:0.9em">
-        <div class="col-6 col-md-4 col-sm-3" dense>
-          <q-list>
-            <q-item clickable class="justify-center" dense>
-              <a href="mailto:contact@tauri-apps.org">Email</a>
-            </q-item>
-            <q-item clickable class="justify-center" dense>
-              <a href="https://discord.gg/SpmNs4S" target="_blank" rel="noreferrer">Discord</a>
-            </q-item>
-            <q-item clickable class="justify-center" dense>
-              <a href="https://twitter.com/tauriapps" target="_blank" rel="noreferrer">Twitter</a>
-            </q-item>
-          </q-list>
+      <div class="row q-pa-sm q-ml-lg" style="font-size:0.9em">
+        <div class="col-8 col-md-4 col-sm-3">
+          <div class="q-pt-md">
+            <span class="text-weight-bold">
+              <q-icon name="ti-comment-alt"></q-icon>
+              CONTACT
+            </span>
+            <q-separator></q-separator>
+            <q-list class="q-pl-md">
+              <q-item clickable class="footer-item">
+                <a href="mailto:contact@tauri.studio">Email</a>
+              </q-item>
+              <q-item clickable class="footer-item">
+                <a href="https://discord.gg/SpmNs4S" target="_blank" rel="noreferrer">Discord</a>
+              </q-item>
+              <q-item clickable class="footer-item">
+                <a href="https://twitter.com/tauriapps" target="_blank" rel="noreferrer">Twitter</a>
+              </q-item>
+            </q-list>
+          </div>
         </div>
-        <div class="col-6 col-md-4 col-sm-3" dense>
-          <q-list>
-            <q-item clickable class="justify-center" dense>
-              <a href="https://dev.to/tauri" target="_blank" rel="noreferrer">Dev.to</a>
-            </q-item>
-            <q-item clickable class="justify-center" dense>
-            <a href="https://opencollective.com/tauri" target="_blank" rel="noreferrer">Open Collective</a>
-            </q-item>
-            <q-item clickable class="justify-center" dense>
-              <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">Github</a>
-            </q-item>
+        <div class="col-1 col-md-1 col-sm-1"></div>
+        <div class="col-8 col-md-4 col-sm-3">
+          <div class="q-pt-md">
+            <span class="text-weight-bold">
+              <q-icon name="ti-direction-alt"></q-icon>
+              NETWORK
+            </span>
+            <q-separator></q-separator>
+            <q-list class="q-pl-md">
+              <q-item clickable class="footer-item">
+                <a href="https://dev.to/tauri" target="_blank" rel="noreferrer">Dev.to</a>
+              </q-item>
+              <q-item clickable class="footer-item">
+              <a href="https://opencollective.com/tauri" target="_blank" rel="noreferrer">Open Collective</a>
+              </q-item>
+              <q-item clickable class="footer-item">
+                <a href="https://github.com/tauri-apps/tauri" target="_blank" rel="noreferrer">Github</a>
+              </q-item>
           </q-list>
-        </div>
-        <div class="col-10 col-md-2 col-sm-2 text-left" dense>
-          Tauri-Apps is an Open Source project licensed under MIT. Please get in touch with us if you have any questions.
+          </div>
         </div>
         <div class="col"></div>
       </div>
@@ -125,10 +137,10 @@ export default {
     return {
       title: this.metaRoute.page_title,
       meta: {
-        ogUrl: { name: 'og:title', content: this.metaRoute.page_title },
+        ogUrl: { name: 'og:url', content: `https://tauri.studio/en/${this.$route.name}` },
         ogTitle: { name: 'og:title', content: this.metaRoute.page_title },
         twitterTitle: { name: 'twitter:title', content: this.metaRoute.page_title },
-        ogSiteName: { name: 'og:site_name', content: this.metaRoute.site_name },
+        ogSiteName: { name: 'og:site_name', content: 'Tauri Studio' },
         desc: { name: 'description', content: this.metaRoute.description },
         ogDesc: { name: 'og:description', content: this.metaRoute.description },
         twitterDesc: { name: 'twitter:description', content: this.metaRoute.description },
@@ -143,7 +155,7 @@ export default {
   "@type": "Article",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "${this.metaRoute.url}"
+    "@id": "https://tauri.studio/en/${this.$route.name}"
   },
   "name": "${this.metaRoute.page_title}",
   "author": {
@@ -182,8 +194,7 @@ export default {
     contentStyle () {
       return {
         background: this.$q.dark.isActive ? '' : '#FDFADE',
-        marginTop: '260px',
-        paddingTop: '30px'
+        paddingTop: '70px'
       }
     }
   },
@@ -213,7 +224,7 @@ export default {
     scrollPage (el) {
       const target = getScrollTarget(el)
       const current = window.pageYOffset || document.documentElement.scrollTop
-      let offset = el.offsetTop - 50
+      let offset = el.offsetTop - 80
       if (current <= 50) offset = el.offsetTop - 250
       setScrollPosition(target, offset, 500)
     }
@@ -222,6 +233,11 @@ export default {
 </script>
 
 <style lang="stylus">
+.q-item.footer-item
+  margin 2px 0!important
+  padding 0!important
+  height 10px!important
+  min-height 20px!important
 h2
   margin-left -10px!important
 .toc-level

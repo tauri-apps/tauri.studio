@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div id="padding" style="padding-top:260px"></div>
+    <div id="padding" style="padding-top:40px"></div>
     <p class="q-mt-xl">Tauri patterns are descriptions of use-cases that are entirely configurable within the tauri.conf.js file. These are not the limits of what Tauri can do, and there are probably more out there. If you discover one, why not get in touch and help us update this collection!
     </p>
     <p>If you haven't read about the general design of Tauri, then it would make the most sense for you to visit the
-      <router-link to="/docs">INTRODUCTION</router-link> and become familiar with the basic architecture and terminology used in these patterns.
+      <router-link :to="{name: 'introduction'}">INTRODUCTION</router-link> and become familiar with the basic architecture and terminology used in these patterns.
     </p>
     <q-card class="q-mt-xl">
       <q-card-section class="text-center" style="padding-bottom:-20px">

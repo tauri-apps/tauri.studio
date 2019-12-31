@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="padding" style="padding-top:260px"></div>
+    <div id="padding" style="padding-top:40px"></div>
     <div class="text-h4 text-center text-weight-thin q-ma-sm">Sponsors</div>
     <div class="row justify-center">
       <PartnerCard

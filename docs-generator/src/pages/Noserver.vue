@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="padding" style="padding-top:260px"></div>
+    <div id="padding" style="padding-top:40px"></div>
     <q-markdown :src="markdown" toc @data="onToc"  />
   </div>
 </template>

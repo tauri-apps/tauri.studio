@@ -1,6 +1,6 @@
 <template>
   <hero>
-    <div id="padding" style="padding-top:260px"></div>
+    <div id="padding" style="padding-top:40px"></div>
     <q-markdown>
 You can add markdown to your page by surrounding it with `q-markdown` tag.
 Be aware, markdown is sensitive to being on left side, otherwise will wrap it in blocks (indented).

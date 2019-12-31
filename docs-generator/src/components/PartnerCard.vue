@@ -31,7 +31,7 @@ export default {
     title: String,
     tags: Array,
     url: String,
-    logoUrl: Array,
+    logoUrl: String,
     description: String,
     flair: String
   }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="padding" style="padding-top:240px"></div>
+    <div id="padding" style="padding-top:40px"></div>
     <q-carousel
       animated
       v-model="slide"
@@ -35,9 +35,10 @@
         <q-card-section>
           {{ item.claim }}
         </q-card-section>
-        <q-card-actions align="center">
+        <!-- <q-card-actions align="center">
           <q-btn color="yellow-2" text-color="black" :to="item.btnTarget" :label="item.btnLabel"></q-btn>
         </q-card-actions>
+        -->
       </q-card>
     </div>
 
@@ -219,7 +220,7 @@ export default {
       timeline: [
         {
           icon: 'ti-target',
-          iconColor: 'blue',
+          iconColor: 'green',
           iconTextColor: 'white',
           label: 'CLI',
           caption: 'Generate, develop and build Tauri apps from the command line.',
@@ -227,7 +228,7 @@ export default {
         },
         {
           icon: 'ti-crown',
-          iconColor: 'blue',
+          iconColor: 'green',
           iconTextColor: 'white',
           label: 'API',
           caption: 'Finalize, audit, write documentation and create examples for the smoke-tests.',
@@ -235,7 +236,7 @@ export default {
         },
         {
           icon: 'ti-pulse',
-          iconColor: 'blue',
+          iconColor: 'green',
           iconTextColor: 'white',
           label: 'Testing & CI',
           caption: 'Implement CI with testing and bundle-pipeline validation.',
@@ -243,7 +244,7 @@ export default {
         },
         {
           icon: 'ti-desktop',
-          iconColor: 'blue',
+          iconColor: 'green',
           iconTextColor: 'white',
           label: 'Desktop Bundler',
           caption: 'Bundle for all major desktops from native systems.',
@@ -251,11 +252,35 @@ export default {
         },
         {
           icon: 'ti-flag-alt',
-          iconColor: 'red',
+          iconColor: 'green',
           iconTextColor: 'white',
           label: 'Alpha Release',
-          caption: 'Mostly stable on desktop, edge cases and bugs acceptable.',
+          caption: 'Technical Release Candidate for desktop, edge cases and bugs acceptable.',
           time: 'Q4 2019'
+        },
+        {
+          icon: 'ti-link',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Sideloader',
+          caption: 'Integrate and instrument other binaries.',
+          time: 'Q1 2020'
+        },
+        {
+          icon: 'ti-layout-grid3-alt',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Multi Window',
+          caption: 'Run multiple window instances in Tauri.',
+          time: 'Q1 2020'
+        },
+        {
+          icon: 'ti-download',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'Self Updater',
+          caption: 'Update Tauri Apps from within Tauri.',
+          time: 'Q1 2020'
         },
         {
           icon: 'ti-cup',
@@ -298,19 +323,19 @@ export default {
           time: 'Q1 2020'
         },
         {
+          icon: 'ti-flag-alt',
+          iconColor: 'red',
+          iconTextColor: 'white',
+          label: 'Beta Release',
+          caption: 'Generally stable on Desktop, API fixed',
+          time: 'Q2 2020'
+        },
+        {
           icon: 'ti-mobile',
           iconColor: 'blue',
           iconTextColor: 'white',
           label: 'Mobile Bundler',
           caption: 'Bundle to all major mobile device operating systems.',
-          time: 'Q1 2020'
-        },
-        {
-          icon: 'ti-flag-alt',
-          iconColor: 'red',
-          iconTextColor: 'white',
-          label: 'Beta Release',
-          caption: 'Mostly stable on Desktop & Mobile.',
           time: 'Q2 2020'
         },
         {

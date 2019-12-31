@@ -80,7 +80,7 @@
               </q-btn>
               <q-btn flat round class="footer-item">
                 <a href="https://discord.gg/SpmNs4S" target="_blank" rel="noreferrer">
-                  <q-icon name="chat"></q-icon>
+                <q-icon :name="$q.dark.isActive ? 'img:statics/discord.svg' : 'img:statics/discord-light.svg'" />
                 </a>
               </q-btn>
               <q-btn flat round class="footer-item">
@@ -107,7 +107,7 @@
               </q-btn>
               <q-btn flat round class="footer-item">
               <a href="https://opencollective.com/tauri" target="_blank" rel="noreferrer">
-                <q-icon name="img:statics/icons/open-collective.svg" />
+                <q-icon :name="$q.dark.isActive ? 'img:statics/open-collective.svg' : 'img:statics/open-collective-light.svg'" />
               </a>
               </q-btn>
               <q-btn flat round class="footer-item">

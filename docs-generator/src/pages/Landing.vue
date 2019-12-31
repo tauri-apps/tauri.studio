@@ -22,14 +22,16 @@
       </q-carousel-slide>
     </q-carousel>
 
+    <router-link :to="{name: 'introduction'}">
+      <p class="text-h5 text-center q-my-xl">Read more about Tauri...</p>
+    </router-link>
     <div id="testimonials">
-      <br><br>
       <q-markdown>
 > I never understood why HTML/JS etc. should not be separated from rust and processed into a separate area. All frameworks I tested and tried always wanted to squeeze the HTML or design area IN Rust. What if I have a UI team and a backend team? With Tauri it's incredibly easy, I can separate the UI from the code and the frontend developers don't even have to know Rust. - **PeShor**
       </q-markdown>
     </div>
 
-    <div id="Quicklinks" class="row full-width wrap justify-center items-center content-center items-start q-mt-xl">
+    <div id="Highlights" class="row full-width wrap justify-center items-center content-center items-start q-mt-xl">
       <q-card :class="{ 'q-ma-md col-md-3 col-sm-5 q-mt-sm': true, 'bg-cyan-1': !$q.dark.isActive, 'bg-grey-8': $q.dark.isActive }"  flat bordered v-for="(item, index) in actions" :key="index">
         <q-icon :name="item.icon" class="float-left q-pa-lg q-ma-xs text-h5" style="margin: 11px 5px -1px 10px"></q-icon>
         <q-card-section>
@@ -166,14 +168,14 @@ export default {
         },
         {
           title: 'RELIABILITY',
-          text: 'of the underlying code base is why we forked critical libraries.',
+          text: 'of the underlying code base is why we maintain abandoned libraries.',
           img: 'statics/images/bigben.jpg',
           unsplashLink: '@louisk_',
           unsplashName: 'Louis. K'
         },
         {
           title: 'FLOSS',
-          text: 'licensing is possible with Tauri, but not with Chromium consumers, like Electron.',
+          text: 'relicensing is possible with Tauri, but not with Electron.',
           img: 'statics/images/boat.jpg',
           unsplashLink: '@jplenio',
           unsplashName: 'Johannes Plenio'
@@ -402,7 +404,7 @@ export default {
   methods: {
     onToc (toc) {
       toc.unshift({ id: 'Roadmap', label: 'Roadmap', level: 2, children: Array(0) })
-      toc.unshift({ id: 'Quicklinks', label: 'Quick Links', level: 2, children: Array(0) })
+      toc.unshift({ id: 'Highlights', label: 'Highlights', level: 2, children: Array(0) })
       this.toc = toc
     },
     extendMarkdown (md) {

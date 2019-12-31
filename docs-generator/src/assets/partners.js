@@ -43,16 +43,6 @@ export default {
       flair: 'COLLABORATOR'
     },
     {
-      title: 'Tensor',
-      tags: [
-        'education', 'videos'
-      ],
-      url: 'https://youtube.com/c/tensorprogramming',
-      logoUrl: ['statics/partnerLogos/tensor.png', 'statics/partnerLogos/tensor.png'],
-      description: 'One of the most polyglot professionals out there, TensorProgramming shares his knowledge and excitement about dozens of different programming languages on his YouTube channel.',
-      flair: 'COLLABORATOR'
-    },
-    {
       title: 'Meros',
       tags: [
         'app dev', 'early-adopter'
@@ -60,6 +50,16 @@ export default {
       url: 'https://meroscrypto.io',
       logoUrl: ['statics/partnerLogos/meros.png', 'statics/partnerLogos/meros.png'],
       description: 'If PureOS planted the seed of Tauri, Kayaba from Meros really kicked the can down the road with a perfectly timed question.',
+      flair: 'COLLABORATOR'
+    },
+    {
+      title: 'Tensor',
+      tags: [
+        'education', 'videos'
+      ],
+      url: 'https://youtube.com/c/tensorprogramming',
+      logoUrl: ['statics/partnerLogos/tensor.png', 'statics/partnerLogos/tensor.png'],
+      description: 'One of the most polyglot professionals out there, TensorProgramming shares his knowledge and excitement about dozens of different programming languages on his YouTube channel.',
       flair: 'COLLABORATOR'
     }
   ],

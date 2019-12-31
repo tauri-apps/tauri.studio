@@ -21,15 +21,17 @@
         </q-btn>
       </q-carousel-slide>
     </q-carousel>
+
     <div class="full-width text-center">
-      <q-btn outline rounded class="text-h6 q-my-xl" type="a" href="https://github.com/tauri-apps/tauri/wiki">Setup Tauri for my Environment</q-btn>
+      <q-btn outline rounded class="text-h6 q-mt-xl" :to="{name: 'introduction'}">Get to know Tauri</q-btn>
     </div>
+    <!--
     <div id="testimonials">
       <q-markdown>
 > I never understood why HTML/JS etc. should not be separated from rust and processed into a separate area. All frameworks I tested and tried always wanted to squeeze the HTML or design area IN Rust. What if I have a UI team and a backend team? With Tauri it's incredibly easy, I can separate the UI from the code and the frontend developers don't even have to know Rust. - **PeShor**
       </q-markdown>
     </div>
-
+    -->
     <div id="Highlights" class="row full-width wrap justify-center items-center content-center items-start q-mt-xl">
       <q-card :class="{ 'q-ma-md col-md-3 col-sm-5 q-mt-sm': true, 'bg-cyan-1': !$q.dark.isActive, 'bg-grey-8': $q.dark.isActive }"  flat bordered v-for="(item, index) in actions" :key="index">
         <q-icon :name="item.icon" class="float-left q-pa-lg q-ma-xs text-h5" style="margin: 11px 5px -1px 10px"></q-icon>
@@ -41,6 +43,10 @@
         </q-card-actions>
         -->
       </q-card>
+    </div>
+
+    <div class="full-width text-center">
+      <q-btn outline rounded class="text-h6 q-my-xl" type="a" href="https://github.com/tauri-apps/tauri/wiki">Setup Tauri for my Environment</q-btn>
     </div>
 
     <!-- roadmap -->
@@ -82,7 +88,7 @@
           style="position:absolute;top:0;left:0;"
         />
         <div style="position:absolute;left:0;top:0;right:0;height:130px;background: linear-gradient(0deg, rgba(224,247,250,1) 5%, rgba(224,247,250,0.9) 30%, rgba(224,247,250,0.7) 60%, rgba(224,247,250,0.45) 80%, rgba(224,247,250,0) 100%);z-index:10"></div>
-        <h2 class="text-weight-thin" style="position:absolute;top:-4px;z-index:100;left:10px; right:10px;margin:auto;text-shadow:0 0 5px white,0 0 2px white; color:#253239">ROADMAP</h2>
+        <h2 class="text-weight-thin" style="position:absolute;top:20px;z-index:100;left:10px; right:10px;margin:auto;text-shadow:0 0 5px white,0 0 2px white; color:#253239">ROADMAP</h2>
       </q-card-section>
     </q-card>
 
@@ -207,7 +213,7 @@ export default {
         },
         {
           icon: 'ti-shield',
-          claim: 'With security features baked in and many additional tools available, your code will be safer than ever.',
+          claim: 'With security features baked in and additional tools available, your code will be safer than ever.',
           btnLabel: 'Be Safer!',
           btnTarget: '/security'
         },
@@ -313,7 +319,7 @@ export default {
           iconTextColor: 'white',
           label: 'App Tray',
           caption: 'Desktop Cross-platform Icon Tray.',
-          time: 'Q1 2020'
+          time: 'Q2 2020'
         },
         {
           icon: 'ti-announcement',
@@ -321,7 +327,7 @@ export default {
           iconTextColor: 'white',
           label: 'Native Notifications',
           caption: 'Cross-platform notifications using polyfilled WEB API.',
-          time: 'Q1 2020'
+          time: 'Q2 2020'
         },
         {
           icon: 'ti-flag-alt',

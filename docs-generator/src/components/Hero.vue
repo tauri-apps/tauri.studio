@@ -21,10 +21,7 @@
           <q-icon name="menu" />
         </q-btn>
         <div class="absolute-right" style="margin:18px 24px 0 0;">
-          <router-link v-if="$route.name === 'landing'" :to="{name: 'introduction'}">
-            <q-btn dense outline text-color="cyan-1" no-caps class="q-mr-xl">Introduction</q-btn>
-          </router-link>
-          <q-btn-dropdown v-else outline dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
+          <q-btn-dropdown flat dense text-color="cyan-1" :label="current" no-caps class="q-mr-lg">
             <q-list color="yellow-2" >
               <q-item dense clickable v-close-popup :to="{name: 'introduction'}" v-if="showDocs">
                 <q-item-section>

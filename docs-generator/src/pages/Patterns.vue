@@ -54,7 +54,7 @@
       <q-card-section>
         <q-no-ssr>
           <q-markdown :src="active.intro"></q-markdown>
-          <div class="text-center" id="temp" v-html="graph" style="background-color:#F2E8C7"></div>
+          <div class="text-center" id="flowchart" v-html="graph" style="background-color:#F2E8C7"></div>
         </q-no-ssr>
       </q-card-section>
       <q-separator></q-separator>
@@ -67,7 +67,7 @@
       <q-card-section>
         <h6 id="configuration">Configuration</h6>
         <span>tauri.conf.json</span>
-        <q-markdown :src="active.configMD" no-line-numbers />
+        <q-markdown :src="active.configMD" no-line-numbers toc @data="onToc"/>
       </q-card-section>
     </q-card>
 
@@ -550,27 +550,27 @@ export default {
     }
   },
   mounted () {
-    this.onToc(this.toc)
+    setTimeout(() => {
+      this.onToc(this.toc)
+    }, 50)
   },
   methods: {
     onToc (toc) {
       // add anything not picked uip by the markdown processor
-      toc.push({ id: 'overview', label: 'Overview', level: 1, children: Array(0) })
-      toc.push({ id: 'temp', label: 'Flowchart', level: 1, children: Array(0) })
-      toc.push({ id: 'configuration', label: 'Configuration', level: 1, children: Array(0) })
+      const tmp = []
+      tmp.push({ id: 'overview', label: 'Overview', level: 1, children: Array(0) })
+      tmp.push({ id: 'flowchart', label: 'Flowchart', level: 1, children: Array(0) })
+      tmp.push({ id: 'configuration', label: 'Configuration', level: 1, children: Array(0) })
 
-      this.toc = toc
+      this.toc = tmp
     },
     goMermaid (pattern) {
       // null it so that we don't accidentally append
       if (typeof window !== 'undefined') {
         this.graph = null
-
         // otherwise mermaid gets lost
         this.$nextTick(() => {
           this.graph = this.$mermaid.render('mermaid', pattern)
-          // then measure height of svg
-          // resize card / dom
         })
       }
     }

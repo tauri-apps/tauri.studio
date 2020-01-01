@@ -19,13 +19,13 @@
 We are assuming that you know what the command line is, how to install packages on your operating system and generally know your way around the development side of computing. Obviously, you must first make sure that all required languages / compilers are available and in your PATH. Then you globally install the Tauri CLI with your Node package manager.
 
 ### Initializing an App
-The initialization phase creates a folder and places a few template files into your project directory. The most important file that it creates is the `tauri.conf.js` file, as this is where you manage the configuration of your project.
+The initialization phase creates a folder and places a few template files into your project directory. The most important file that it creates is the `src-tauri/tauri.conf.json` file, as this is where you manage the configuration of your project.
 
 ### Developing an App
 There are several methods for developing an App and using the built-in development App Window. The most common is to point the Tauri configuration at a localhost port that your front-end framework's development server provides you with. If your framework doesn't provide you with this, or you like everything vanilla, then you can instruct Tauri to serve (and transpile if needed) from a relative file path. In both cases you will have HMR (Hot Module Reloading).
 
 ### Making App Icons
-Your app will need icons, and Tauri also provides a command for making all the icons your app will need, no matter which platform you are using. Simply place a 1240x1240 png (with transparency) named `app-icon.png` in your project folder (where the `tauri.conf.js` file is to be found) and run `tauri icon`. The icons will be placed in `src-tauri/icons` and automatically consumed by Tauri during the build process.
+Your app will need icons, and Tauri also provides a command for making all the icons your app will need, no matter which platform you are using. Simply place a 1240x1240 png (with transparency) named `app-icon.png` in your project folder (where the `src-tauri/tauri.conf.json` file is to be found) and run `tauri icon`. The icons will be placed in `src-tauri/icons` and automatically consumed by Tauri during the build process.
 
 ### Bundling an App
 The basic process of building a Tauri App is very straightforward and unopinionated. In the Tauri configuration file you reference a distribution folder e.g. `../dist/spa` where your HTML, CSS, JS and other assets can be found. Then you tell the Tauri CLI to build your app. Tauri prepares your code depending upon your configuration and bundles everything up into a nice and tidy binary.
@@ -47,7 +47,7 @@ We are currently working on enabling the Web APIs and most of them may not be av
 
 ## The Templates
 
-First is the tauri.conf.js file - it is injected into the CWD at tauri init.
+First is the src-tauri/tauri.conf.json file - it is injected into the CWD at tauri init.
 Then is the src-tauri folder, which is injected into the CWD and contains the base Rust application that you can extend as you wish.
 
 The node CLI has a bunch of "syntactic" sugar that sets up the dev env or prepares assets for the bundle process (as well as the tauri icon command for making icons.)

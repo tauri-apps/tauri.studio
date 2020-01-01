@@ -26,7 +26,7 @@ chainWebpack (chain) {
 The official helper waits for
 
 
-They are configured in the `tauri.conf.js` file with the following object:
+They are configured in the `src-tauri/tauri.conf.json` file with the following object:
 
 ## Whitelist
 ```
@@ -51,7 +51,7 @@ These features will be added to your project's `src-taurl/Cargo.toml` at build t
  * @module tauri
  * @description This API interface makes powerful interactions available
  * to be run on client side applications. They are opt-in features, and
- * must be enabled in tauri.conf.js
+ * must be enabled in src-tauri/tauri.conf.json > tauri > whitelist
  */
 
 /**
@@ -241,7 +241,7 @@ tauri.addEventListener('reply', res => {
 })
 ```
 
-But as long as `event: true` is set in `tauri.conf.js`, you can always emit from any part of your code. Here are a few more examples of things you can do:
+But as long as `event: true` is set in `src-tauri/tauri.conf.json > tauri > whitelist`, you can always emit from any part of your code. Here are a few more examples of things you can do:
 ```rust
 tauri::event::emit(handle, "reply",  serde_json::to_string(&reply).unwrap());
 tauri::event::emit(handle, "reply", "{'msg': 'changed by rust emit'}".to_string());

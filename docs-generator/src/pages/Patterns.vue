@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="padding" style="padding-top:40px"></div>
-    <p class="q-mt-xl">Tauri patterns are descriptions of use-cases that are entirely configurable within the tauri.conf.js file. These are not the limits of what Tauri can do, and there are probably more out there. If you discover one, why not get in touch and help us update this collection!
+    <p class="q-mt-xl">Tauri patterns are descriptions of use-cases that are entirely configurable within the src-tauri/tauri.conf.json file. These are not the limits of what Tauri can do, and there are probably more out there. If you discover one, why not get in touch and help us update this collection!
     </p>
     <p>If you haven't read about the general design of Tauri, then it would make the most sense for you to visit the
       <router-link :to="{name: 'introduction'}">INTRODUCTION</router-link> and become familiar with the basic architecture and terminology used in these patterns.
@@ -66,7 +66,7 @@
       <q-separator></q-separator>-->
       <q-card-section>
         <h6 id="configuration">Configuration</h6>
-        <span>tauri.conf.json</span>
+        <span>src-tauri/tauri.conf.json</span>
         <q-markdown :src="active.configMD" no-line-numbers toc @data="onToc"/>
       </q-card-section>
     </q-card>

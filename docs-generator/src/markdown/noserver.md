@@ -1,6 +1,6 @@
 ## No Server?
 
-If you want the highest degree of security, then you will never ship a server with your app if you don't have to. The `no-server` mode that you can configure in `tauri.conf.js` will do just that: Ship your app without a server. It requires a bit of extra effort on your part, in that you will need to modify your webpack config or chain and add an extra node module to your project dependencies.
+If you want the highest degree of security, then you will never ship a server with your app if you don't have to. The `no-server` mode that you can configure in `src-tauri/tauri.conf.json` will do just that: Ship your app without a server. It requires a bit of extra effort on your part, in that you will need to modify your webpack config or chain and add an extra node module to your project dependencies.
 
 
 ### Installation and Setup
@@ -9,7 +9,7 @@ yarn add @tauri-apps/tauri-webpack
 ```
 
 
-In your `tauri.conf.js`
+In your `src-tauri/tauri.conf.json`
 ```js
 tauri: {
   embeddedServer: {

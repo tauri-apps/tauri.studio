@@ -1,4 +1,4 @@
-## tauri.conf.js
+## src-tauri/tauri.conf.json
 
 ```
 const path = require('path')

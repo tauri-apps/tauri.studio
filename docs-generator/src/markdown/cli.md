@@ -8,7 +8,7 @@ The main Tauri CLI is a NodeJS program that has a number of subcommands:
 ## init
 ```
   Description
-    Inits the Tauri template. If Tauri cannot find the tauri.conf.js
+    Inits the Tauri template. If Tauri cannot find the src-tauri/tauri.conf.json
     it will create one.
   Usage
     $ tauri init
@@ -29,7 +29,7 @@ The main Tauri CLI is a NodeJS program that has a number of subcommands:
   Options
     --help, -h     Displays this message
 ```
-This command is rigged via your `tauri.conf.js`.
+This command is rigged via your `src-tauri/tauri.conf.json`.
 
 
 ## build
@@ -41,7 +41,7 @@ This command is rigged via your `tauri.conf.js`.
   Options
     --help, -h     Displays this message
 ```
-This command is rigged via your `tauri.conf.js`.
+This command is rigged via your `src-tauri/tauri.conf.json`.
 
 ## icon
 ```

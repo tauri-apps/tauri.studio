@@ -93,7 +93,7 @@ This is an early outline of the contents that we expect to publish. Contents sub
     - Icons
     - Splash Screens
     - Window
-    - `tauri.conf.js`
+    - `src-tauri/tauri.conf.json`
  6. Preparing your code
     - Transpile dynamic imports
     - Remove webpack chunking

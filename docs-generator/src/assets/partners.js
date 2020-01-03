@@ -64,6 +64,10 @@ export default {
     }
   ],
   patrons: [
+    {
+      name: 'Virtual Inspiration',
+      link: 'https://'
+    },
     { name: 'anonymous' },
     { name: 'Robin van Boven' },
     { name: 'Jonathan Baginski' },

@@ -34,7 +34,12 @@
     <div class="row justify-center">
       <q-list>
         <q-item v-for="patron in partners.patrons"
-        :key="patron.id"> {{ patron.name }} </q-item>
+        :key="patron.id">
+          <a v-if="patron.link" :href="patron.link" rel="noopener" target="_blank">
+            <q-icon name="fas fa-star"></q-icon>
+            &nbsp; {{ patron.name }} </a>
+          <span v-else> {{ patron.name }} </span>
+        </q-item>
       </q-list>
     </div>
   </div>

@@ -28,6 +28,7 @@ It is primarily written from the perspective of enabling contributors to underst
 14. [Contributor Introduction](https://github.com/tauri-apps/tauri/wiki/14.-Contributor-Introduction)
 15. [Detailed Flow](https://github.com/tauri-apps/tauri/wiki/15.-Detailed-Flow)
 16. [Continuous Integration](https://github.com/tauri-apps/tauri/wiki/16.-Continuous-Integration)
+### To Do
 17. [Testing]()
 18. [Security]()
 19. [Ecosystem Notes]()

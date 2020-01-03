@@ -86,7 +86,7 @@ const routes = [
         meta: {
           name: 'Partners',
           page_title: 'Tauri - Partners',
-          description: 'Meet the ',
+          description: 'Meet the companies and projects who support Tauri - from early adopters to tech-sponsors.',
           tags: 'development, open-source, native-apps, development, macos, windows, linux',
           url: 'https://tauri.studio/partners'
         }

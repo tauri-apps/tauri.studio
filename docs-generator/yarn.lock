@@ -1232,13 +1232,13 @@
   resolved "https://registry.npmjs.org/@quasar/quasar-app-extension-qactivity/-/quasar-app-extension-qactivity-1.0.0-beta.4.tgz#beef147ec26c1b7e70cba53f29c761d7c4321d22"
   integrity sha512-5Eq1cKhYwSZgcMkq19LN+h1uMQYg8aKxJYwxIiuPVi4vBHrljBtSpZOxuHb7H+w1Hp9g6DOc1PCNWh0QiTpJog==
 
-"@quasar/quasar-app-extension-qmarkdown@1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qmarkdown/-/quasar-app-extension-qmarkdown-1.0.10.tgz#71fb84e141d5d10072c5ce7cdf0cc8455fc4f117"
-  integrity sha512-Aci+XSuKRY5+R4v7e47oZ+gIdCJcxLLT+pM1c5Sui+PGGvQVS4Abk47M/XSmjd60Rhwa0jUhpS+UkSsQDXsQtw==
+"@quasar/quasar-app-extension-qmarkdown@1.0.16":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qmarkdown/-/quasar-app-extension-qmarkdown-1.0.16.tgz#22f5bb8e7fdd428459c777676c6104176ce031d0"
+  integrity sha512-rnOvEMusMsx4d6owfKpswGFpZsJXaOxmPO6RowITLut1q4zoegMYbMlHwEu4mpWAJeEcOTYO1GzAl/1AuFpOKA==
   dependencies:
-    "@quasar/quasar-ui-qmarkdown" "^1.0.10"
-    front-matter "^3.0.2"
+    "@quasar/quasar-ui-qmarkdown" "^1.0.16"
+    front-matter "^3.1.0"
     raw-loader "^4.0.0"
     ware-loader "^0.2.4"
 
@@ -1256,10 +1256,10 @@
   dependencies:
     "@quasar/quasar-ui-qribbon" "1.0.0-beta.14"
 
-"@quasar/quasar-ui-qmarkdown@^1.0.10":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@quasar/quasar-ui-qmarkdown/-/quasar-ui-qmarkdown-1.0.10.tgz#ff89f9995bb6366bfe8de1742a16f55de5eb4eb1"
-  integrity sha512-s1aKXwfu2qPEQ8DrlINheBbtfOb58N00TwAKuBger/VS/ne9pQVRe1MpIzI+rQ2WZL0jXuxQdm1gkauV4tzgWw==
+"@quasar/quasar-ui-qmarkdown@^1.0.16":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-ui-qmarkdown/-/quasar-ui-qmarkdown-1.0.16.tgz#85c91c4b06876f297f2b198a2e4f2b6b7b2e2475"
+  integrity sha512-kLUx/XZ+77b+KIcZQllhD37xxbq5eyI//hLwRdFq5P93bvKTfl35m2yKcmJmAKN9FMMvw+/bMB4flW8cSGFQkw==
   dependencies:
     markdown-it "^10.0.0"
     markdown-it-abbr "^1.0.4"
@@ -1275,7 +1275,7 @@
     markdown-it-sup "^1.0.0"
     markdown-it-task-lists "^2.1.1"
     markdown-it-toc-and-anchor "^4.2.0"
-    prismjs "^1.17.1"
+    prismjs "^1.18.0"
 
 "@quasar/quasar-ui-qmediaplayer@^1.0.17":
   version "1.0.17"
@@ -4863,10 +4863,10 @@ from2@^2.1.0, from2@^2.1.1:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
 
-front-matter@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.npmjs.org/front-matter/-/front-matter-3.0.2.tgz#2401cd05fcf22bd0de48a104ffb4efb1ff5c8465"
-  integrity sha512-iBGZaWyzqgsrPGsqrXZP6N4hp5FzSKDi18nfAoYpgz3qK5sAwFv/ojmn3VS60SOgLvq6CtojNqy0y6ZNz05IzQ==
+front-matter@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/front-matter/-/front-matter-3.1.0.tgz#a0b758c3c6c39ce43e107dd0909a57d42964c2de"
+  integrity sha512-RFEK8N6waWTdwBZOPNEtvwMjZ/hUfpwXkYUYkmmOhQGdhSulXhWrFwiUhdhkduLDiIwbROl/faF1X/PC/GGRMw==
   dependencies:
     js-yaml "^3.13.1"
 
@@ -8633,10 +8633,10 @@ pretty-error@^2.0.2:
     renderkid "^2.0.1"
     utila "~0.4"
 
-prismjs@^1.17.1:
-  version "1.17.1"
-  resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.17.1.tgz#e669fcbd4cdd873c35102881c33b14d0d68519be"
-  integrity sha512-PrEDJAFdUGbOP6xK/UsfkC5ghJsPJviKgnQOoxaDbBjwc8op68Quupwt1DeAFoG8GImPhiKXAvvsH7wDSLsu1Q==
+prismjs@^1.18.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.18.0.tgz#8f04dd47fa232cbd27d1ca969107580ff43f06e4"
+  integrity sha512-N0r3i/Cto516V8+GKKamhsPVZSFcO0TMUBtIDW6uq6BVqoC3FNtZVZ+cmH16N2XtGQlgRN+sFUTjOdCsEP51qw==
   optionalDependencies:
     clipboard "^2.0.0"
 

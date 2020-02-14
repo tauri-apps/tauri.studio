@@ -22,8 +22,51 @@
       </q-carousel-slide>
     </q-carousel>
 
+    <div class="text-h6 text-center q-mt-xl">
+      Create small, fast, and secure desktop apps from your existing HTML, CSS, and Javascript.
+    </div>
+
+    <div class="q-py-xl col text-subtitle1">
+      <div class="row text-center items-top">
+        <div class="col">
+          <div class="row justify-center">
+            <q-icon size="42px" name="web"></q-icon>
+          </div>
+          <div class="row justify-center">
+            Any web-based frontend framework, or none at all.
+          </div>
+        </div>
+        <q-icon class="self-center" name="arrow_right_alt" size=42px></q-icon>
+        <div class="col col-shrink q-px-lg">
+          <div class="row justify-center">
+            <q-icon size="42px" name="img:/statics/app-logo-128x128.png"></q-icon>
+          </div>
+          <div class="row justify-center">
+            Tauri CLI
+          </div>
+        </div>
+        <q-icon class="self-center" name="arrow_right_alt" size=42px></q-icon>
+        <div class="col">
+          <div class="row justify-center">
+            <q-icon size="42px" name="desktop_windows"></q-icon>
+          </div>
+          <div class="row justify-center">
+            Native binary for Windows, Mac, or Linux.
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: -40px" class="row justify-center">
+        <div class="col-4 col text-center">
+            <q-icon name="arrow_upward" size="42px"></q-icon>
+              <div class="row justify-center">
+                Native Rust code, or even entire native binaries (optional).
+              </div>
+          </div>
+      </div>
+    </div>
+
     <div class="full-width text-center">
-      <q-btn outline rounded class="text-h6 q-mt-xl" :to="{name: 'introduction'}">Get to know Tauri</q-btn>
+      <q-btn icon-right="arrow_right" outline class="text-subtitle1 q-mt-lg" type="a" href="https://github.com/tauri-apps/tauri/wiki">Get Started With Tauri</q-btn>
     </div>
     <!--
     <div id="testimonials">
@@ -46,7 +89,7 @@
     </div>
 
     <div class="full-width text-center">
-      <q-btn outline rounded class="text-h6 q-my-xl" type="a" href="https://github.com/tauri-apps/tauri/wiki">Setup Tauri for my Environment</q-btn>
+      <q-btn icon-right="arrow_right" outline class="text-subtitle1 q-my-xl" :to="{name: 'introduction'}">Technical Details</q-btn>
     </div>
 
     <!-- roadmap -->
@@ -81,11 +124,11 @@
           </q-activity-item>
         </q-activity>
         <small class="text-weight-light">Notice: This roadmap is subject to change.</small>
-        <q-parallax
+        <img
           :height="130"
           src="statics/images/skycave.jpg"
           class="full-width"
-          style="position:absolute;top:0;left:0;"
+          style="position:absolute;top:0;left:0;object-fit:cover;"
         />
         <div style="position:absolute;left:0;top:0;right:0;height:130px;background: linear-gradient(0deg, rgba(224,247,250,1) 5%, rgba(224,247,250,0.9) 30%, rgba(224,247,250,0.7) 60%, rgba(224,247,250,0.45) 80%, rgba(224,247,250,0) 100%);z-index:10"></div>
         <h2 class="text-weight-thin" style="position:absolute;top:20px;z-index:100;left:10px; right:10px;margin:auto;text-shadow:0 0 5px white,0 0 2px white; color:#253239">ROADMAP</h2>
@@ -195,7 +238,7 @@ export default {
         },
         {
           icon: 'ti-settings',
-          claim: 'Tauri lets you use any frontend-framework to build apps, and it can be integrated into any pipeline.',
+          claim: 'Tauri lets you use any HTML/JS-based frontend framework to build apps, and it can be integrated into any pipeline.',
           btnLabel: 'Learn How!',
           btnTarget: '/docs/frameworks'
         },
@@ -290,14 +333,6 @@ export default {
           time: 'Q1 2020'
         },
         {
-          icon: 'ti-cup',
-          iconColor: 'blue',
-          iconTextColor: 'white',
-          label: 'DENO',
-          caption: 'Enable alternative DENO CLI.',
-          time: 'Q1 2020'
-        },
-        {
           icon: 'ti-bolt',
           iconColor: 'blue',
           iconTextColor: 'white',
@@ -344,6 +379,14 @@ export default {
           label: 'Mobile Bundler',
           caption: 'Bundle to all major mobile device operating systems.',
           time: 'Q2 2020'
+        },
+        {
+          icon: 'ti-cup',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'DENO',
+          caption: 'Enable alternative DENO CLI.',
+          time: 'Q3 2020'
         },
         {
           icon: 'ti-control-shuffle',

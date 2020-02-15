@@ -1,6 +1,16 @@
 export default {
   sponsors: [
     {
+      title: 'Digital Ocean',
+      tags: [
+        'testing', 'JS/TS'
+      ],
+      url: 'https://digitalocean.com',
+      logoUrl: ['statics/partnerLogos/digitalocean.svg', 'statics/partnerLogos/digitalocean.svg'],
+      description: 'We are participating in the Digital Ocean sponsorship program for the support of open-source software, and are proud to say that we are using this funding to offest the cost of some of our front-facing infrastructure.',
+      flair: 'TECH SPONSOR'
+    },
+    {
       title: 'wallaby.js',
       tags: [
         'testing', 'JS/TS'

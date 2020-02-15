@@ -310,10 +310,26 @@ export default {
         },
         {
           icon: 'ti-link',
-          iconColor: 'blue',
+          iconColor: 'green',
           iconTextColor: 'white',
           label: 'Sideloader',
           caption: 'Integrate and instrument other binaries.',
+          time: 'Q1 2020'
+        },
+        {
+          icon: 'ti-blackboard',
+          iconColor: 'green',
+          iconTextColor: 'white',
+          label: 'Splashscreen',
+          caption: 'Use a splashscreen while the main content is loading.',
+          time: 'Q1 2020'
+        },
+        {
+          icon: 'ti-share',
+          iconColor: 'blue',
+          iconTextColor: 'white',
+          label: 'App Storage',
+          caption: 'Use a canonical location to store userdata.',
           time: 'Q1 2020'
         },
         {
@@ -369,7 +385,7 @@ export default {
           iconColor: 'red',
           iconTextColor: 'white',
           label: 'Beta Release',
-          caption: 'Generally stable on Desktop, API fixed',
+          caption: 'Generally stable on Desktop, API locked down.',
           time: 'Q2 2020'
         },
         {

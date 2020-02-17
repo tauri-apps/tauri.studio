@@ -5,9 +5,9 @@ export default {
       tags: [
         'testing', 'JS/TS'
       ],
-      url: 'https://digitalocean.com',
-      logoUrl: ['statics/partnerLogos/digitalocean.svg', 'statics/partnerLogos/digitalocean.svg'],
-      description: 'We are participating in the Digital Ocean sponsorship program for the support of open-source software, and are proud to say that we are using this funding to offest the cost of some of our front-facing infrastructure.',
+      url: 'https://m.do.co/c/40f468c2e493',
+      logoUrl: ['statics/partnerLogos/DO_Logo_Vertical_Blue.png', 'statics/partnerLogos/DO_Logo_Vertical_Blue.png'],
+      description: 'This project is supported by Digital Ocean. Click the link to get $100 credit over 60 days.',
       flair: 'TECH SPONSOR'
     },
     {

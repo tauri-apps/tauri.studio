@@ -26,42 +26,44 @@
       Create small, fast, and secure desktop apps from your existing HTML, CSS, and Javascript.
     </div>
 
-    <div class="q-py-xl col text-subtitle1">
-      <div class="row text-center items-top">
-        <div class="col">
-          <div class="row justify-center">
-            <q-icon size="42px" name="web"></q-icon>
+    <div style="width:100%;overflow-x:auto;">
+      <div style="min-width:500px;" class="q-py-xl col text-subtitle1">
+        <div :class="`row text-center ${$q.screen.width < 720 ? 'items-center' : 'items-top'}`">
+          <div class="col">
+            <div class="row justify-center">
+              <q-icon size="42px" name="web"></q-icon>
+            </div>
+            <div class="row justify-center">
+              Any web-based frontend framework, or none at all.
+            </div>
           </div>
-          <div class="row justify-center">
-            Any web-based frontend framework, or none at all.
+          <q-icon class="self-center" name="arrow_right_alt" size=42px></q-icon>
+          <div class="col col-shrink q-px-lg">
+            <div class="row justify-center">
+              <q-icon size="42px" name="img:/statics/app-logo-128x128.png"></q-icon>
+            </div>
+            <div class="row justify-center">
+              Tauri CLI
+            </div>
+          </div>
+          <q-icon class="self-center" name="arrow_right_alt" size=42px></q-icon>
+          <div class="col">
+            <div class="row justify-center">
+              <q-icon size="42px" name="desktop_windows"></q-icon>
+            </div>
+            <div class="row justify-center">
+              Native binary for Windows, Mac, or Linux.
+            </div>
           </div>
         </div>
-        <q-icon class="self-center" name="arrow_right_alt" size=42px></q-icon>
-        <div class="col col-shrink q-px-lg">
-          <div class="row justify-center">
-            <q-icon size="42px" name="img:/statics/app-logo-128x128.png"></q-icon>
-          </div>
-          <div class="row justify-center">
-            Tauri CLI
-          </div>
+        <div style="margin-top: -30px" class="row justify-center">
+          <div class="col-4 col text-center">
+              <q-icon name="arrow_upward" size="42px"></q-icon>
+                <div class="row justify-center">
+                  Native Rust code, or even entire native binaries (optional).
+                </div>
+            </div>
         </div>
-        <q-icon class="self-center" name="arrow_right_alt" size=42px></q-icon>
-        <div class="col">
-          <div class="row justify-center">
-            <q-icon size="42px" name="desktop_windows"></q-icon>
-          </div>
-          <div class="row justify-center">
-            Native binary for Windows, Mac, or Linux.
-          </div>
-        </div>
-      </div>
-      <div style="margin-top: -40px" class="row justify-center">
-        <div class="col-4 col text-center">
-            <q-icon name="arrow_upward" size="42px"></q-icon>
-              <div class="row justify-center">
-                Native Rust code, or even entire native binaries (optional).
-              </div>
-          </div>
       </div>
     </div>
 

@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c44c4a15ac994271e083",
-    "url": "/css/2.ea3395ae.css"
+    "revision": "c3f105993d4514386b6b",
+    "url": "/css/2.7d49e47f.css"
   },
   {
     "revision": "251af02453709d46b460",
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/4.eafea247.css"
   },
   {
-    "revision": "5b9ce5c349d3513069e0",
+    "revision": "a73bcc83c0173224b1db",
     "url": "/css/5.f07aa5cc.css"
   },
   {
@@ -24,7 +24,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/7.e51c852e.css"
   },
   {
-    "revision": "1fa873dc9bbd326edee7",
+    "revision": "eb6464eb4ae1129c0b83",
     "url": "/css/app.0ce808d5.css"
   },
   {
@@ -88,8 +88,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fonts/themify.a1ecc3b8.woff"
   },
   {
-    "revision": "c44c4a15ac994271e083",
-    "url": "/js/2.1b117f18.js"
+    "revision": "c3f105993d4514386b6b",
+    "url": "/js/2.74d80b03.js"
   },
   {
     "revision": "251af02453709d46b460",
@@ -100,8 +100,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/4.3a606182.js"
   },
   {
-    "revision": "5b9ce5c349d3513069e0",
-    "url": "/js/5.74a045f0.js"
+    "revision": "a73bcc83c0173224b1db",
+    "url": "/js/5.c21403fb.js"
   },
   {
     "revision": "44260f0f150070f1dbeb",
@@ -116,23 +116,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/8.7b3fc61b.js"
   },
   {
-    "revision": "137b2235805e700287b1",
-    "url": "/js/9.613bac60.js"
+    "revision": "c5b25764bdd07d526907",
+    "url": "/js/9.bca56e98.js"
   },
   {
-    "revision": "1fa873dc9bbd326edee7",
-    "url": "/js/app.f36fd624.js"
+    "revision": "eb6464eb4ae1129c0b83",
+    "url": "/js/app.321c1ae0.js"
   },
   {
-    "revision": "db98b19921d974fd174a",
-    "url": "/js/vendor.4683bb0c.js"
+    "revision": "99b809773e3779718d17",
+    "url": "/js/vendor.1f1f28bf.js"
   },
   {
     "revision": "ed1a64715056e6002846466645f6365d",
     "url": "/manifest.json"
   },
   {
-    "revision": "764b83d05e03c5cb521e2f2383823d45",
+    "revision": "199c145323236412811e5f879eadb693",
     "url": "/statics/app-logo-128x128.png"
   },
   {
@@ -144,63 +144,63 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/statics/discord.svg"
   },
   {
-    "revision": "1b80415d70a21d7182eb3d16b67e3a18",
+    "revision": "ace13227ae10fc247a0b42ece65cdbff",
     "url": "/statics/icons/apple-icon-120x120.png"
   },
   {
-    "revision": "7580d79b411cb007f5687257bc1bf81f",
+    "revision": "2658ac18c493a61803c9412482c9d7ad",
     "url": "/statics/icons/apple-icon-152x152.png"
   },
   {
-    "revision": "b7a53e220ed44688073a7d70814000bc",
+    "revision": "a685a09077475dfc424a918daeb2b951",
     "url": "/statics/icons/apple-icon-167x167.png"
   },
   {
-    "revision": "70105c0bd8a35dc9a6db0d9b7389246a",
+    "revision": "573747355d66667dd7fe5a9945ffeec7",
     "url": "/statics/icons/apple-icon-180x180.png"
   },
   {
-    "revision": "f820c566694348ed7f207a9766af2f85",
+    "revision": "5736de862e846cff276b8c7ced915514",
     "url": "/statics/icons/favicon-16x16.png"
   },
   {
-    "revision": "6ec252210305a1998fb564d76cf3f5de",
+    "revision": "5b16bc3f8657cf0d8e45a1200baba670",
     "url": "/statics/icons/favicon-32x32.png"
   },
   {
-    "revision": "9057402186d23c24f143ba8de1acd485",
+    "revision": "04fbb4dfb098474187c6377ba5289058",
     "url": "/statics/icons/favicon-96x96.png"
   },
   {
-    "revision": "c3ba534ca5f81797943eb492df844f00",
+    "revision": "0247e5f284cc7709ef3d3ae65ba4b880",
     "url": "/statics/icons/favicon.ico"
   },
   {
-    "revision": "764b83d05e03c5cb521e2f2383823d45",
+    "revision": "199c145323236412811e5f879eadb693",
     "url": "/statics/icons/icon-128x128.png"
   },
   {
-    "revision": "615212c33148979a6797dceeca1a164a",
+    "revision": "42677de15961f00e5b59a1a04ac82c82",
     "url": "/statics/icons/icon-192x192.png"
   },
   {
-    "revision": "a43cff8d60e693bdfd9d9ea39ae106e2",
+    "revision": "b2cb96ca79b0fc086067e0f5a8d9e1b9",
     "url": "/statics/icons/icon-256x256.png"
   },
   {
-    "revision": "7084c7f51108da696fc8de013f22523c",
+    "revision": "23a750e3742771225f789920a7fb98c1",
     "url": "/statics/icons/icon-384x384.png"
   },
   {
-    "revision": "9d41287d34398803fe1e0df005a4c7a7",
+    "revision": "14c41f77a2fdc268d6aab00590076cdc",
     "url": "/statics/icons/icon-512x512.png"
   },
   {
-    "revision": "b5bb296ac748d11835f002611ac44469",
+    "revision": "f6ec7a489f12066788e15a0fed8ca52f",
     "url": "/statics/icons/ms-icon-144x144.png"
   },
   {
-    "revision": "424df4e15da848701d5267477913dc37",
+    "revision": "e7bfd5bce800730f35f052d5e1ee50e3",
     "url": "/statics/icons/safari-pinned-tab.svg"
   },
   {
@@ -260,6 +260,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/statics/open-collective.svg"
   },
   {
+    "revision": "c2fe766fb3dfd0427d7ccc5a78ab52d9",
+    "url": "/statics/partnerLogos/DO_Logo_Vertical_Blue.png"
+  },
+  {
     "revision": "ed41ac63ecc6b690ee631e89712f4818",
     "url": "/statics/partnerLogos/IOTA_Logo_black_100px.png"
   },
@@ -278,6 +282,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "8efd6b27c5b291d8926fa32bae6f9f06",
     "url": "/statics/partnerLogos/amethyst.svg"
+  },
+  {
+    "revision": "4f45e6fd0afdff9b7fc80d8f9c29b55b",
+    "url": "/statics/partnerLogos/digitalocean.svg"
   },
   {
     "revision": "d1965a957f2ce1e1a7771b0c7d3fe672",
@@ -328,6 +336,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/statics/patterns/Multiwin.png"
   },
   {
+    "revision": "b77a9552db61fe63bda5e2d6d984e47d",
+    "url": "/statics/tauri-240x.png"
+  },
+  {
     "revision": "f09f36b3de0d8d4ce625b297e71a4548",
     "url": "/statics/tauri-studio.svg"
   },
@@ -338,6 +350,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "93e03d04b2445911ecf5cbe2d1bd28c2",
     "url": "/statics/tauri-wordmark.png"
+  },
+  {
+    "revision": "6cb5fc72765a15a43e84315c672d31b7",
+    "url": "/statics/tauri-wordmark.svg"
   },
   {
     "revision": "3d091b26bf50048f26576e571a7a8679",

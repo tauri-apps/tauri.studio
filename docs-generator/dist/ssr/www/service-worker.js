@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.c3e8e37b57b11df1a6e9570a2607e2f6.js"
+  "/precache-manifest.0c03a3844d82e918ae3b6c11866fcd20.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "docs-generator"});

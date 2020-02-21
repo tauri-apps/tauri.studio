@@ -5,7 +5,7 @@
       <div>
         <router-link to="/">
           <div id="tauri-name--holder">
-            <img src="statics/tauri.svg" class="animateLeft tauri-name scroll-determined" style="cursor:pointer" alt="Tauri Wordmark" title="Tauri">
+            <img src="statics/tauri-wordmark.svg" class="animateLeft tauri-name scroll-determined" style="cursor:pointer" alt="Tauri Wordmark" title="Tauri">
           </div>
         </router-link>
         <q-btn
@@ -108,59 +108,6 @@ export default {
       // const action = !!this.rightDrawerOpen
       this.$store.commit('common/rightDrawerOpen', true)
     }
-    /*
-    scrolled (position) {
-      const pos = position / 4.5
-      this.height = 270 - (pos)
-      this.heightName = 140 - (pos)
-      this.heightPic = 250 - (pos)
-      this.heightClaim = 220 - (pos)
-
-      // todo: cleanup, use vuex, be faster!
-      // the buttons
-      if (pos >= 110 && this.buttons !== false) {
-        this.buttons = false
-        document.getElementsByClassName('scroll-determined')[0].setAttribute('style', 'height: 70px')
-        // the icon
-        document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `height: 55px;width: 55px;transform: rotate(${position}deg)`)
-        // the name
-        document.getElementsByClassName('tauri-name')[0].setAttribute('style', 'height: 30px')
-        document.getElementsByClassName('tauri-name')[0].classList.add('animateLeft')
-        // claim
-        // the sidebar id="scrollHolder" style="height:50%"
-        document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', 'margin-top: 60px')
-        document.getElementById('scrollHolder').setAttribute('style', 'height: calc(100% - 132px)')
-        document.getElementById('padding').setAttribute('style', 'height: 70px')
-      } else if (this.buttons === false) {
-        document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `height: 55px;width: 55px;transform: rotate(${position}deg)`)
-        document.getElementById('claim').setAttribute('style', 'display: none')
-      } else {
-        document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `transform: rotate(${position}deg)`)
-        document.getElementsByClassName('scroll-determined')[0].setAttribute('style', `height: ${this.height}px`)
-        // the icon
-        document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `height: ${this.heightPic - 5}px;width: ${this.heightPic}px;transform: rotate(${position}deg)`)
-        // the name
-        document.getElementsByClassName('tauri-name')[0].setAttribute('style', `height: ${this.heightName}px;`)
-        // claim
-        document.getElementById('claim').setAttribute('style', 'display: none')
-        // the sidebar
-        document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', `margin-top: ${this.height + 20}px`)
-      }
-
-      /*
-      document.getElementsByClassName('scroll-determined')[0].setAttribute('style', `height: ${this.height}px`)
-      // the icon
-      document.getElementsByClassName('scroll-determined')[1].setAttribute('style', `height: ${this.heightPic - 5}px;width: ${this.heightPic}px;transform: rotate(${position}deg)`)
-      // the name
-      document.getElementsByClassName('tauri-name')[0].setAttribute('style', `
-      height: ${this.heightName}px;
-      `)
-      // claim
-      document.getElementById('claim').setAttribute('style', `top: ${this.heightClaim}px`)
-      // the sidebar
-      document.getElementsByClassName('q-drawer__content')[0].setAttribute('style', `margin-top: ${this.height + 10}px`)
-      */
-    // }
   }
 }
 </script>
@@ -175,19 +122,19 @@ export default {
   right 0
   background red
 .tauri-name
-  height 30px
-  min-height 30px
+  height 24px
+  min-height 24px
   max-width 50%
   position fixed
   text-align center
   margin 0 30%
-  top 21px
+  top 23px
   left 0
 .page-header
   height 70px
   border-bottom 2px solid #212111
 .bg-container
-  background-image url(/statics/thetaTauri_logo.png)
+  background-image url(/statics/tauri-240x.png)
   background-repeat no-repeat
   background-size contain
   position absolute

@@ -2,9 +2,9 @@
   <div>
     <div id="padding" style="padding-top:40px"></div>
     <div class="text-h4 text-center text-weight-thin q-ma-sm">Sponsors</div>
-    <div class="row justify-center">
+    <div class="row justify-center q-gutter-md">
       <PartnerCard
-        class="col-lg-3 col-md-4 col-sm-6 col-xs-12"
+        class="col-lg-3 col-md-4 col-sm-6 col-xs-12 q-ma-md"
         v-for="partner in partners.sponsors"
         :key="partner.id"
         :title="partner.title"

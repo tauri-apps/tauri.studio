@@ -1,7 +1,5 @@
 <template>
   <q-layout view="hHh lpR ffr">
-    <q-page-sticky id="tauri-studio-logo" class="page-header full-width full-height z-top" style="background-image:url(/statics/tauri-studio.svg);background-position:center;background-repeat:no-repeat;background-size:50%;width:100vw!important;height:100vh!important;overflow:hidden; z-index:10000000;position:fixed;display:none">
-    </q-page-sticky>
     <q-drawer
       ref="drawer"
       v-model="rightDrawerOpen"

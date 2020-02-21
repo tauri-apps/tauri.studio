@@ -6,7 +6,7 @@
       </q-ribbon>
       <q-card-section>
         <q-item>
-          <q-item-section avatar>
+          <q-item-section avatar style="height:80px">
             <img :src="logoUrl" style="max-width:80px">
           </q-item-section>
           <q-item-section>

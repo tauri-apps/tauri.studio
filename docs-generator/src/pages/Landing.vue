@@ -42,9 +42,6 @@
             <div class="row justify-center">
               <q-icon size="42px" name="img:/statics/app-logo-128x128.png"></q-icon>
             </div>
-            <div class="row justify-center">
-              Tauri CLI
-            </div>
           </div>
           <q-icon class="self-center" name="arrow_right_alt" size=42px></q-icon>
           <div class="col">

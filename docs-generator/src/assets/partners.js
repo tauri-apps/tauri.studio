@@ -7,7 +7,7 @@ export default {
       ],
       url: 'https://m.do.co/c/40f468c2e493',
       logoUrl: ['statics/partnerLogos/DO_Logo_Vertical_Blue.png', 'statics/partnerLogos/DO_Logo_Vertical_Blue.png'],
-      description: 'This project is supported by Digital Ocean. Click the link to get $100 credit over 60 days.',
+      description: 'This project is supported by Digital Ocean. Click this card to visit their website and get $100 credit that you can use over 60 days.',
       flair: 'TECH SPONSOR'
     },
     {
@@ -22,6 +22,16 @@ export default {
     }
   ],
   collaborators: [
+    {
+      title: 'GUIJS',
+      tags: [
+        'Dev Toolkit', 'early-adopter'
+      ],
+      url: 'https://guijs.dev/',
+      logoUrl: ['statics/partnerLogos/guijs-round.svg', 'statics/partnerLogos/guijs-round.svg'],
+      description: 'GUIJS is a toolkit for making your devlife easier. This collaboration enabled the extension of Tauri to have a new mode, the sidecar.',
+      flair: 'COLLABORATOR'
+    },
     {
       title: 'PureOS',
       tags: [

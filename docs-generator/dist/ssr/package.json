@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@quasar/extras": "1.4.1",
+    "@quasar/extras": "1.8.1",
     "lru-cache": "5.1.1",
     "mermaid": "8.4.4",
     "quasar": "1.7.2",

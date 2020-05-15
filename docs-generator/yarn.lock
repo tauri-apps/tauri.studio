@@ -1267,12 +1267,12 @@
     raw-loader "^4.0.0"
     ware-loader "^0.2.4"
 
-"@quasar/quasar-app-extension-qmediaplayer@1.0.17":
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qmediaplayer/-/quasar-app-extension-qmediaplayer-1.0.17.tgz#3450c9ec2c7cbda1e2ea77b65efdf1854dd99181"
-  integrity sha512-r5DKJEKc7y98m8Ftlt0+/eti3oX1yQ3Xtwkk8JWuz1vkm13KkHeKwpFyB6HUeOI0LpVNeFuAT9vmoIKIwDigAA==
+"@quasar/quasar-app-extension-qmediaplayer@1.0.24":
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-qmediaplayer/-/quasar-app-extension-qmediaplayer-1.0.24.tgz#14a973a8ddc63116e6fe8be32b34ed9a3a11e90e"
+  integrity sha512-9w2qYIUD7z/aT0Rhk5mNWZHpPKlIadzMlUKeFdvGDrcxMiw1IcZ8Qx2l8wDV+bBzYs5uEMAJs2qhr1YoCiTW8A==
   dependencies:
-    "@quasar/quasar-ui-qmediaplayer" "^1.0.17"
+    "@quasar/quasar-ui-qmediaplayer" "^1.0.24"
 
 "@quasar/quasar-app-extension-qribbon@1.0.0-beta.14":
   version "1.0.0-beta.14"
@@ -1302,10 +1302,10 @@
     markdown-it-toc-and-anchor "^4.2.0"
     prismjs "^1.19.0"
 
-"@quasar/quasar-ui-qmediaplayer@^1.0.17":
-  version "1.0.17"
-  resolved "https://registry.yarnpkg.com/@quasar/quasar-ui-qmediaplayer/-/quasar-ui-qmediaplayer-1.0.17.tgz#53243bf6a6b58d5f9868b7a1ab4d4824bf03d13e"
-  integrity sha512-5Q+AL4VyW1iPm6KUn7eRVmOzFmnIxuiSh36wRn3d8O4qWW4oy9F88ep7ZkFiyso+7p5L2dfOIYMW6VjQdNnMag==
+"@quasar/quasar-ui-qmediaplayer@^1.0.24":
+  version "1.0.24"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-ui-qmediaplayer/-/quasar-ui-qmediaplayer-1.0.24.tgz#fb0074dc535138b5733b6986927cbd46b2d0511c"
+  integrity sha512-nnGAbtkVhS/qxMxDL5aJM9/oatrwe3i42p/8/ySGvCsthEmnoF5HY3n1qk7rZ2kWZ7H0MaTL93ApUY+n800efw==
   dependencies:
     q-colorize-mixin "^1.0.6"
 

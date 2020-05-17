@@ -10,7 +10,7 @@
   "dependencies": {
     "@quasar/extras": "1.4.1",
     "lru-cache": "5.1.1",
-    "mermaid": "8.4.4",
+    "mermaid": "8.5.1",
     "quasar": "1.7.2",
     "@quasar/babel-preset-app": "1.1.7",
     "compression": "^1.0.0",
